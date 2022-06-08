@@ -1,0 +1,39 @@
+item.asdust.admain.name=AD 主类
+item.asdust.adce.name=AD 元素
+
+item.asdust.yh.name=氢元素
+item.asdust.yb.name=硼元素
+item.asdust.ybe.name=铍元素
+item.asdust.yc.name=碳元素
+item.asdust.yhe.name=氦元素
+item.asdust.yli.name=锂元素
+item.asdust.yn.name=氮元素
+item.asdust.yo.name=氧元素
+item.asdust.yf.name=氟元素
+item.asdust.yne.name=氖元素
+item.asdust.yna.name=钠元素
+item.asdust.ymg.name=镁元素
+item.asdust.yal.name=铝元素
+item.asdust.ysi.name=硅元素
+item.asdust.yp.name=磷元素
+item.asdust.ys.name=硫元素
+item.asdust.ycl.name=氯元素
+item.asdust.yar.name=氩元素
+
+
+item.asdust.yfe.name=铁元素
+
+
+
+
+
+
+
+
+
+
+itemGroup.asdust=AD主类
+asdust ce=AD元素
+asdustmachine=AD机器
+tile.asdust.blockconvert.name=转换方块
+tile.asdust.machinecraft.name=原始制作机器

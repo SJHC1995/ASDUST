@@ -1,0 +1,14 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "asdust:machinecraft"
+  },
+  "variants": {
+    "facing=south": {"model": "asdust:machinecraft", "y": 180, "uvlock": true},
+    "facing=north": {"model": "asdust:machinecraft"},
+    "facing=east": {"model": "asdust:machinecraft", "y": 90, "uvlock": true},
+    "facing=west": {"model": "asdust:machinecraft", "y": 270, "uvlock": true},
+    "normal": [{}],
+    "inventory": [{}]
+  }
+}

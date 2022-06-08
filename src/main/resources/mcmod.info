@@ -1,0 +1,17 @@
+[
+{
+  "modid": "asdust",
+  "name": "ASDUST",
+  "description": "likethis.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["HalfSword"
+  ,"ZHEN_ZI233"],
+  "credits": "[HalfSword,ZHEN_ZI233] in realswordteam",
+  "logoFile": "logo.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]

@@ -50,8 +50,12 @@ public class GuiContainerMachineBase extends GuiContainer {
             this.drawTexturedModalRect(offsetX, offsetY, 0, 0, this.xSize, this.ySize);
 
             int burnTime = this.inventory.getBurnTime();
-            int textureWidth = 1 + (int) Math.ceil(2.0 * burnTime / this.totalBurnTime1);
+            int firstTime = burnTime / 2;
+            int secondTime = burnTime - 50;
+            int textureWidth = 1 + (int) Math.ceil(14.0 * firstTime / this.totalBurnTime1);
+            int textureHeight = 1 + (int) Math.ceil(18.0 * secondTime / this.totalBurnTime1);
             this.drawTexturedModalRect(offsetX + 54, offsetY + 36, 174, 0, textureWidth, 17);
+            this.drawTexturedModalRect(offsetX + 102, offsetY + 37, 174, 17, 6, textureHeight);
 
             GuiDrawFluid.guiDrawFluid.drawFluid(mc, offsetX + 36, offsetY + 31, 2000, new FluidStack(FluidRegistry.WATER, 2000), 32, 16);
 //        this.drawFluid(mc, this.width - this.xSize, offsetY + 31, new FluidStack(FluidRegistry.WATER, 1000));

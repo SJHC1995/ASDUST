@@ -35,36 +35,15 @@ public class ContainerTest extends Container {
         this.outputItem = this.tileEntityMachineBase.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.DOWN);
 
         this.addSlotToContainer(new SlotItemHandler(this.inputItem, 0, 54, 20));
-        this.addSlotToContainer(new SlotItemHandler(this.inputItem, 1, 75, 18));
-        this.addSlotToContainer(new SlotItemHandler(this.inputItem, 2, 54, 57));
-        this.addSlotToContainer(new SlotItemHandler(this.inputItem, 3, 75, 58));
+        this.addSlotToContainer(new SlotItemHandler(this.inputItem, 1, 74, 18));
+        this.addSlotToContainer(new SlotItemHandler(this.inputItem, 2, 54, 56));
+        this.addSlotToContainer(new SlotItemHandler(this.inputItem, 3, 74, 58));
 
 
 
-        this.addSlotToContainer(new SlotItemHandler(this.outputItem,0, 110, 16)
-        {
-            @Override
-            public boolean isItemValid(ItemStack stack)
-            {
-                return false;
-            }
-        });
-        this.addSlotToContainer(new SlotItemHandler(this.outputItem, 1, 110, 35)
-        {
-            @Override
-            public boolean isItemValid(ItemStack stack)
-            {
-                return false;
-            }
-        });
-        this.addSlotToContainer(new SlotItemHandler(this.outputItem, 2, 110, 54)
-        {
-            @Override
-            public boolean isItemValid(ItemStack stack)
-            {
-                return false;
-            }
-        });
+        this.addSlotToContainer(new OutputSlot(this.outputItem,0, 110, 20));
+        this.addSlotToContainer(new OutputSlot(this.outputItem, 1, 110, 38));
+        this.addSlotToContainer(new OutputSlot(this.outputItem, 2, 110, 56));
 
 
         for (int i = 0; i < 3; ++i)
@@ -206,5 +185,19 @@ public class ContainerTest extends Container {
     public ItemStack getStackFromSlot()
     {
         return this.inventorySlots.get(0).getStack();
+    }
+    public class OutputSlot extends SlotItemHandler
+    {
+        public OutputSlot(IItemHandler itemHandler, int index, int xPosition, int yPosition)
+        {
+            super(itemHandler, index, xPosition, yPosition);
+        }
+
+        @Override
+        public boolean isItemValid(ItemStack stack)
+        {
+            return false;
+        }
+
     }
 }

@@ -6,5 +6,5 @@ import net.minecraft.item.Item;
 public class ItemMainBase extends Item {
 public ItemMainBase(){
     super();
-    this.setCreativeTab(CreativeTabLoader.tabadmain);
+    this.setCreativeTab(CreativeTabLoader.TAB_ASDUST_MAIN);
 }}

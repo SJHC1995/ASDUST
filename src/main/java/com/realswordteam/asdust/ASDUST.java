@@ -26,8 +26,8 @@ public class ASDUST
     public void preInit(FMLPreInitializationEvent event)
     {
         logger = event.getModLog();
-        new CreativeTabLoader();
         new TileEntityLoader(event);
+        new CreativeTabLoader();
 //        new FluidManager();
     }
 

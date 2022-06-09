@@ -34,7 +34,7 @@ public class BlockMachineBase extends BlockContainer {
 
     public BlockMachineBase(Material material){
         super(material);
-        this.setCreativeTab(CreativeTabLoader.tabsmachine);
+        this.setCreativeTab(CreativeTabLoader.TAB_ASDUST_MACHINE);
         this.setDefaultState(this.getBlockState().getBaseState().withProperty(FACING, EnumFacing.EAST));
     }
 

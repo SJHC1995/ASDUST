@@ -12,23 +12,15 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
     {
         public static Item admain = null;
         public static Item adce = null;
-
         public static Item admachine = null;
         public static Item yh = null;
         public static Item yhe = null;
-
         public static Item yli = null;
-
         public static Item ybe = null;
-
         public static Item yb = null;
-
         public static Item yc = null;
-
         public static Item yn = null;
-
         public static Item yo =null;
-
         public static Item yf =null;
         public static Item yne =null;
         public static Item yna =null;
@@ -39,9 +31,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
         public static Item ys =null;
         public static Item ycl =null;
         public static Item yar =null;
-
-
-
         public static Item yfe = null;
         public static Item gearwood = null;
 
@@ -51,7 +40,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
         public static void registerItem(RegistryEvent.Register<Item> event)
         {
             Item[] items = {
-                   setItemName(admain = new ItemMainBase(),"admain"),
+                    setItemName(admain = new ItemMainBase(),"admain"),
                     setItemName(adce = new ItemMainBase(),"adce"),
                     setItemName(admachine = new ItemMainBase(),"admachine"),
                     setItemName(yh = new ItemChemicalElementBase(),"yh"),

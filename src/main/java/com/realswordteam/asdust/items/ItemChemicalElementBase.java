@@ -6,5 +6,5 @@ import net.minecraft.item.Item;
 public class ItemChemicalElementBase extends Item {
     public ItemChemicalElementBase(){
         super();
-        this.setCreativeTab(CreativeTabLoader.tabadce);
+        this.setCreativeTab(CreativeTabLoader.TAB_ASDUST_CE);
     }}

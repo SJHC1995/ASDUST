@@ -56,27 +56,39 @@ public class GuiDrawFluid {
         drawTiledSprite(minecraft, xPosition, yPosition, width, height, fluidColor, scaledAmount, fluidStillSprite);
     }
 
+    /**
+     * Draw Tank information when your mouse hover over some position
+     * @param screen Your GUI
+     * @param width GUI width
+     * @param height GUI height
+     * @param xSize GUI picture width
+     * @param ySize GUI picture height
+     * @param mouseX GUI mouseX
+     * @param mouseY GUI mouseY
+     * @param xPosition1 x1
+     * @param yPosition1 y1
+     * @param xPosition2 x2
+     * @param yPosition2 y2
+     * @param fluidStack gain Fluid stack information
+     */
+
     public void renderHoverTank(GuiScreen screen,int width, int height, int xSize, int ySize,int mouseX, int mouseY, int xPosition1, int yPosition1, int xPosition2, int yPosition2, FluidStack fluidStack)
     {
         List<String> textList = new ArrayList<>();
         int offsetX = (width - xSize) / 2, offsetY = (height - ySize) / 2;
         boolean flag1 = mouseX >= offsetX + xPosition1 && mouseY >= offsetY + yPosition1;
         boolean flag2 = mouseX <= offsetX + xPosition2 && mouseY <= offsetY + yPosition2;
-        if (fluidStack != null)
-        {
             if (flag1 && flag2) {
-                textList.add("Fluid: " + fluidStack.getFluid().getName());
-                textList.add("Amount: " + fluidStack.amount);
-                screen.drawHoveringText(textList, mouseX, mouseY);
+                if (fluidStack != null) {
+                    textList.add(I18n.format("gui.machine.tank.information.variety", fluidStack.getFluid().getLocalizedName(fluidStack)));
+                    textList.add(I18n.format("gui.machine.tank.information.amount", fluidStack.amount));
+                    screen.drawHoveringText(textList, mouseX, mouseY);
+                } else {
+                    textList.add(I18n.format("gui.machine.warning.tank.empty"));
+                    textList.add(I18n.format("gui.machine.warning.tank.empty1"));
+                    screen.drawHoveringText(textList, mouseX, mouseY);
+                }
             }
-        }   else
-        {
-            if (flag1 && flag2) {
-                textList.add(I18n.format("gui.machine.warning.tank.empty"));
-                textList.add(I18n.format("gui.machine.warning.tank.empty1"));
-                screen.drawHoveringText(textList, mouseX, mouseY);
-            }
-        }
     }
     public void drawTiledSprite(Minecraft minecraft, final int xPosition, final int yPosition, final int tiledWidth, final int tiledHeight, int color, int scaledAmount, TextureAtlasSprite sprite) {
         minecraft.renderEngine.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);

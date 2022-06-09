@@ -37,7 +37,7 @@ public final class TextureLoader {
         ModelLoader.setCustomModelResourceLocation(ItemLoader.ycl, 0, new ModelResourceLocation(ItemLoader.ycl.getRegistryName(), "inventory"));
         ModelLoader.setCustomModelResourceLocation(ItemLoader.yar, 0, new ModelResourceLocation(ItemLoader.yar.getRegistryName(), "inventory"));
         ModelLoader.setCustomModelResourceLocation(ItemLoader.yfe, 0, new ModelResourceLocation(ItemLoader.yfe.getRegistryName(), "inventory"));
-
+        ModelLoader.setCustomModelResourceLocation(ItemLoader.gearwood, 0, new ModelResourceLocation(ItemLoader.gearwood.getRegistryName(), "inventory"));
         registerBlockModel(BlockLoader.blockconvert, 0);
         registerBlockModel(BlockLoader.machinecraft,0);
     }

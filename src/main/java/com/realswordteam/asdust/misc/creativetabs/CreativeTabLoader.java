@@ -8,11 +8,13 @@ public class CreativeTabLoader {
     public static CreativeTabschemicalelement tabadce;
 
     public static CreativeTabs tabsmachine;
+    public static CreativeTabs gearwood;
 
     public  CreativeTabLoader() {
         tabsadmain = new CreativeTabsadmain();
         tabadce = new CreativeTabschemicalelement();
         tabsmachine = new CreativeTabsmachine();
+        gearwood = new CreativeTabpart();
     }
 
 

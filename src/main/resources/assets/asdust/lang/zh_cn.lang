@@ -22,11 +22,15 @@ item.asdust.yar.name=氩元素
 
 
 item.asdust.yfe.name=铁元素
+item.asdust.gearwood.name=木齿轮
 
 
 
 
-
+gui.machine.warning.tank.empty=这个储罐空空如也!
+gui.machine.warning.tank.empty1=也许要填充点什么!
+gui.machine.tank.information.variety=当前液体: %s
+gui.machine.tank.information.amount=体积: %d
 
 
 

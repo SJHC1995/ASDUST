@@ -43,7 +43,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 
         public static Item yfe = null;
-
+        public static Item gearwood = null;
 
 
 
@@ -73,6 +73,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
                     setItemName(ycl = new ItemChemicalElementBase(),"ycl"),
                     setItemName(yar = new ItemChemicalElementBase(),"yar"),
                     setItemName(yfe = new ItemChemicalElementBase(),"yfe"),
+                    setItemName(gearwood = new ItemPartBase(),"gearwood"),
 
 
 

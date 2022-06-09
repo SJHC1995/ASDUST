@@ -21,8 +21,10 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidUtil;
+import net.minecraftforge.fluids.IFluidTank;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandler;
+import net.minecraftforge.fluids.capability.IFluidTankProperties;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 
@@ -42,7 +44,7 @@ public class BlockMachineBase extends BlockContainer {
         ItemStack itemStack = playerIn.getHeldItem(hand);
         Item item = itemStack.getItem();
         TileEntityMachineBase te = (TileEntityMachineBase) worldIn.getTileEntity(pos);
-        IFluidHandler iFluidHandler = te.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, EnumFacing.WEST);
+        IFluidHandler iFluidHandler = te.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
         if (!worldIn.isRemote)
         {
             if (!playerIn.isSneaking())

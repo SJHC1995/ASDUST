@@ -8,6 +8,7 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
@@ -61,10 +62,20 @@ public class GuiDrawFluid {
         int offsetX = (width - xSize) / 2, offsetY = (height - ySize) / 2;
         boolean flag1 = mouseX >= offsetX + xPosition1 && mouseY >= offsetY + yPosition1;
         boolean flag2 = mouseX <= offsetX + xPosition2 && mouseY <= offsetY + yPosition2;
-        if (flag1 && flag2) {
-            textList.add("Fluid: " + fluidStack.getFluid().getName());
-            textList.add("Amount: " + fluidStack.amount);
-            screen.drawHoveringText(textList, mouseX, mouseY);
+        if (fluidStack != null)
+        {
+            if (flag1 && flag2) {
+                textList.add("Fluid: " + fluidStack.getFluid().getName());
+                textList.add("Amount: " + fluidStack.amount);
+                screen.drawHoveringText(textList, mouseX, mouseY);
+            }
+        }   else
+        {
+            if (flag1 && flag2) {
+                textList.add(I18n.format("gui.machine.warning.tank.empty"));
+                textList.add(I18n.format("gui.machine.warning.tank.empty1"));
+                screen.drawHoveringText(textList, mouseX, mouseY);
+            }
         }
     }
     public void drawTiledSprite(Minecraft minecraft, final int xPosition, final int yPosition, final int tiledWidth, final int tiledHeight, int color, int scaledAmount, TextureAtlasSprite sprite) {

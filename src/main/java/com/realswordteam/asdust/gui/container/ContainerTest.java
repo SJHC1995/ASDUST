@@ -8,12 +8,16 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
+
+import java.util.Map;
 
 public class ContainerTest extends Container {
     private final IItemHandler inputItem;
@@ -22,6 +26,7 @@ public class ContainerTest extends Container {
     protected int burnTime = 0;
     protected FluidTank tank;
     public int fluidAmount;
+    public int fluidId;
     public ContainerTest(EntityPlayer player, TileEntity tileEntity)
     {
         super();
@@ -73,12 +78,21 @@ public class ContainerTest extends Container {
 
         this.burnTime = tileEntityMachineBase.getBurnTime();
         this.fluidAmount = tileEntityMachineBase.getFluidTank().getFluidAmount();
+        Map<Fluid, Integer> ids = FluidRegistry.getRegisteredFluidIDs();
+        for (Map.Entry<Fluid, Integer> entry : ids.entrySet())
+        {
+            if (tileEntityMachineBase.getFluid() == entry.getKey())
+            {
+                this.fluidId = entry.getValue();
+            }
+        }
 
         for (IContainerListener i : this.listeners)
         {
 //            i.sendProgressBarUpdate(this, 0, this.burnTime);
             i.sendWindowProperty(this, 0, this.burnTime);
             i.sendWindowProperty(this, 1, this.fluidAmount);
+            i.sendWindowProperty(this, 2, this.fluidId);
         }
     }
 
@@ -95,6 +109,9 @@ public class ContainerTest extends Container {
                 break;
             case 1:
                 this.fluidAmount = data;
+                break;
+            case 2:
+                this.fluidId = data;
                 break;
             default:
                 break;

@@ -6,9 +6,12 @@ import com.realswordteam.asdust.gui.container.ContainerTest;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
+
+import java.util.Map;
 
 public class GuiContainerTest extends GuiContainer {
     private static final String TEXTURE_PATH = ASDUST.MODID + ":" + "textures/gui/container/furnace.png";
@@ -31,7 +34,7 @@ public class GuiContainerTest extends GuiContainer {
         this.drawDefaultBackground();
         super.drawScreen(mouseX, mouseY, partialTicks);
         this.renderHoveredToolTip(mouseX, mouseY);
-        GuiDrawFluid.guiDrawFluid.renderHoverTank(this, this.width, this.height, this.xSize, this.ySize, mouseX, mouseY, 36, 31, 52, 63, new FluidStack(FluidRegistry.WATER, this.inventory.fluidAmount));
+        GuiDrawFluid.guiDrawFluid.renderHoverTank(this, this.width, this.height, this.xSize, this.ySize, mouseX, mouseY, 36, 31, 52, 63, createFluidStack(this.getFluid(this.inventory.fluidId), this.inventory.fluidAmount));
     }
 
     protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
@@ -50,8 +53,29 @@ public class GuiContainerTest extends GuiContainer {
         this.drawTexturedModalRect(offsetX + 54, offsetY + 36, 174, 0, textureWidth, 17);
         this.drawTexturedModalRect(offsetX + 102, offsetY + 37, 174, 17, 6, textureHeight);
 
-        GuiDrawFluid.guiDrawFluid.drawFluid(mc, offsetX + 36, offsetY + 31, 2000, new FluidStack(FluidRegistry.WATER, this.inventory.fluidAmount), 32, 16);
+        GuiDrawFluid.guiDrawFluid.drawFluid(mc, offsetX + 36, offsetY + 31, 2000, createFluidStack(this.getFluid(this.inventory.fluidId), this.inventory.fluidAmount), 32, 16);
 //        this.drawFluid(mc, this.width - this.xSize, offsetY + 31, new FluidStack(FluidRegistry.WATER, 1000));
+    }
+
+    private Fluid getFluid(int id)
+    {
+        Map<Fluid, Integer> ids = FluidRegistry.getRegisteredFluidIDs();
+        for (Map.Entry<Fluid, Integer> entry : ids.entrySet())
+        {
+            if (id == entry.getValue())
+            {
+                return entry.getKey();
+            }
+        }
+        return null;
+    }
+    private FluidStack createFluidStack(Fluid fluid, int fluidAmount)
+    {
+        if (fluid == null)
+        {
+            return null;
+        }
+        return new FluidStack(fluid, fluidAmount);
     }
 
 }

@@ -9,3 +9,5 @@ item.asdust.yhe.name=Helium
 item.asdust.yli.name=Lithium
 item.asdust.yn.name=Nitrogen
 itemGroup.asdust=AD MAIN
+gui.machine.warning.tank.empty=Tank is Empty!
+gui.machine.warning.tank.empty1=you should fill it!

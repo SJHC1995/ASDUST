@@ -11,6 +11,8 @@ import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.items.CapabilityItemHandler;
@@ -22,15 +24,20 @@ public class TileEntityMachineBase extends TileEntity implements ITickable {
     protected ItemStackHandler ITEM_OUT = new ItemStackHandler(3);
 
     protected FluidTank fluidTank = new FluidTank(2000);
-
+    protected Fluid fluid;
 
     public TileEntityMachineBase()
     {
         super();
+        this.fluid = null;
     }
     public FluidTank getFluidTank()
     {
         return this.fluidTank;
+    }
+    public Fluid getFluid()
+    {
+        return this.fluid;
     }
 
     @Override
@@ -114,6 +121,10 @@ public class TileEntityMachineBase extends TileEntity implements ITickable {
                 this.burnTime = 0;
             }
 
+            if (this.fluidTank.getFluidAmount() != 0)
+            {
+                this.fluid = this.fluidTank.getFluid().getFluid();
+            }
         }
     }
 

@@ -13,6 +13,7 @@ public class CreativeTabLoader {
     public static CreativeTabs TAB_ASDUST_CE;
     public static CreativeTabs TAB_ASDUST_MACHINE;
     public static CreativeTabs TAB_WOODENGEAR;
+    public static CreativeTabs TAB_MIXEDMORTARBALL;
 
     public CreativeTabLoader() {
         TAB_ASDUST_MAIN = new CreativeTabs(ASDUST.MODID + ".main") {
@@ -38,6 +39,12 @@ public class CreativeTabLoader {
             @Override
             public ItemStack getTabIconItem() {
                 return new ItemStack(ItemLoader.gearwood);
+            }
+        };
+        TAB_MIXEDMORTARBALL = new CreativeTabs(ASDUST.MODID + ".mixedmortarball") {
+            @Override
+            public ItemStack getTabIconItem() {
+                return new ItemStack(ItemLoader.mixedmortarball);
             }
         };
     }

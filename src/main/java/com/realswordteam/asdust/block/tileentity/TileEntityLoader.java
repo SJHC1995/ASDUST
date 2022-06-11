@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class TileEntityLoader {
     public TileEntityLoader(FMLPreInitializationEvent event)
     {
-        registerTileEntity(TileEntityMachineBase.class, "sci_furnace");
+        registerTileEntity(TileEntityMachineBase.class, "machinecraft");
     }
 
     public static void registerTileEntity(Class<? extends TileEntity> tileEntityClass, String name)

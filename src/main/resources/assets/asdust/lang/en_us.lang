@@ -18,3 +18,4 @@ gui.machine.warning.tank.empty=Tank is Empty!
 gui.machine.warning.tank.empty1=you should fill it!
 gui.machine.tank.information.variety=Tank: %s
 gui.machine.tank.information.amount=Amount: %d
+tile.asdust.tankwoodwithleather.name=Wood Tank With Leather

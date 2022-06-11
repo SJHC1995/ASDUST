@@ -17,6 +17,8 @@ import java.util.List;
 public class BlockLoader{
     public static Block blockconvert = null;
     public static Block machinecraft = null;
+    public static Block  tankwoodwithleather = null;
+
     public static List<Block> blocklist = new ArrayList<>();
     public static List<Item> itemlist = new ArrayList<>();
 /**
@@ -29,6 +31,7 @@ public static void registerBlock(RegistryEvent.Register<Block> event) {
 
             setBlockName(blockconvert = new Block(Material.IRON), "blockconvert"),
             setBlockName(machinecraft = new BlockMachineBase(Material.IRON),"machinecraft"),
+            setBlockName(tankwoodwithleather = new BlockMachineBase(Material.IRON),"tankwoodwithleather"),
 
     };
     blocklist.addAll(Arrays.asList(blocks));

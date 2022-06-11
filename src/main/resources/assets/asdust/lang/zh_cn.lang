@@ -41,6 +41,7 @@ itemGroup.asdust.main=AD 主类
 itemGroup.asdust.element=AD 元素
 itemGroup.asdust.machine=AD 机器
 itemGroup.asdust.gear_wood=AD 部件
+itemGroup.asdust.mixedmortarball=AD 原料
 
 tile.asdust.blockconvert.name=转换方块
 tile.asdust.machinecraft.name=原始制作机器

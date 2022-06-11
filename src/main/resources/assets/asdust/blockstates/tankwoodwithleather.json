@@ -1,0 +1,14 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "asdust:tankwoodwithleather"
+  },
+  "variants": {
+    "facing=south": {"model": "asdust:tankwoodwithleather", "y": 180, "uvlock": true},
+    "facing=north": {"model": "asdust:tankwoodwithleather"},
+    "facing=east": {"model": "asdust:tankwoodwithleather", "y": 90, "uvlock": true},
+    "facing=west": {"model": "asdust:tankwoodwithleather", "y": 270, "uvlock": true},
+    "normal": [{}],
+    "inventory": [{}]
+  }
+}

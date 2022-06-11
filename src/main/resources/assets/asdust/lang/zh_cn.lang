@@ -26,6 +26,7 @@ item.asdust.gearwood.name=木齿轮
 
 item.asdust.gearwoodgroup.name=木齿轮组
 item.asdust.mixedmortarball.name=混合砂浆球
+item.asdust.imperfection.name=杂质
 
 
 gui.machine.warning.tank.empty=这个储罐空空如也!
@@ -42,6 +43,7 @@ itemGroup.asdust.element=AD 元素
 itemGroup.asdust.machine=AD 机器
 itemGroup.asdust.gear_wood=AD 部件
 itemGroup.asdust.mixedmortarball=AD 原料
+itemGroup.asdust.imperfection=AD 杂项
 
 tile.asdust.blockconvert.name=转换方块
 tile.asdust.machinecraft.name=原始制作机器

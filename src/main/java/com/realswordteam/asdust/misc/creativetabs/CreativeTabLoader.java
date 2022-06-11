@@ -5,9 +5,6 @@ import com.realswordteam.asdust.items.ItemLoader;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class CreativeTabLoader {
     /**
      * Add your CreativeTabs
@@ -17,6 +14,8 @@ public class CreativeTabLoader {
     public static CreativeTabs TAB_ASDUST_MACHINE;
     public static CreativeTabs TAB_WOODENGEAR;
     public static CreativeTabs TAB_MIXEDMORTARBALL;
+
+    public static CreativeTabs TAB_IMPERFECTION;
 
     public CreativeTabLoader() {
         TAB_ASDUST_MAIN = new CreativeTabs(ASDUST.MODID + ".main") {
@@ -48,6 +47,12 @@ public class CreativeTabLoader {
             @Override
             public ItemStack getTabIconItem() {
                 return new ItemStack(ItemLoader.mixedmortarball);
+            }
+        };
+        TAB_IMPERFECTION = new CreativeTabs(ASDUST.MODID + ".imperfection") {
+            @Override
+            public ItemStack getTabIconItem() {
+                return new ItemStack(ItemLoader.imperfection);
             }
         };
     }

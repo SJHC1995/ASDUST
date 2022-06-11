@@ -35,6 +35,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
         public static Item gearwood = null;
         public static Item gearwoodgroup = null;
         public static Item mixedmortarball =null;
+        public static Item imperfection = null;
 
 
         @SubscribeEvent
@@ -66,7 +67,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
                     setItemName(gearwood = new ItemPartBase(),"gearwood"),
                     setItemName(gearwoodgroup = new ItemPartBase(),"gearwoodgroup"),
                     setItemName(mixedmortarball = new ItemRawMaterialBase(),"mixedmortarball"),
-
+                    setItemName(imperfection = new ItemMiscBase(),"imperfection"),
 
 
 

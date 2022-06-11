@@ -1,0 +1,19 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "$##",
+    "###",
+    "##$"
+  ],
+  "key": {
+    "#": {
+      "item": "asdust:gearwood"
+    },
+    "$": {
+      "type": "forge:ore_dict", "ore": "logWood"
+    }
+  },
+  "result": {
+    "item": "asdust:gearwoodgroup"
+  }
+}

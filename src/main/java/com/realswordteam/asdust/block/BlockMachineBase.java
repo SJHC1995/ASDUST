@@ -12,6 +12,7 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -28,7 +29,7 @@ import net.minecraftforge.fluids.capability.IFluidTankProperties;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 
-import java.util.Random;
+import java.util.*;
 
 public class BlockMachineBase extends BlockContainer {
 
@@ -54,8 +55,21 @@ public class BlockMachineBase extends BlockContainer {
                     int id = GuiElementLoader.GUI_DEBUG;
                     playerIn.openGui(ASDUST.instance, id, worldIn, pos.getX(), pos.getY(), pos.getZ());
                 }
-            }   else {
-//                TileEntityMachineBase te = (TileEntityMachineBase) worldIn.getTileEntity(pos);
+            }   else
+            {
+                List<Item> list = new ArrayList<>();
+                list.add(Items.BED);
+                list.add(Items.DIAMOND);
+                List<Item> list1 = new ArrayList<>();
+                list1.add(Items.BED);
+                list1.add(Items.DIAMOND);
+                Map<List<Item>, List<Item>> map = new HashMap<>();
+                map.put(list, list1);
+                System.out.println(map);
+                if (list.equals(list1))
+                {
+                    System.out.println(1);
+                }
             }
         }
         return true;

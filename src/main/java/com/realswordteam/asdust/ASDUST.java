@@ -3,6 +3,7 @@ package com.realswordteam.asdust;
 import com.realswordteam.asdust.block.tileentity.TileEntityLoader;
 import com.realswordteam.asdust.gui.GuiElementLoader;
 import com.realswordteam.asdust.misc.creativetabs.CreativeTabLoader;
+import com.realswordteam.asdust.recipes.RecipesLoader;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -38,5 +39,6 @@ public class ASDUST
         logger.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
 
         new GuiElementLoader();
+        new RecipesLoader();
     }
 }

@@ -1,8 +1,11 @@
 package com.realswordteam.asdust.block.tileentity;
 
+import com.realswordteam.asdust.recipes.MachineTestRecipe;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.ISidedInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -17,6 +20,8 @@ import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
+
+import java.util.*;
 
 public class TileEntityMachineBase extends TileEntity implements ITickable {
     public int burnTime;
@@ -96,25 +101,88 @@ public class TileEntityMachineBase extends TileEntity implements ITickable {
     {
         if (!this.world.isRemote)
         {
-//对应的物品槽获取物品
-            ItemStack itemStack = ITEM_IN.extractItem(0, 1, true);
-//对应的物品槽塞入物品
-            if (itemStack != ItemStack.EMPTY && ITEM_OUT.insertItem(0, itemStack, true) == ItemStack.EMPTY)
+            List<Item> getItemList = new ArrayList<>();
+            for (int i = 0; i <= 3; i++)
             {
-                if (this.fluidTank.getFluidAmount() >= 100)
+                if (!ITEM_IN.extractItem(i, 1, true).isEmpty())
                 {
-                    int burnTotalTime = 100;
-
-                    if (++this.burnTime >= burnTotalTime)
-                    {
-                        this.burnTime = 0;
-                        itemStack = ITEM_IN.extractItem(0, 1, false);
-                        ITEM_OUT.insertItem(0, itemStack, false);
-                        this.fluidTank.drain(100,true);
-                        this.markDirty();
-                    }
+                    getItemList.add(ITEM_IN.extractItem(i, 1, true).getItem());
                 }
+            }
 
+            boolean flag1 = getItemList.isEmpty();
+            boolean flag2 = MachineTestRecipe.recipe.recipe(getItemList).isEmpty();
+
+            List<Item> outputSlotItem = new ArrayList<>();
+            for (int i = 0; i <= 2; i++)
+            {
+                if (!ITEM_OUT.extractItem(i, 1, true).isEmpty())
+                {
+                    outputSlotItem.add(ITEM_OUT.extractItem(i, 1, true).getItem());
+                }
+            }
+            boolean flag3 = new HashSet<>(MachineTestRecipe.recipe.getOutputRecipe(getItemList)).containsAll(outputSlotItem);
+
+            if (!flag1 && !flag2 && flag3)
+            {
+
+                    List<ItemStack> outputItemStack = new ArrayList<>(MachineTestRecipe.recipe.recipe(getItemList));
+                    ItemStack[] outputItemStackArray = new ItemStack[outputItemStack.size()];
+                    outputItemStack.toArray(outputItemStackArray);
+
+                    if (this.fluidTank.getFluidAmount() >= 100)
+                    {
+                        int burnTotalTime = 100;
+
+                        if (++this.burnTime >= burnTotalTime)
+                        {
+                            this.burnTime = 0;
+                            for (int i = 0; i <= 3; i++)
+                            {
+                                if (!ITEM_IN.extractItem(i, 1, true).isEmpty())
+                                {
+                                    ITEM_IN.extractItem(i, 1, false);
+                                }
+                            }
+                            if (checkSlotIsEmpty())
+                            {
+                                for (int i = 0; i < outputItemStackArray.length; i++)
+                                {
+                                    ItemStack stack = outputItemStackArray[i];
+                                    ITEM_OUT.insertItem(i, stack, false);
+                                    System.out.println(i);
+                                }
+                            }
+
+                            Map<Integer, ItemStack> map = new HashMap<>();
+                            for (int i = 0; i <= 2; i++)
+                            {
+                                map.put(i, ITEM_OUT.getStackInSlot(i));
+                            }
+                            if (!checkSlotIsEmpty())
+                            {
+                                for (ItemStack itemStack : outputItemStackArray)
+                                {
+                                    ItemStack stack = itemStack.copy();
+                                    for (Map.Entry<Integer, ItemStack> entry : map.entrySet())
+                                    {
+                                        int a = entry.getKey();
+                                        boolean flag = (entry.getValue().getCount() + itemStack.getCount()) <= entry.getValue().getMaxStackSize();
+                                        if (itemStack.getItem().equals(entry.getValue().getItem()) && flag)
+                                        {
+                                            ITEM_OUT.insertItem(a, stack, false);
+                                            break;
+                                        } else if (entry.getValue().isEmpty()) {
+                                            ITEM_OUT.insertItem(a, stack, false);
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                            this.fluidTank.drain(100,true);
+                            this.markDirty();
+                        }
+                    }
             }
             else
             {
@@ -126,6 +194,36 @@ public class TileEntityMachineBase extends TileEntity implements ITickable {
                 this.fluid = this.fluidTank.getFluid().getFluid();
             }
         }
+    }
+//    public List<ItemStack> getStacks(Map<List<ItemStack>, List<ItemStack>> map, List<ItemStack> list)
+//    {
+//        List<ItemStack> list1 = new ArrayList<>();
+//        for(Map.Entry entry : map.entrySet())
+//        {
+//            if (entry.getKey().equals(list))
+//            {
+//                list1.add((ItemStack) entry.getValue());
+//            }
+//            return list1;
+//        }
+//        return list1;
+//    }
+
+    private boolean checkSlotIsEmpty()
+    {
+        if (ITEM_OUT.getStackInSlot(0).isEmpty())
+        {
+            if (ITEM_OUT.getStackInSlot(1).isEmpty())
+            {
+                if (ITEM_OUT.getStackInSlot(2).isEmpty())
+                {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+        return false;
     }
 
     @Override

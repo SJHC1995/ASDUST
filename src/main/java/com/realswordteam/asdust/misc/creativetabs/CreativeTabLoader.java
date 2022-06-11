@@ -5,6 +5,9 @@ import com.realswordteam.asdust.items.ItemLoader;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class CreativeTabLoader {
     /**
      * Add your CreativeTabs

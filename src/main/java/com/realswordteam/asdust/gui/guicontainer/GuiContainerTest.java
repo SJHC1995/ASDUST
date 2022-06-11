@@ -14,7 +14,7 @@ import net.minecraftforge.fluids.FluidTank;
 import java.util.Map;
 
 public class GuiContainerTest extends GuiContainer {
-    private static final String TEXTURE_PATH = ASDUST.MODID + ":" + "textures/gui/container/furnace.png";
+    private static final String TEXTURE_PATH = ASDUST.MODID + ":" + "textures/gui/container/machinecraft.png";
     private static final ResourceLocation TEXTURE = new ResourceLocation(TEXTURE_PATH);
     protected ContainerTest inventory;
     private int totalBurnTime1;

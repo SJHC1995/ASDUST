@@ -1,7 +1,7 @@
-package com.realswordteam.asdust.block;
+package com.realswordteam.asdust.block.machine;
 
 import com.realswordteam.asdust.ASDUST;
-import com.realswordteam.asdust.block.tileentity.TileEntityMachineBase;
+import com.realswordteam.asdust.block.machine.tileentity.TileEntityMachineCraft;
 import com.realswordteam.asdust.gui.GuiElementLoader;
 import com.realswordteam.asdust.misc.creativetabs.CreativeTabLoader;
 import net.minecraft.block.Block;
@@ -12,7 +12,6 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -22,10 +21,8 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidUtil;
-import net.minecraftforge.fluids.IFluidTank;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandler;
-import net.minecraftforge.fluids.capability.IFluidTankProperties;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 
@@ -42,9 +39,7 @@ public class BlockMachineBase extends BlockContainer {
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
-        ItemStack itemStack = playerIn.getHeldItem(hand);
-        Item item = itemStack.getItem();
-        TileEntityMachineBase te = (TileEntityMachineBase) worldIn.getTileEntity(pos);
+        TileEntityMachineCraft te = (TileEntityMachineCraft) worldIn.getTileEntity(pos);
         IFluidHandler iFluidHandler = te.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
         if (!worldIn.isRemote)
         {
@@ -55,21 +50,6 @@ public class BlockMachineBase extends BlockContainer {
                     int id = GuiElementLoader.GUI_DEBUG;
                     playerIn.openGui(ASDUST.instance, id, worldIn, pos.getX(), pos.getY(), pos.getZ());
                 }
-            }   else
-            {
-                List<Item> list = new ArrayList<>();
-                list.add(Items.BED);
-                list.add(Items.DIAMOND);
-                List<Item> list1 = new ArrayList<>();
-                list1.add(Items.BED);
-                list1.add(Items.DIAMOND);
-                Map<List<Item>, List<Item>> map = new HashMap<>();
-                map.put(list, list1);
-                System.out.println(map);
-                if (list.equals(list1))
-                {
-                    System.out.println(1);
-                }
             }
         }
         return true;
@@ -78,7 +58,7 @@ public class BlockMachineBase extends BlockContainer {
     @Override
     public void breakBlock(World worldIn, BlockPos pos, IBlockState state)
     {
-        TileEntityMachineBase te = (TileEntityMachineBase) worldIn.getTileEntity(pos);
+        TileEntityMachineCraft te = (TileEntityMachineCraft) worldIn.getTileEntity(pos);
 
         IItemHandler up = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.UP);
         IItemHandler down = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.DOWN);
@@ -105,7 +85,7 @@ public class BlockMachineBase extends BlockContainer {
     @Override
     public TileEntity createNewTileEntity(World worldIn, int meta)
     {
-        return new TileEntityMachineBase();
+        return new TileEntityMachineCraft();
     }
     //change tileEntity RenderType
     @Override

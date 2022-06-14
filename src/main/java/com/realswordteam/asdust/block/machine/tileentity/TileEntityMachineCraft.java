@@ -1,10 +1,7 @@
-package com.realswordteam.asdust.block.tileentity;
+package com.realswordteam.asdust.block.machine.tileentity;
 
 import com.realswordteam.asdust.recipes.MachineTestRecipe;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
-import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -15,7 +12,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.items.CapabilityItemHandler;
@@ -23,7 +19,7 @@ import net.minecraftforge.items.ItemStackHandler;
 
 import java.util.*;
 
-public class TileEntityMachineBase extends TileEntity implements ITickable {
+public class TileEntityMachineCraft extends TileEntity implements ITickable {
     public int burnTime;
     protected ItemStackHandler ITEM_IN = new ItemStackHandler(4);
     protected ItemStackHandler ITEM_OUT = new ItemStackHandler(3);
@@ -31,7 +27,7 @@ public class TileEntityMachineBase extends TileEntity implements ITickable {
     protected FluidTank fluidTank = new FluidTank(2000);
     protected Fluid fluid;
 
-    public TileEntityMachineBase()
+    public TileEntityMachineCraft()
     {
         super();
         this.fluid = null;
@@ -144,23 +140,23 @@ public class TileEntityMachineBase extends TileEntity implements ITickable {
                                     ITEM_IN.extractItem(i, 1, false);
                                 }
                             }
-                            if (checkSlotIsEmpty())
-                            {
-                                for (int i = 0; i < outputItemStackArray.length; i++)
-                                {
-                                    ItemStack stack = outputItemStackArray[i];
-                                    ITEM_OUT.insertItem(i, stack, false);
-                                    System.out.println(i);
-                                }
-                            }
+//                            if (checkSlotIsEmpty())
+//                            {
+//                                for (int i = 0; i < outputItemStackArray.length; i++)
+//                                {
+//                                    ItemStack stack = outputItemStackArray[i];
+//                                    ITEM_OUT.insertItem(i, stack, false);
+//                                    System.out.println(i);
+//                                }
+//                            }
 
                             Map<Integer, ItemStack> map = new HashMap<>();
                             for (int i = 0; i <= 2; i++)
                             {
                                 map.put(i, ITEM_OUT.getStackInSlot(i));
                             }
-                            if (!checkSlotIsEmpty())
-                            {
+//                            if (!checkSlotIsEmpty())
+//                            {
                                 for (ItemStack itemStack : outputItemStackArray)
                                 {
                                     ItemStack stack = itemStack.copy();
@@ -178,7 +174,7 @@ public class TileEntityMachineBase extends TileEntity implements ITickable {
                                         }
                                     }
                                 }
-                            }
+//                            }
                             this.fluidTank.drain(100,true);
                             this.markDirty();
                         }

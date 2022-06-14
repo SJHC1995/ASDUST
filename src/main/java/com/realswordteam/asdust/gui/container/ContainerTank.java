@@ -1,6 +1,7 @@
 package com.realswordteam.asdust.gui.container;
 
-import com.realswordteam.asdust.block.machine.tileentity.TileEntityMachineCraft;
+import com.realswordteam.asdust.block.machine.tileentity.TileEntityMachineBase;
+import com.realswordteam.asdust.block.machine.tileentity.TileEntityTank;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IContainerListener;
@@ -19,51 +20,46 @@ import net.minecraftforge.items.SlotItemHandler;
 
 import java.util.Map;
 
-public class ContainerTest extends Container {
-    private final IItemHandler inputItem;
-    private final IItemHandler outputItem;
-    protected TileEntityMachineCraft tileEntityMachineBase;
-    protected int burnTime = 0;
+public class ContainerTank extends Container {
+    private IItemHandler tankInput;
+    private IItemHandler tankOutput;
+    protected TileEntityTank tileEntityTank;
+    public int processTime;
     protected FluidTank tank;
     public int fluidAmount;
     public int fluidId;
-    public ContainerTest(EntityPlayer player, TileEntity tileEntity)
+    public int tankCapacity;
+    public ContainerTank(EntityPlayer player, TileEntity tileEntity)
     {
         super();
 
-        this.tileEntityMachineBase = (TileEntityMachineCraft) tileEntity;
+        this.tileEntityTank = (TileEntityTank) tileEntity;
 
-        this.tank = tileEntityMachineBase.getFluidTank();
+        this.tank = tileEntityTank.getTank();
         this.fluidAmount = tank.getFluidAmount();
+        this.tankCapacity = tileEntityTank.getTankCapacity();
 
-        this.inputItem = this.tileEntityMachineBase.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.UP);
-        this.outputItem = this.tileEntityMachineBase.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.DOWN);
+        this.tankInput = this.tileEntityTank.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.EAST);
+        this.tankOutput = this.tileEntityTank.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.DOWN);
 
-        this.addSlotToContainer(new SlotItemHandler(this.inputItem, 0, 54, 20));
-        this.addSlotToContainer(new SlotItemHandler(this.inputItem, 1, 74, 18));
-        this.addSlotToContainer(new SlotItemHandler(this.inputItem, 2, 54, 56));
-        this.addSlotToContainer(new SlotItemHandler(this.inputItem, 3, 74, 58));
-
-
-
-        this.addSlotToContainer(new OutputSlot(this.outputItem,0, 110, 20));
-        this.addSlotToContainer(new OutputSlot(this.outputItem, 1, 110, 38));
-        this.addSlotToContainer(new OutputSlot(this.outputItem, 2, 110, 56));
-
+        this.addSlotToContainer(new SlotItemHandler(this.tankInput, 0, 56, 17));
+        this.addSlotToContainer(new SlotItemHandler(this.tankOutput,0, 56, 53));
+//        this.addSlotToContainer(new ContainerTank.OutputSlot(this.tankOutput,0, 56, 53));
 
         for (int i = 0; i < 3; ++i)
         {
             for (int j = 0; j < 9; ++j)
             {
-                this.addSlotToContainer(new Slot(player.inventory, j + i * 9 + 9, 6 + j * 18, 87 + i * 18));
+                this.addSlotToContainer(new Slot(player.inventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
             }
         }
-
         for (int i = 0; i < 9; ++i)
         {
-            this.addSlotToContainer(new Slot(player.inventory, i,  6 + i * 18, 145));
+            this.addSlotToContainer(new Slot(player.inventory, i,  8 + i * 18, 142));
         }
+    }
 
+    public ContainerTank() {
     }
 
     public FluidTank getFluidTank()
@@ -76,23 +72,25 @@ public class ContainerTest extends Container {
     {
         super.detectAndSendChanges();
 
-        this.burnTime = tileEntityMachineBase.getBurnTime();
-        this.fluidAmount = tileEntityMachineBase.getFluidTank().getFluidAmount();
+        this.fluidAmount = tileEntityTank.getTank().getFluidAmount();
+
         Map<Fluid, Integer> ids = FluidRegistry.getRegisteredFluidIDs();
         for (Map.Entry<Fluid, Integer> entry : ids.entrySet())
         {
-            if (tileEntityMachineBase.getFluid() == entry.getKey())
+            if (tileEntityTank.getFluid() == entry.getKey())
             {
                 this.fluidId = entry.getValue();
             }
         }
+        this.tankCapacity = tileEntityTank.getTankCapacity();
+        this.processTime = tileEntityTank.getProcessTime();
 
         for (IContainerListener i : this.listeners)
         {
-//            i.sendProgressBarUpdate(this, 0, this.burnTime);
-            i.sendWindowProperty(this, 0, this.burnTime);
-            i.sendWindowProperty(this, 1, this.fluidAmount);
-            i.sendWindowProperty(this, 2, this.fluidId);
+            i.sendWindowProperty(this, 0, this.fluidAmount);
+            i.sendWindowProperty(this, 1, this.fluidId);
+            i.sendWindowProperty(this, 2, this.tankCapacity);
+            i.sendWindowProperty(this, 3, this.processTime);
         }
     }
 
@@ -105,13 +103,16 @@ public class ContainerTest extends Container {
         switch (id)
         {
             case 0:
-                this.burnTime = data;
-                break;
-            case 1:
                 this.fluidAmount = data;
                 break;
-            case 2:
+            case 1:
                 this.fluidId = data;
+                break;
+            case 2:
+                this.tankCapacity = data;
+                break;
+            case 3:
+                this.processTime = data;
                 break;
             default:
                 break;
@@ -122,49 +123,41 @@ public class ContainerTest extends Container {
     public ItemStack transferStackInSlot(EntityPlayer playerIn, int index)
     {
         Slot slot = inventorySlots.get(index);
-
-//假如没有物品槽的话
+//
+////假如没有物品槽的话
         if (slot == null || !slot.getHasStack())
         {
             return ItemStack.EMPTY;
         }
-//创建Itemstack和oldstack
+////创建Itemstack和oldstack
         ItemStack newStack = slot.getStack(), oldStack = newStack.copy();
-//创建boolean isMerged
+////创建boolean isMerged
         boolean isMerged = false;
-//
-        if (index >= 0 && index <= 3)
+////
+        if (index >= 0 && index <= 1)
         {
-            isMerged = mergeItemStack(newStack, 7, 43, true);
+            isMerged = mergeItemStack(newStack, 2, 38, true);
         }
-        else if (index >= 4 && index <= 6)
+//        else if (index >= 4 && index <= 6)
+//        {
+//            isMerged = mergeItemStack(newStack, 7, 43, true);
+////            isMerged = !goldSlot.getHasStack() && newStack.stackSize <= 16 && mergeItemStack(newStack, 0, 1, false)
+////                    || !emeraldSlot.getHasStack() && mergeItemStack(newStack, 2, 3, false)
+////                    || mergeItemStack(newStack, 31, 40, false);
+//        }
+        else if (index >= 2 && index <= 38)
         {
-            isMerged = mergeItemStack(newStack, 7, 43, true);
-//            isMerged = !goldSlot.getHasStack() && newStack.stackSize <= 16 && mergeItemStack(newStack, 0, 1, false)
-//                    || !emeraldSlot.getHasStack() && mergeItemStack(newStack, 2, 3, false)
-//                    || mergeItemStack(newStack, 31, 40, false);
+            isMerged = mergeItemStack(newStack, 0,  1, false);
         }
-        else if (index >= 7 && index <= 43)
-        {
-            for (int i = 0; i<= 3; i++)
-            {
-                Slot slot1 = inventorySlots.get(i);
-                if (!slot1.getHasStack())
-                {
-                    isMerged = mergeItemStack(newStack, 0,  4, false);
-                }
-            }
 //            isMerged = !slot1.getHasStack() && mergeItemStack(newStack, 0,  1, false)
 //            isMerged = !goldSlot.getHasStack() && newStack.stackSize <= 16 && mergeItemStack(newStack, 0, 1, false)
 //                    || !emeraldSlot.getHasStack() && mergeItemStack(newStack, 2, 3, false)
-
-        }
-//如果都不符合当前条件就返回空
+////如果都不符合当前条件就返回空
         if (!isMerged)
         {
             return ItemStack.EMPTY;
         }
-//如果得知newStack没东西那设置为0（更新？）
+////如果得知newStack没东西那设置为0（更新？）
         if (newStack.getMaxStackSize() == 0)
         {
             slot.putStack(ItemStack.EMPTY);
@@ -173,7 +166,7 @@ public class ContainerTest extends Container {
         {
             slot.onSlotChanged();
         }
-//意义不明
+////意义不明
 //        slot.onPickupFromSlot(playerIn, newStack);
         slot.onTake(playerIn, newStack);
 
@@ -183,25 +176,11 @@ public class ContainerTest extends Container {
     @Override
     public boolean canInteractWith(EntityPlayer playerIn)
     {
-        return playerIn.getDistanceSq(this.tileEntityMachineBase.getPos()) <= 64;
+        return playerIn.getDistanceSq(this.tileEntityTank.getPos()) <= 64;
     }
     public int getFluidAmount()
     {
         return this.fluidAmount;
-    }
-
-    public int getBurnTime()
-    {
-        return this.burnTime;
-    }
-
-    public int getTotalBurnTime()
-    {
-        return this.tileEntityMachineBase.getTotalBurnTime();
-    }
-    public ItemStack getStackFromSlot()
-    {
-        return this.inventorySlots.get(0).getStack();
     }
     public class OutputSlot extends SlotItemHandler
     {

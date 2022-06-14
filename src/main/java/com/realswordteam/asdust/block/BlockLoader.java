@@ -1,6 +1,8 @@
 package com.realswordteam.asdust.block;
 
 import com.realswordteam.asdust.ASDUST;
+import com.realswordteam.asdust.block.machine.BlockMachineBase;
+import com.realswordteam.asdust.block.machine.BlockTank;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
@@ -31,7 +33,7 @@ public static void registerBlock(RegistryEvent.Register<Block> event) {
 
             setBlockName(blockconvert = new Block(Material.IRON), "blockconvert"),
             setBlockName(machinecraft = new BlockMachineBase(Material.IRON),"machinecraft"),
-            setBlockName(tankwoodwithleather = new BlockMachineBase(Material.IRON),"tankwoodwithleather"),
+            setBlockName(tankwoodwithleather = new BlockTank(),"tankwoodwithleather"),
 
     };
     blocklist.addAll(Arrays.asList(blocks));

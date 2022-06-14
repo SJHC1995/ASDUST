@@ -1,7 +1,9 @@
 package com.realswordteam.asdust.gui;
 
 import com.realswordteam.asdust.ASDUST;
+import com.realswordteam.asdust.gui.container.ContainerTank;
 import com.realswordteam.asdust.gui.container.ContainerTest;
+import com.realswordteam.asdust.gui.guicontainer.GuiContainerTank;
 import com.realswordteam.asdust.gui.guicontainer.GuiContainerTest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
@@ -11,7 +13,8 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 public class GuiElementLoader implements IGuiHandler {
 
-    public static final int GUI_DEBUG = 2;
+    public static final int GUI_DEBUG = 0;
+    public static final int GUI_TANK = 1;
 
 
     public GuiElementLoader(){
@@ -25,6 +28,8 @@ public class GuiElementLoader implements IGuiHandler {
         {
             case GUI_DEBUG:
                 return new ContainerTest(player, world.getTileEntity(new BlockPos(x, y, z)));
+            case GUI_TANK:
+                return new ContainerTank(player, world.getTileEntity(new BlockPos(x, y, z)));
             default:
                 return null;
         }
@@ -39,6 +44,8 @@ public class GuiElementLoader implements IGuiHandler {
 //                return new GuiContainerDemo(new ContainerDemo(player));
             case GUI_DEBUG:
                 return new GuiContainerTest(new ContainerTest(player, world.getTileEntity(new BlockPos(x, y, z))));
+            case GUI_TANK:
+                return new GuiContainerTank(new ContainerTank(player, world.getTileEntity(new BlockPos(x, y, z))));
             default:
                 return null;
         }

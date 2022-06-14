@@ -4,10 +4,8 @@
     "model": "asdust:tankwoodwithleather"
   },
   "variants": {
-    "facing=south": {"model": "asdust:tankwoodwithleather", "y": 180, "uvlock": true},
-    "facing=north": {"model": "asdust:tankwoodwithleather"},
-    "facing=east": {"model": "asdust:tankwoodwithleather", "y": 90, "uvlock": true},
-    "facing=west": {"model": "asdust:tankwoodwithleather", "y": 270, "uvlock": true},
+    "process=true": {"model": "asdust:tankwoodwithleather"},
+    "process=false": {"model": "asdust:tankwoodwithleather"},
     "normal": [{}],
     "inventory": [{}]
   }

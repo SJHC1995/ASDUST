@@ -9,12 +9,14 @@ public class MachineTestRecipe {
     public static MachineTestRecipe recipe = new MachineTestRecipe();
     public Map<List<Item>, List<ItemStack>> map = new HashMap<>();
     public final List<ItemStack> stacksEmpty = new ArrayList<>();
+    public List<Item> inputItemList = new ArrayList<>();
+    public List<ItemStack> outputItemList = new ArrayList<>();
     public final List<Item> itemEmpty = new ArrayList<>();
     public void addMachineTestRecipe(Item[] inputItem, ItemStack[] outputItem)
     {
-        List<Item> inputItemList = new ArrayList<>(Arrays.asList(inputItem));
-        List<ItemStack> outputItemList = new ArrayList<>(Arrays.asList(outputItem));
-        this.map.put(inputItemList, outputItemList);
+        this.inputItemList = Arrays.asList(inputItem);
+        this.outputItemList = Arrays.asList(outputItem);
+        this.map.put(this.inputItemList, this.outputItemList);
     }
     public List<ItemStack> recipe(List<Item> getItemList)
     {

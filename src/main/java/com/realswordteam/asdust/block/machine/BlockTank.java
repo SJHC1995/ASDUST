@@ -5,6 +5,7 @@ import com.realswordteam.asdust.block.machine.tileentity.TileEntityTank;
 import com.realswordteam.asdust.gui.GuiElementLoader;
 import com.realswordteam.asdust.misc.creativetabs.CreativeTabLoader;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -24,17 +25,19 @@ import javax.annotation.Nullable;
 
 public class BlockTank extends MachineBase {
     public static final PropertyBool PROCESSING = PropertyBool.create("process");
-    public BlockTank()
+    protected int tankCapacity = 1000;
+    public BlockTank(Material material, int capacity)
     {
-        super(GuiElementLoader.GUI_TANK);
+        super(GuiElementLoader.GUI_TANK, material);
         this.setCreativeTab(CreativeTabLoader.TAB_ASDUST_MACHINE);
         this.setDefaultState(this.blockState.getBaseState().withProperty(PROCESSING, false));
+        this.tankCapacity = checkTankCapacity(capacity);
     }
 
     @Nullable
     @Override
     public TileEntity createNewTileEntity(World worldIn, int meta) {
-        return new TileEntityTank();
+        return new TileEntityTank(this.tankCapacity);
     }
 
     @Override
@@ -100,5 +103,15 @@ public class BlockTank extends MachineBase {
     protected BlockStateContainer createBlockState()
     {
         return new BlockStateContainer(this, PROCESSING);
+    }
+    private int checkTankCapacity(int tankCapacity)
+    {
+        if (tankCapacity <= 0)
+        {
+            throw new RuntimeException("Please set correct number!");
+        }   else
+        {
+            return tankCapacity;
+        }
     }
 }

@@ -38,6 +38,7 @@ public class ContainerTank extends Container {
         this.tank = tileEntityTank.getTank();
         this.fluidAmount = tank.getFluidAmount();
         this.tankCapacity = tileEntityTank.getTankCapacity();
+        this.processTime = tileEntityTank.processTime;
 
         this.tankInput = this.tileEntityTank.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.EAST);
         this.tankOutput = this.tileEntityTank.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.DOWN);

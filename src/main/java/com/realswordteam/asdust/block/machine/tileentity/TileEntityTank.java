@@ -15,13 +15,15 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
 public class TileEntityTank extends TileEntity implements ITickable {
-    protected int processTime;
+    public int processTime;
     protected int totalProcessTime = 20;
     protected ItemStackHandler ITEM_IN = new ItemStackHandler(1);
     protected ItemStackHandler ITEM_OUT = new ItemStackHandler(1);
-
-    public TileEntityTank()
+    protected boolean checkItemBool = false;
+    protected ItemStack oldItemStack = ItemStack.EMPTY;
+    public TileEntityTank(int capacity)
     {
+        this.tank.setCapacity(capacity);
     }
     protected FluidTank tank = new FluidTank(2000);
     public FluidTank getTank()
@@ -56,6 +58,9 @@ public class TileEntityTank extends TileEntity implements ITickable {
             if (!ITEM_IN.getStackInSlot(0).isEmpty())
             {
                 ItemStack copyItemStack = this.ITEM_IN.getStackInSlot(0);
+
+                this.checkItemStack(copyItemStack);
+
                 FluidActionResult fillItemContainerResult = FluidUtil.tryFillContainerAndStow(this.ITEM_IN.getStackInSlot(0), this.tank, this.ITEM_OUT,1000, null, false);
                 FluidActionResult emptyItemContainerResult = FluidUtil.tryEmptyContainerAndStow(this.ITEM_IN.getStackInSlot(0), this.tank, this.ITEM_OUT,1000, null, false);
                 if (fillItemContainerResult.isSuccess())
@@ -102,8 +107,13 @@ public class TileEntityTank extends TileEntity implements ITickable {
     {
         if (CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.equals(capability))
         {
-            if (facing == EnumFacing.DOWN) return (T) ITEM_OUT;
-            if (facing == EnumFacing.EAST) return (T) ITEM_IN;
+            if (facing == EnumFacing.DOWN)
+            {
+                return  (T) ITEM_OUT;
+            }   else
+            {
+                return (T) ITEM_IN;
+            }
         }
         if (CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY.equals(capability))
         {
@@ -119,7 +129,6 @@ public class TileEntityTank extends TileEntity implements ITickable {
         super.readFromNBT(compound);
         this.ITEM_IN.deserializeNBT(compound.getCompoundTag("Item_Put"));
         this.ITEM_OUT.deserializeNBT(compound.getCompoundTag("Item_Out"));
-        this.processTime = compound.getInteger("processTime");
         tank.readFromNBT(compound);
     }
 
@@ -129,7 +138,6 @@ public class TileEntityTank extends TileEntity implements ITickable {
         compound = super.writeToNBT(compound);
         compound.setTag("Item_Put", this.ITEM_IN.serializeNBT());
         compound.setTag("Item_Out", this.ITEM_OUT.serializeNBT());
-        compound.setInteger("processTime", this.processTime);
         tank.writeToNBT(compound);
         return compound;
     }
@@ -144,15 +152,19 @@ public class TileEntityTank extends TileEntity implements ITickable {
     {
         return ++this.processTime >= this.totalProcessTime;
     }
-
-    private int checkTankCapacity(int tankCapacity)
+    private void checkItemStack(ItemStack getItemStack)
     {
-        if (tankCapacity <= 0)
+        if (this.oldItemStack != getItemStack)
         {
-            return 1000;
-        }   else
+            this.checkItemBool = true;
+            this.markDirty();
+        }
+        if (this.checkItemBool)
         {
-            return tankCapacity;
+            this.oldItemStack = getItemStack;
+            this.checkItemBool = false;
+            this.processTime = 0;
+            this.markDirty();
         }
     }
 

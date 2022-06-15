@@ -30,9 +30,9 @@ import java.util.Random;
 
 public class MachineBase extends BlockContainer {
     private final int gui;
-    public MachineBase(int gui)
+    public MachineBase(int gui, Material material)
     {
-        super(Material.IRON);
+        super(material);
         this.gui = gui;
     }
 

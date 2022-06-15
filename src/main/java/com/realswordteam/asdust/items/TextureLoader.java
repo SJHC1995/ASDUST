@@ -41,9 +41,11 @@ public final class TextureLoader {
         ModelLoader.setCustomModelResourceLocation(ItemLoader.gearwoodgroup, 0, new ModelResourceLocation(ItemLoader.gearwoodgroup.getRegistryName(), "inventory"));
         ModelLoader.setCustomModelResourceLocation(ItemLoader.mixedmortarball, 0, new ModelResourceLocation(ItemLoader.mixedmortarball.getRegistryName(), "inventory"));
         ModelLoader.setCustomModelResourceLocation(ItemLoader.imperfection, 0, new ModelResourceLocation(ItemLoader.imperfection.getRegistryName(), "inventory"));
+
         registerBlockModel(BlockLoader.blockconvert, 0);
         registerBlockModel(BlockLoader.machinecraft,0);
         registerBlockModel(BlockLoader.tankwoodwithleather,0);
+        registerBlockModel(BlockLoader.TANK_MIXED_MORTAR_CERAMICS, 0);
     }
 
     public static void registerBlockModel(Block block, int meta) {

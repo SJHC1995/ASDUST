@@ -1,6 +1,6 @@
+#物品名称
 item.asdust.admain.name=AD 主类
 item.asdust.adce.name=AD 元素
-
 item.asdust.yh.name=氢元素
 item.asdust.yb.name=硼元素
 item.asdust.ybe.name=铍元素
@@ -19,15 +19,13 @@ item.asdust.yp.name=磷元素
 item.asdust.ys.name=硫元素
 item.asdust.ycl.name=氯元素
 item.asdust.yar.name=氩元素
-
-
 item.asdust.yfe.name=铁元素
 item.asdust.gearwood.name=木齿轮
-
 item.asdust.gearwoodgroup.name=木齿轮组
 item.asdust.mixedmortarball.name=混合砂浆球
 item.asdust.imperfection.name=杂质
 
+#Gui信息
 
 gui.machine.warning.tank.empty=这个储罐空空如也!
 gui.machine.warning.tank.empty1=也许要填充点什么!
@@ -36,7 +34,7 @@ gui.machine.tank.information.amount=体积: %d
 
 
 
-
+#创造栏
 
 itemGroup.asdust.main=AD 主类
 itemGroup.asdust.element=AD 元素
@@ -44,7 +42,8 @@ itemGroup.asdust.machine=AD 机器
 itemGroup.asdust.gear_wood=AD 部件
 itemGroup.asdust.mixedmortarball=AD 原料
 itemGroup.asdust.imperfection=AD 杂项
-
+#方块信息
 tile.asdust.blockconvert.name=转换方块
 tile.asdust.machinecraft.name=原始制作机器
 tile.asdust.tankwoodwithleather.name=带皮木制储罐
+tile.asdust.tank_mixed_mortar_ceramics.name=混合砂浆陶瓷储罐

@@ -1,3 +1,4 @@
+#Item name
 item.asdust.asdustmain.name=AS DUST MAIN
 item.asdust.adce.name=AS DUST ChemicalElement
 item.asdust.yfe.name=Ferrum
@@ -12,14 +13,21 @@ item.asdust.gearwood.name=WOOD GEAR
 item.asdust.gearwoodgroup.name=WOOD GEAR GROUP
 item.asdust.mixedmortarball.name=MIXED MONTAR BALL
 item.asdust.imperfection.name=IMPERFECTION
+
+#CreativeTab Name
 itemGroup.asdust.main=AD MAIN
 itemGroup.asdust.element=AD ELEMENT
 itemGroup.asdust.machine=AD MACHINE
 itemGroup.asdust.gear_wood=AD PART
 itemGroup.asdust.mixedmortarball=AD RAW MATERIAL
 itemGroup.asdust.imperfection=AD MISC
+
+#Gui Information
 gui.machine.warning.tank.empty=Tank is Empty!
 gui.machine.warning.tank.empty1=You should fill it!
 gui.machine.tank.information.variety=Tank: %s
 gui.machine.tank.information.amount=Amount: %d
+
+#Block Name
 tile.asdust.tankwoodwithleather.name=Wood Tank With Leather
+tile.asdust.tank_mixed_mortar_ceramics.name=Mixed Mortar Ceramics Tank

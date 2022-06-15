@@ -1,7 +1,7 @@
 {
   "forge_marker": 1,
   "defaults": {
-    "model": "asdust:tankwoodwithleather"
+    "model": "asdust:tank_mixed_mortar_ceramics"
   },
   "variants": {
     "normal": [{}],

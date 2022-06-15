@@ -19,8 +19,8 @@ import java.util.List;
 public class BlockLoader{
     public static Block blockconvert = null;
     public static Block machinecraft = null;
-    public static Block  tankwoodwithleather = null;
-    public static Block IRON_TANK = null;
+    public static Block tankwoodwithleather = null;
+    public static Block TANK_MIXED_MORTAR_CERAMICS = null;
 
     public static List<Block> blocklist = new ArrayList<>();
     public static List<Item> itemlist = new ArrayList<>();
@@ -37,7 +37,7 @@ public static void registerBlock(RegistryEvent.Register<Block> event) {
             setBlockName(tankwoodwithleather = new BlockTank(Material.WOOD, 2000),"tankwoodwithleather"),
 
             //create a new tank example: To create a new tank, create a new class and inherit the BlockTank class
-            setBlockName(IRON_TANK = new BlockTank(Material.IRON, 16000), "iron_tank")
+            setBlockName(TANK_MIXED_MORTAR_CERAMICS = new BlockTank(Material.IRON, 16000), "tank_mixed_mortar_ceramics")
 
     };
     blocklist.addAll(Arrays.asList(blocks));

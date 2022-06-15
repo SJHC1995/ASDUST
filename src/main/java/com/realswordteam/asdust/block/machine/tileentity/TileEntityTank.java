@@ -1,5 +1,6 @@
 package com.realswordteam.asdust.block.machine.tileentity;
 
+import com.realswordteam.asdust.block.BlockLoader;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -7,6 +8,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.fluids.*;
@@ -21,9 +23,11 @@ public class TileEntityTank extends TileEntity implements ITickable {
     protected ItemStackHandler ITEM_OUT = new ItemStackHandler(1);
     protected boolean checkItemBool = false;
     protected ItemStack oldItemStack = ItemStack.EMPTY;
-    public TileEntityTank(int capacity)
+    protected String blockName;
+    public TileEntityTank(int capacity, String name)
     {
         this.tank.setCapacity(capacity);
+        this.blockName = name;
     }
     protected FluidTank tank = new FluidTank(2000);
     public FluidTank getTank()
@@ -49,6 +53,18 @@ public class TileEntityTank extends TileEntity implements ITickable {
     public int getProcessTime()
     {
         return this.processTime;
+    }
+    public ItemStackHandler getITEM_IN()
+    {
+        return this.ITEM_IN;
+    }
+    public ItemStackHandler getITEM_OUT()
+    {
+        return this.ITEM_OUT;
+    }
+    public String getBlockName()
+    {
+        return this.blockName;
     }
     @Override
     public void update()

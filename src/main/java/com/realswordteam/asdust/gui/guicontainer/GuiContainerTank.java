@@ -19,19 +19,27 @@ public class GuiContainerTank extends GuiContainer {
     private static final ResourceLocation TEXTURE = new ResourceLocation(TEXTURE_PATH);
     protected ContainerTank inventory;
     protected FluidTank tank;
+    protected String tankName;
     public GuiContainerTank(ContainerTank inventorySlotsIn) {
         super(inventorySlotsIn);
         this.xSize = 176;
         this.ySize = 166;
         this.inventory = inventorySlotsIn;
         this.tank = inventorySlotsIn.getFluidTank();
+        this.tankName = inventorySlotsIn.blockName;
     }
 
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
         this.drawDefaultBackground();
         super.drawScreen(mouseX, mouseY, partialTicks);
         this.renderHoveredToolTip(mouseX, mouseY);
-        GuiDrawFluid.guiDrawFluid.renderHoverTank(this, this.width, this.height, this.xSize, this.ySize, mouseX, mouseY, 80, 25, 96, 57, createFluidStack(this.getFluid(this.inventory.fluidId), this.inventory.fluidAmount));
+        GuiDrawFluid.guiDrawFluid.renderHoverTank(this, this.width, this.height, this.xSize, this.ySize, mouseX, mouseY, 79, 16, 97, 70, createFluidStack(this.getFluid(this.inventory.fluidId), this.inventory.fluidAmount));
+    }
+
+    protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
+    {
+        this.fontRenderer.drawString(this.tankName, 7, 5, 0xFF000000);
+        this.fontRenderer.drawString(this.inventory.playerInventoryName,  7, 73, 0xFF000000);
     }
 
     protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
@@ -46,7 +54,8 @@ public class GuiContainerTank extends GuiContainer {
         int textureHeight = 1 + (int) Math.ceil(12.0 * this.inventory.processTime / 20);
         this.drawTexturedModalRect(offsetX + 57, offsetY + 36, 176, 0, 14, textureHeight);
 
-        GuiDrawFluid.guiDrawFluid.drawFluid(mc, offsetX + 80, offsetY + 25, checkTankCapacity(this.inventory.tankCapacity), createFluidStack(this.getFluid(this.inventory.fluidId), this.inventory.fluidAmount), 32, 16);
+        GuiDrawFluid.guiDrawFluid.drawFluid(mc, offsetX + 80, offsetY + 17, checkTankCapacity(this.inventory.tankCapacity), createFluidStack(this.getFluid(this.inventory.fluidId), this.inventory.fluidAmount), 52, 16);
+
 //        this.drawFluid(mc, this.width - this.xSize, offsetY + 31, new FluidStack(FluidRegistry.WATER, 1000));
     }
 

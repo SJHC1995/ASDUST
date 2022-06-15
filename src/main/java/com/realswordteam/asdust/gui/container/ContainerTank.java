@@ -29,6 +29,8 @@ public class ContainerTank extends Container {
     public int fluidAmount;
     public int fluidId;
     public int tankCapacity;
+    public String blockName;
+    public String playerInventoryName;
     public ContainerTank(EntityPlayer player, TileEntity tileEntity)
     {
         super();
@@ -39,6 +41,8 @@ public class ContainerTank extends Container {
         this.fluidAmount = tank.getFluidAmount();
         this.tankCapacity = tileEntityTank.getTankCapacity();
         this.processTime = tileEntityTank.processTime;
+        this.blockName = tileEntityTank.getBlockName();
+        this.playerInventoryName = player.inventory.getDisplayName().getUnformattedText();
 
         this.tankInput = this.tileEntityTank.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.EAST);
         this.tankOutput = this.tileEntityTank.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.DOWN);

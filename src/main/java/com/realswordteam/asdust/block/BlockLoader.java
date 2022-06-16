@@ -37,7 +37,7 @@ public static void registerBlock(RegistryEvent.Register<Block> event) {
             setBlockName(tankwoodwithleather = new BlockTank(Material.WOOD, 2000),"tankwoodwithleather"),
 
             //create a new tank example: To create a new tank, create a new class and inherit the BlockTank class
-            setBlockName(TANK_MIXED_MORTAR_CERAMICS = new BlockTank(Material.IRON, 16000), "tank_mixed_mortar_ceramics")
+            setBlockName(TANK_MIXED_MORTAR_CERAMICS = new BlockTank(Material.IRON, 8000), "tank_mixed_mortar_ceramics")
 
     };
     blocklist.addAll(Arrays.asList(blocks));

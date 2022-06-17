@@ -50,6 +50,7 @@ public class RecipesLoader {
      */
     private final String[] vanillaRecipe =
             {
-        "minecraft:stonebrick",
+                    "minecraft:stonebrick",
+                    "minecraft:furnace"
             };
 }

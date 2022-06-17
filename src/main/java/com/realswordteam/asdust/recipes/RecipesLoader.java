@@ -48,7 +48,7 @@ public class RecipesLoader {
     /**
      * Add the specified vanilla recipe name
      */
-    private final String[] vanillaRecipe =
+    public final String[] vanillaRecipe =
             {
                     "minecraft:stonebrick",
                     "minecraft:furnace"

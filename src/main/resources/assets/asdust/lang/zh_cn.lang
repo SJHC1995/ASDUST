@@ -24,7 +24,8 @@ item.asdust.gearwood.name=木齿轮
 item.asdust.gearwoodgroup.name=木齿轮组
 item.asdust.mixedmortarball.name=混合砂浆球
 item.asdust.imperfection.name=杂质
-
+item.asdust.unfired_clay_bowl.name=粘土碗胚
+item.asdust.ceramic_bowl.name=陶瓷碗
 #Gui信息
 
 gui.machine.warning.tank.empty=这个储罐空空如也!

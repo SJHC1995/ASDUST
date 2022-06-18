@@ -37,7 +37,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
         public static Item mixedmortarball =null;
         public static Item imperfection = null;
         public static Item loess = null;
-        public static Item clay_bowl = null;
+        public static Item unfired_clay_bowl = null;
         public static Item ceramic_bowl = null;
 
         static Item[] items = {
@@ -68,7 +68,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
                 setItemName(mixedmortarball = new ItemRawMaterialBase(), "mixedmortarball"),
                 setItemName(imperfection = new ItemMiscBase(), "imperfection"),
                 setItemName(loess = new ItemRawMaterialBase(), "loess"),
-                setItemName(clay_bowl = new ItemMiscBase(), "clay_bowl"),
+                setItemName(unfired_clay_bowl = new ItemMiscBase(), "unfired_clay_bowl"),
                 setItemName(ceramic_bowl = new ItemFluidContainer(250), "ceramic_bowl")
         };
 

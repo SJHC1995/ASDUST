@@ -20,6 +20,7 @@ public class GuiContainerTank extends GuiContainer {
     protected ContainerTank inventory;
     protected FluidTank tank;
     protected String tankName;
+    protected int tankCapacity;
     public GuiContainerTank(ContainerTank inventorySlotsIn) {
         super(inventorySlotsIn);
         this.xSize = 176;
@@ -27,13 +28,14 @@ public class GuiContainerTank extends GuiContainer {
         this.inventory = inventorySlotsIn;
         this.tank = inventorySlotsIn.getFluidTank();
         this.tankName = inventorySlotsIn.blockName;
+        this.tankCapacity = inventorySlotsIn.tankCapacity;
     }
 
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
         this.drawDefaultBackground();
         super.drawScreen(mouseX, mouseY, partialTicks);
         this.renderHoveredToolTip(mouseX, mouseY);
-        GuiDrawFluid.guiDrawFluid.renderHoverTank(this, this.width, this.height, this.xSize, this.ySize, mouseX, mouseY, 79, 16, 97, 70, createFluidStack(this.getFluid(this.inventory.fluidId), this.inventory.fluidAmount));
+        GuiDrawFluid.guiDrawFluid.renderHoverTank(this, this.width, this.height, this.xSize, this.ySize, mouseX, mouseY, 79, 16, 97, 70, createFluidStack(this.getFluid(this.inventory.fluidId), this.inventory.fluidAmount), this.tankCapacity, true);
     }
 
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)

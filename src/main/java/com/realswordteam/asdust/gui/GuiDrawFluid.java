@@ -72,7 +72,7 @@ public class GuiDrawFluid {
      * @param fluidStack gain Fluid stack information
      */
 
-    public void renderHoverTank(GuiScreen screen,int width, int height, int xSize, int ySize,int mouseX, int mouseY, int xPosition1, int yPosition1, int xPosition2, int yPosition2, FluidStack fluidStack)
+    public void renderHoverTank(GuiScreen screen,int width, int height, int xSize, int ySize,int mouseX, int mouseY, int xPosition1, int yPosition1, int xPosition2, int yPosition2, FluidStack fluidStack, int maxCapacity, boolean isTank)
     {
         List<String> textList = new ArrayList<>();
         int offsetX = (width - xSize) / 2, offsetY = (height - ySize) / 2;
@@ -82,10 +82,14 @@ public class GuiDrawFluid {
                 if (fluidStack != null) {
                     textList.add(I18n.format("gui.machine.tank.information.variety", fluidStack.getFluid().getLocalizedName(fluidStack)));
                     textList.add(I18n.format("gui.machine.tank.information.amount", fluidStack.amount));
+                    textList.add(I18n.format("gui.machine.tank.information.max_capacity", maxCapacity));
                     screen.drawHoveringText(textList, mouseX, mouseY);
-                } else {
+                } else if (!isTank){
                     textList.add(I18n.format("gui.machine.warning.tank.empty"));
                     textList.add(I18n.format("gui.machine.warning.tank.empty1"));
+                    screen.drawHoveringText(textList, mouseX, mouseY);
+                } else {
+                    textList.add(I18n.format("gui.machine.tank.information.max_capacity", maxCapacity));
                     screen.drawHoveringText(textList, mouseX, mouseY);
                 }
             }

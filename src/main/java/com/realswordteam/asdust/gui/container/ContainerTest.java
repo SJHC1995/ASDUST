@@ -27,6 +27,7 @@ public class ContainerTest extends Container {
     protected FluidTank tank;
     public int fluidAmount;
     public int fluidId;
+    public int tankCapacity;
     public ContainerTest(EntityPlayer player, TileEntity tileEntity)
     {
         super();
@@ -35,6 +36,7 @@ public class ContainerTest extends Container {
 
         this.tank = tileEntityMachineBase.getFluidTank();
         this.fluidAmount = tank.getFluidAmount();
+        this.tankCapacity = tank.getCapacity();
 
         this.inputItem = this.tileEntityMachineBase.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.UP);
         this.outputItem = this.tileEntityMachineBase.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.DOWN);
@@ -93,6 +95,7 @@ public class ContainerTest extends Container {
             i.sendWindowProperty(this, 0, this.burnTime);
             i.sendWindowProperty(this, 1, this.fluidAmount);
             i.sendWindowProperty(this, 2, this.fluidId);
+            i.sendWindowProperty(this, 3, this.tankCapacity);
         }
     }
 
@@ -112,6 +115,9 @@ public class ContainerTest extends Container {
                 break;
             case 2:
                 this.fluidId = data;
+                break;
+            case 3:
+                this.tankCapacity = data;
                 break;
             default:
                 break;

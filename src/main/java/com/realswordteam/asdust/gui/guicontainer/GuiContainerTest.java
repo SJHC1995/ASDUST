@@ -18,6 +18,7 @@ public class GuiContainerTest extends GuiContainer {
     private static final ResourceLocation TEXTURE = new ResourceLocation(TEXTURE_PATH);
     protected ContainerTest inventory;
     private int totalBurnTime1;
+    protected int tankCapacity;
     private FluidTank tank;
 
     public GuiContainerTest(ContainerTest inventorySlotsIn) {
@@ -27,6 +28,7 @@ public class GuiContainerTest extends GuiContainer {
         this.inventory = inventorySlotsIn;
         this.totalBurnTime1 = inventorySlotsIn.getTotalBurnTime();
         this.tank = inventorySlotsIn.getFluidTank();
+        this.tankCapacity = inventorySlotsIn.tankCapacity;
         int i = 1;
     }
 
@@ -34,7 +36,7 @@ public class GuiContainerTest extends GuiContainer {
         this.drawDefaultBackground();
         super.drawScreen(mouseX, mouseY, partialTicks);
         this.renderHoveredToolTip(mouseX, mouseY);
-        GuiDrawFluid.guiDrawFluid.renderHoverTank(this, this.width, this.height, this.xSize, this.ySize, mouseX, mouseY, 36, 31, 52, 63, createFluidStack(this.getFluid(this.inventory.fluidId), this.inventory.fluidAmount));
+        GuiDrawFluid.guiDrawFluid.renderHoverTank(this, this.width, this.height, this.xSize, this.ySize, mouseX, mouseY, 36, 31, 52, 63, createFluidStack(this.getFluid(this.inventory.fluidId), this.inventory.fluidAmount), this.tankCapacity, false);
     }
 
     protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {

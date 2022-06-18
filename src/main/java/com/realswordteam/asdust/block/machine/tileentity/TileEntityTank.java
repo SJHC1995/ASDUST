@@ -77,13 +77,13 @@ public class TileEntityTank extends TileEntity implements ITickable {
 
                 this.checkItemStack(copyItemStack);
 
-                FluidActionResult fillItemContainerResult = FluidUtil.tryFillContainerAndStow(this.ITEM_IN.getStackInSlot(0), this.tank, this.ITEM_OUT,1000, null, false);
-                FluidActionResult emptyItemContainerResult = FluidUtil.tryEmptyContainerAndStow(this.ITEM_IN.getStackInSlot(0), this.tank, this.ITEM_OUT,1000, null, false);
+                FluidActionResult fillItemContainerResult = FluidUtil.tryFillContainerAndStow(this.ITEM_IN.getStackInSlot(0), this.tank, this.ITEM_OUT, this.getTankCapacity(), null, false);
+                FluidActionResult emptyItemContainerResult = FluidUtil.tryEmptyContainerAndStow(this.ITEM_IN.getStackInSlot(0), this.tank, this.ITEM_OUT, this.getTankCapacity(), null, false);
                 if (fillItemContainerResult.isSuccess())
                 {
                     if (++this.processTime >= this.totalProcessTime)
                     {
-                        FluidUtil.tryFillContainerAndStow(copyItemStack, this.tank, this.ITEM_OUT,1000, null, true);
+                        FluidUtil.tryFillContainerAndStow(copyItemStack, this.tank, this.ITEM_OUT, this.getTankCapacity(), null, true);
                         this.ITEM_IN.extractItem(0, 1, false);
                         this.ITEM_OUT.insertItem(0, fillItemContainerResult.getResult(), false);
                         this.processTime = 0;
@@ -93,7 +93,7 @@ public class TileEntityTank extends TileEntity implements ITickable {
                 {
                     if (updateTime())
                     {
-                        FluidUtil.tryEmptyContainerAndStow(copyItemStack, this.tank, this.ITEM_OUT,1000, null, true);
+                        FluidUtil.tryEmptyContainerAndStow(copyItemStack, this.tank, this.ITEM_OUT, this.getTankCapacity(), null, true);
                         this.ITEM_IN.extractItem(0, 1, false);
                         this.ITEM_OUT.insertItem(0, emptyItemContainerResult.getResult(), false);
                         this.processTime = 0;

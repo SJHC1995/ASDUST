@@ -23,6 +23,9 @@ public class RecipesLoader {
         addSimpleShapedRecipe("asdust:dirt",
                 new ItemStack(Blocks.DIRT),
                 "ABA", "BCB", "ABA", 'A', ItemLoader.imperfection, 'B', ItemLoader.loess, 'C', Items.CLAY_BALL);
+        addSimpleShapedRecipe("asdust:clay_bowl",
+                new ItemStack(ItemLoader.clay_bowl),
+                "   ", "A A", " A ", 'A', Items.CLAY_BALL);
 
         //Vanilla
         for (String string : vanillaRecipe)

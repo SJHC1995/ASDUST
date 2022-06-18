@@ -9,10 +9,12 @@ item.asdust.yc.name=Carbon
 item.asdust.yhe.name=Helium
 item.asdust.yli.name=Lithium
 item.asdust.yn.name=Nitrogen
-item.asdust.gearwood.name=WOOD GEAR
-item.asdust.gearwoodgroup.name=WOOD GEAR GROUP
-item.asdust.mixedmortarball.name=MIXED MONTAR BALL
-item.asdust.imperfection.name=IMPERFECTION
+item.asdust.gearwood.name=Wood Gear
+item.asdust.gearwoodgroup.name=Wood Gear Group
+item.asdust.mixedmortarball.name=Mixed Montar Ball
+item.asdust.imperfection.name=Imperfection
+item.asdust.clay_bowl.name=Clay Bowl
+item.asdust.ceramic_bowl.name=Ceramic Bowl
 
 #CreativeTab Name
 itemGroup.asdust.main=AD MAIN
@@ -26,8 +28,11 @@ itemGroup.asdust.imperfection=AD MISC
 gui.machine.warning.tank.empty=Tank is Empty!
 gui.machine.warning.tank.empty1=You should fill it!
 gui.machine.tank.information.variety=Tank: %s
-gui.machine.tank.information.amount=Amount: %d
+gui.machine.tank.information.amount=Amount: %dmb
+gui.machine.tank.information.max_capacity=MaxCapacity: %dmb
 
 #Block Name
 tile.asdust.tankwoodwithleather.name=Wood Tank With Leather
 tile.asdust.tank_mixed_mortar_ceramics.name=Mixed Mortar Ceramics Tank
+
+fluid_container.information=%s, Amount: %dmb

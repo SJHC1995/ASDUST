@@ -39,6 +39,26 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
         public static Item loess = null;
         public static Item unfired_clay_bowl = null;
         public static Item ceramic_bowl = null;
+        public static Item simple_calcium_oxide =null;
+        public static Item simple_calcium_hydroxide=null;
+        public static Item mixed_mortar_hard_ceramic_pot_embryo=null;
+public static Item mixed_sand_hard_ceramic_pot=null;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         static Item[] items = {
                 setItemName(admain = new ItemMainBase(), "admain"),
@@ -69,8 +89,37 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
                 setItemName(imperfection = new ItemMiscBase(), "imperfection"),
                 setItemName(loess = new ItemRawMaterialBase(), "loess"),
                 setItemName(unfired_clay_bowl = new ItemMiscBase(), "unfired_clay_bowl"),
-                setItemName(ceramic_bowl = new ItemFluidContainer(250), "ceramic_bowl")
-        };
+                setItemName(ceramic_bowl = new ItemFluidContainer(250), "ceramic_bowl"),
+                setItemName(simple_calcium_oxide=new ItemRawMaterialBase(),"simple_calcium_oxide"),
+                setItemName(simple_calcium_hydroxide=new ItemRawMaterialBase(),"simple_calcium_hydroxide"),
+                setItemName(mixed_mortar_hard_ceramic_pot_embryo=new ItemPartBase(),"mixed_mortar_hard_ceramic_pot_embryo"),
+                setItemName(mixed_sand_hard_ceramic_pot=new ItemPartBase(),"mixed_sand_hard_ceramic_pot"),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    };
 
 
         @SubscribeEvent

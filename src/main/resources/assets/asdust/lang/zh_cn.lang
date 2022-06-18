@@ -26,6 +26,10 @@ item.asdust.mixedmortarball.name=混合砂浆球
 item.asdust.imperfection.name=杂质
 item.asdust.unfired_clay_bowl.name=粘土碗胚
 item.asdust.ceramic_bowl.name=陶瓷碗
+item.asdust.simple_calcium_oxide=简制氧化钙
+item.asdust.simple_calcium_hydroxide=简制氢氧化钙
+item.asdust.mixed_mortar_hard_ceramic_pot_embryo=混合砂浆硬质陶瓷锅胚
+item.asdust.mixed_sand_hard_ceramic_pot=混合砂型硬质陶瓷锅
 #Gui信息
 
 gui.machine.warning.tank.empty=这个储罐空空如也!

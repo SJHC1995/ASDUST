@@ -13,7 +13,7 @@ item.asdust.gearwood.name=Wood Gear
 item.asdust.gearwoodgroup.name=Wood Gear Group
 item.asdust.mixedmortarball.name=Mixed Montar Ball
 item.asdust.imperfection.name=Imperfection
-item.asdust.clay_bowl.name=Clay Bowl
+item.asdust.unfired_clay_bowl.name= Unfired Clay Bowl
 item.asdust.ceramic_bowl.name=Ceramic Bowl
 
 #CreativeTab Name

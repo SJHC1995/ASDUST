@@ -29,8 +29,8 @@ public class BlockLoader{
 * @param event register block list event
 */
 @SubscribeEvent
-public static void registerBlock(RegistryEvent.Register<Block> event) {
-    Block[] blocks = {
+    public static void registerBlock(RegistryEvent.Register<Block> event) {
+        Block[] blocks = {
 
             setBlockName(blockconvert = new Block(Material.IRON), "blockconvert"),
             setBlockName(machinecraft = new BlockMachineBase(Material.IRON),"machinecraft"),
@@ -39,18 +39,18 @@ public static void registerBlock(RegistryEvent.Register<Block> event) {
             //create a new tank example: To create a new tank, create a new class and inherit the BlockTank class
             setBlockName(TANK_MIXED_MORTAR_CERAMICS = new BlockTank(Material.IRON, 8000), "tank_mixed_mortar_ceramics")
 
-    };
-    blocklist.addAll(Arrays.asList(blocks));
+        };
+        blocklist.addAll(Arrays.asList(blocks));
 
-    event.getRegistry().registerAll(blocks);
+        event.getRegistry().registerAll(blocks);
 
-    for (Block block : blocklist) {
-        itemlist.add(setItemName(block));
-    }
+        for (Block block : blocklist) {
+            itemlist.add(setItemName(block));
+        }
 }
 
     @SubscribeEvent
-    public static void regsiterItemFromBlock(RegistryEvent.Register<Item> event)
+    public static void registerItemFromBlock(RegistryEvent.Register<Item> event)
     {
         for(Item item :itemlist){
             event.getRegistry().register(item);
@@ -59,13 +59,13 @@ public static void registerBlock(RegistryEvent.Register<Block> event) {
 
 
     public static Block setBlockName(Block block, String name){
-    block.setRegistryName(ASDUST.MODID, name).setUnlocalizedName(ASDUST.MODID + "." + name);
-    return block;
-}
+        block.setRegistryName(ASDUST.MODID, name).setUnlocalizedName(ASDUST.MODID + "." + name);
+        return block;
+    }
 
 
     public static Item setItemName(Block block){
-    return new ItemBlock(block).setRegistryName(ASDUST.MODID, block.getUnlocalizedName()).setUnlocalizedName(block.getUnlocalizedName());
-}
+        return new ItemBlock(block).setRegistryName(ASDUST.MODID, block.getUnlocalizedName()).setUnlocalizedName(block.getUnlocalizedName());
+    }
 
 }

@@ -36,48 +36,54 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
         public static Item gearwoodgroup = null;
         public static Item mixedmortarball =null;
         public static Item imperfection = null;
+        public static Item loess = null;
+
+        static Item[] items = {
+                setItemName(admain = new ItemMainBase(), "admain"),
+                setItemName(adce = new ItemMainBase(), "adce"),
+                setItemName(admachine = new ItemMainBase(), "admachine"),
+                setItemName(yh = new ItemChemicalElementBase(), "yh"),
+                setItemName(yhe = new ItemChemicalElementBase(), "yhe"),
+                setItemName(yli = new ItemChemicalElementBase(), "yli"),
+                setItemName(ybe = new ItemChemicalElementBase(), "ybe"),
+                setItemName(yb = new ItemChemicalElementBase(), "yb"),
+                setItemName(yc = new ItemChemicalElementBase(), "yc"),
+                setItemName(yn = new ItemChemicalElementBase(), "yn"),
+                setItemName(yo = new ItemChemicalElementBase(), "yo"),
+                setItemName(yf = new ItemChemicalElementBase(), "yf"),
+                setItemName(yne = new ItemChemicalElementBase(), "yne"),
+                setItemName(yna = new ItemChemicalElementBase(), "yna"),
+                setItemName(ymg = new ItemChemicalElementBase(), "ymg"),
+                setItemName(yal = new ItemChemicalElementBase(), "yal"),
+                setItemName(ysi = new ItemChemicalElementBase(), "ysi"),
+                setItemName(yp = new ItemChemicalElementBase(), "yp"),
+                setItemName(ys = new ItemChemicalElementBase(), "ys"),
+                setItemName(ycl = new ItemChemicalElementBase(), "ycl"),
+                setItemName(yar = new ItemChemicalElementBase(), "yar"),
+                setItemName(yfe = new ItemChemicalElementBase(), "yfe"),
+                setItemName(gearwood = new ItemPartBase(), "gearwood"),
+                setItemName(gearwoodgroup = new ItemPartBase(), "gearwoodgroup"),
+                setItemName(mixedmortarball = new ItemRawMaterialBase(), "mixedmortarball"),
+                setItemName(imperfection = new ItemMiscBase(), "imperfection"),
+                setItemName(loess = new ItemRawMaterialBase(), "loess")
+        };
 
 
         @SubscribeEvent
         public static void registerItem(RegistryEvent.Register<Item> event)
         {
-            Item[] items = {
-                    setItemName(admain = new ItemMainBase(),"admain"),
-                    setItemName(adce = new ItemMainBase(),"adce"),
-                    setItemName(admachine = new ItemMainBase(),"admachine"),
-                    setItemName(yh = new ItemChemicalElementBase(),"yh"),
-                    setItemName(yhe = new ItemChemicalElementBase(),"yhe"),
-                    setItemName(yli = new ItemChemicalElementBase(),"yli"),
-                    setItemName(ybe = new ItemChemicalElementBase(),"ybe"),
-                    setItemName(yb = new ItemChemicalElementBase(),"yb"),
-                    setItemName(yc = new ItemChemicalElementBase(),"yc"),
-                    setItemName(yn = new ItemChemicalElementBase(),"yn"),
-                    setItemName(yo = new ItemChemicalElementBase(),"yo"),
-                    setItemName(yf = new ItemChemicalElementBase(),"yf"),
-                    setItemName(yne = new ItemChemicalElementBase(),"yne"),
-                    setItemName(yna = new ItemChemicalElementBase(),"yna"),
-                    setItemName(ymg = new ItemChemicalElementBase(),"ymg"),
-                    setItemName(yal = new ItemChemicalElementBase(),"yal"),
-                    setItemName(ysi = new ItemChemicalElementBase(),"ysi"),
-                    setItemName(yp = new ItemChemicalElementBase(),"yp"),
-                    setItemName(ys = new ItemChemicalElementBase(),"ys"),
-                    setItemName(ycl = new ItemChemicalElementBase(),"ycl"),
-                    setItemName(yar = new ItemChemicalElementBase(),"yar"),
-                    setItemName(yfe = new ItemChemicalElementBase(),"yfe"),
-                    setItemName(gearwood = new ItemPartBase(),"gearwood"),
-                    setItemName(gearwoodgroup = new ItemPartBase(),"gearwoodgroup"),
-                    setItemName(mixedmortarball = new ItemRawMaterialBase(),"mixedmortarball"),
-                    setItemName(imperfection = new ItemMiscBase(),"imperfection"),
-
-
-
-
-            };
             event.getRegistry().registerAll(items);
         }
 
-public static  Item setItemName(Item item, String name){
-        item.setRegistryName(ASDUST.MODID,name).setUnlocalizedName(ASDUST.MODID + "." + name);
-       return item; }
+        public static Item[] getItems()
+        {
+            return items;
+        }
+
+        private static Item setItemName(Item item, String name)
+        {
+            return item.setRegistryName(ASDUST.MODID,name).setUnlocalizedName(ASDUST.MODID + "." + name);
+        }
+
     }
 

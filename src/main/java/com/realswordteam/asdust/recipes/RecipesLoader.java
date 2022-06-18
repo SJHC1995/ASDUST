@@ -1,19 +1,16 @@
 package com.realswordteam.asdust.recipes;
 
 import com.realswordteam.asdust.ASDUST;
+import com.realswordteam.asdust.items.ItemLoader;
 import com.realswordteam.asdust.modules.CeramicsMod;
-import com.realswordteam.asdust.modules.VanillaCraftTableRecipe;
+import com.realswordteam.asdust.modules.Vanilla;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.registries.ForgeRegistry;
-import net.minecraftforge.registries.IForgeRegistry;
-import net.minecraftforge.registries.IForgeRegistryModifiable;
 
 public class RecipesLoader {
     public RecipesLoader()
@@ -22,20 +19,24 @@ public class RecipesLoader {
                 new Item[]{Items.APPLE, Items.IRON_INGOT},
                 new ItemStack[]{new ItemStack(Items.GOLD_INGOT, 4), new ItemStack(Items.DIAMOND, 1)}
         );
+        //ASDUST
+        addSimpleShapedRecipe("asdust:dirt",
+                new ItemStack(Blocks.DIRT),
+                "ABA", "BCB", "ABA", 'A', ItemLoader.imperfection, 'B', ItemLoader.loess, 'C', Items.CLAY_BALL);
 
         //Vanilla
         for (String string : vanillaRecipe)
         {
-            VanillaCraftTableRecipe.removeCraftTableRecipe(string);
+            Vanilla.removeCraftTableRecipe(string);
         }
 
         //Ceramics
         if (Loader.isModLoaded("ceramics")) {
 
-            VanillaCraftTableRecipe.removeCraftTableRecipe("ceramics:tools/unfired_clay_bucket");
+            Vanilla.removeCraftTableRecipe("ceramics:tools/unfired_clay_bucket");
 
             addSimpleShapedRecipe("asdust:unfired_clay_recipe",
-                    new ItemStack(CeramicsMod.Unfired_Clay_Bucket(), 2),
+                    new ItemStack(CeramicsMod.Unfired_Clay_Bucket, 2),
                     "A A", "A A", "AAA", 'A', Item.getItemFromBlock(Blocks.CLAY));
         }
     }

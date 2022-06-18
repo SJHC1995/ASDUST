@@ -4,9 +4,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 
 public class CeramicsMod {
-    public static Item Unfired_Clay_Bucket()
-    {
-        return Item.REGISTRY.getObject(new ResourceLocation("ceramics:unfired_clay"));
-    }
+    public static Item Unfired_Clay_Bucket = ModuleBase.getModuleItem("ceramics:unfired_clay");
+
 
 }

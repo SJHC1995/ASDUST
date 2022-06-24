@@ -15,10 +15,10 @@ item.asdust.mixedmortarball.name=Mixed Montar Ball
 item.asdust.imperfection.name=Imperfection
 item.asdust.unfired_clay_bowl.name= Unfired Clay Bowl
 item.asdust.ceramic_bowl.name=Ceramic Bowl
-item.asdust.simple_calcium_oxide=Simple Calcium Oxide
-item.asdust.simple_calcium_hydroxide=Simple Calcium Hydroxide
-item.asdust.mixed_mortar_hard_ceramic_pot_embryo=Mixed Mortar Hard Ceramic Pot Embryo
-item.asdust.mixed_sand_hard_ceramic_pot=Mixed Sand Hard Ceramic Pot
+item.asdust.simple_calcium_oxide.name=Simple Calcium Oxide
+item.asdust.simple_calcium_hydroxide.name=Simple Calcium Hydroxide
+item.asdust.mixed_mortar_hard_ceramic_pot_embryo.name=Mixed Mortar Hard Ceramic Pot Embryo
+item.asdust.mixed_sand_hard_ceramic_pot.name=Mixed Sand Hard Ceramic Pot
 
 
 

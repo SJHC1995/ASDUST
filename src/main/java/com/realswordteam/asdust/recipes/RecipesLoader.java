@@ -23,6 +23,10 @@ public class RecipesLoader {
         addSimpleShapedRecipe("asdust:dirt",
                 new ItemStack(Blocks.DIRT),
                 "ABA", "BCB", "ABA", 'A', ItemLoader.imperfection, 'B', ItemLoader.loess, 'C', Items.CLAY_BALL);
+        addSimpleShapedRecipe("asdust:crafting_table",
+        new ItemStack(Blocks.CRAFTING_TABLE),
+        "AAA","ABA","AAA",'A',Items.AIR,'B',Blocks.BEDROCK
+    );
         addSimpleShapedRecipe("asdust:unfired_clay_bowl",
                 new ItemStack(ItemLoader.unfired_clay_bowl),
                 "   ", "A A", " A ", 'A', Items.CLAY_BALL);
@@ -55,6 +59,7 @@ public class RecipesLoader {
     public final String[] vanillaRecipe =
             {
                     "minecraft:stonebrick",
-                    "minecraft:furnace"
+                    "minecraft:furnace",
+
             };
 }

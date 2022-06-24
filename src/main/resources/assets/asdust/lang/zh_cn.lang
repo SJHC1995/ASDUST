@@ -36,7 +36,7 @@ gui.machine.warning.tank.empty=这个储罐空空如也!
 gui.machine.warning.tank.empty1=也许要填充点什么!
 gui.machine.tank.information.variety=当前液体: %s
 gui.machine.tank.information.amount=体积: %d
-
+gui.machine.tank.information.max_capacity=极限储量体积：%dmB
 
 
 #创造栏

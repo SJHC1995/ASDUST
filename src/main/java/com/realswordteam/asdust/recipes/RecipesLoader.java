@@ -60,6 +60,7 @@ public class RecipesLoader {
             {
                     "minecraft:stonebrick",
                     "minecraft:furnace",
+                    "minecraft:crafting_table"
 
             };
 }

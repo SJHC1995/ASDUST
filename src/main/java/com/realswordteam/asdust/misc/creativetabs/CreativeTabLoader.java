@@ -12,47 +12,47 @@ public class CreativeTabLoader {
     public static CreativeTabs TAB_ASDUST_MAIN;
     public static CreativeTabs TAB_ASDUST_CE;
     public static CreativeTabs TAB_ASDUST_MACHINE;
-    public static CreativeTabs TAB_WOODENGEAR;
-    public static CreativeTabs TAB_MIXEDMORTARBALL;
+    public static CreativeTabs TAB_PARTS;
+    public static CreativeTabs TAB_RAW_MATERIAL;
 
-    public static CreativeTabs TAB_IMPERFECTION;
+    public static CreativeTabs TAB_MISC;
 
     public CreativeTabLoader() {
         TAB_ASDUST_MAIN = new CreativeTabs(ASDUST.MODID + ".main") {
             @Override
             public ItemStack getTabIconItem() {
-                return new ItemStack(ItemLoader.admain);
+                return new ItemStack(ItemLoader.AD_MAIN);
             }
         };
         TAB_ASDUST_CE = new CreativeTabs(ASDUST.MODID + ".element") {
             @Override
             public ItemStack getTabIconItem() {
-                return new ItemStack(ItemLoader.adce);
+                return new ItemStack(ItemLoader.AD_CE);
             }
         };
 
         TAB_ASDUST_MACHINE = new CreativeTabs(ASDUST.MODID + ".machine") {
             @Override
             public ItemStack getTabIconItem() {
-                return new ItemStack(ItemLoader.admachine);
+                return new ItemStack(ItemLoader.AD_MACHINE);
             }
         };
-        TAB_WOODENGEAR = new CreativeTabs(ASDUST.MODID + ".gear_wood") {
+        TAB_PARTS = new CreativeTabs(ASDUST.MODID + ".gear_wood") {
             @Override
             public ItemStack getTabIconItem() {
-                return new ItemStack(ItemLoader.gearwood);
+                return new ItemStack(ItemLoader.GEAR_WOOD);
             }
         };
-        TAB_MIXEDMORTARBALL = new CreativeTabs(ASDUST.MODID + ".mixedmortarball") {
+        TAB_RAW_MATERIAL = new CreativeTabs(ASDUST.MODID + ".mixedmortarball") {
             @Override
             public ItemStack getTabIconItem() {
-                return new ItemStack(ItemLoader.mixedmortarball);
+                return new ItemStack(ItemLoader.MIXED_MORTAR_BALL);
             }
         };
-        TAB_IMPERFECTION = new CreativeTabs(ASDUST.MODID + ".imperfection") {
+        TAB_MISC = new CreativeTabs(ASDUST.MODID + ".imperfection") {
             @Override
             public ItemStack getTabIconItem() {
-                return new ItemStack(ItemLoader.imperfection);
+                return new ItemStack(ItemLoader.IMPERFECTION);
             }
         };
     }

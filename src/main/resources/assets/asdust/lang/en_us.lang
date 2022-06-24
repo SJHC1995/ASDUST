@@ -1,35 +1,121 @@
 #Item name
 item.asdust.asdustmain.name=AS DUST MAIN
 item.asdust.adce.name=AS DUST ChemicalElement
-item.asdust.yfe.name=Ferrum
-item.asdust.yh.name=Hydrogen
-item.asdust.yb.name=Boron
-item.asdust.ybe.name=Beryllium
-item.asdust.yc.name=Carbon
-item.asdust.yhe.name=Helium
-item.asdust.yli.name=Lithium
-item.asdust.yn.name=Nitrogen
 item.asdust.gearwood.name=Wood Gear
 item.asdust.gearwoodgroup.name=Wood Gear Group
 item.asdust.mixedmortarball.name=Mixed Montar Ball
 item.asdust.imperfection.name=Imperfection
 item.asdust.unfired_clay_bowl.name= Unfired Clay Bowl
 item.asdust.ceramic_bowl.name=Ceramic Bowl
-item.asdust.simple_calcium_oxide.name=Simple Calcium Oxide
-item.asdust.simple_calcium_hydroxide.name=Simple Calcium Hydroxide
-item.asdust.mixed_mortar_hard_ceramic_pot_embryo.name=Mixed Mortar Hard Ceramic Pot Embryo
-item.asdust.mixed_sand_hard_ceramic_pot.name=Mixed Sand Hard Ceramic Pot
+item.asdust.simple_calcium_oxide=Simple Calcium Oxide
+item.asdust.simple_calcium_hydroxide=Simple Calcium Hydroxide
+item.asdust.mixed_mortar_hard_ceramic_pot_embryo=Mixed Mortar Hard Ceramic Pot Embryo
+item.asdust.mixed_sand_hard_ceramic_pot=Mixed Sand Hard Ceramic Pot
 
-
-
-
-
-
-
-
-
-
-
+item.asdust.element_001_h.name=Hydrogen
+item.asdust.element_002_he.name=Helium
+item.asdust.element_003_li.name=Lithium
+item.asdust.element_004_be.name=Beryllium
+item.asdust.element_005_b.name=Boron
+item.asdust.element_006_c.name=Carbon
+item.asdust.element_007_n.name=Nitrogen
+item.asdust.element_008_o.name=Oxygen
+item.asdust.element_009_f.name=Fluorine
+item.asdust.element_010_ne.name=Neon
+item.asdust.element_011_na.name=Sodium
+item.asdust.element_012_mg.name=Magnesium
+item.asdust.element_013_al.name=Aluminium
+item.asdust.element_014_si.name=Silicon
+item.asdust.element_015_p.name=Phosphorus
+item.asdust.element_016_s.name=Sulphur
+item.asdust.element_017_cl.name=Chlorine
+item.asdust.element_018_ar.name=Argon
+item.asdust.element_019_k.name=Potassium
+item.asdust.element_020_ca.name=Calcium
+item.asdust.element_021_sc.name=Scandium
+item.asdust.element_022_ti.name=Titanium
+item.asdust.element_023_v.name=Vanadium
+item.asdust.element_024_cr.name=Chromium
+item.asdust.element_025_mn.name=Manganese
+item.asdust.element_026_fe.name=Iron
+item.asdust.element_027_co.name=Cobalt
+item.asdust.element_028_ni.name=Nickel
+item.asdust.element_029_cu.name=Copper
+item.asdust.element_030_zn.name=Zinc
+item.asdust.element_031_ga.name=Gallium
+item.asdust.element_032_ge.name=Germanium
+item.asdust.element_033_as.name=Arsenic
+item.asdust.element_034_se.name=Selenium
+item.asdust.element_035_br.name=Bromine
+item.asdust.element_036_kr.name=Krypton
+item.asdust.element_037_rb.name=Rubidium
+item.asdust.element_038_sr.name=Strontium
+item.asdust.element_039_y.name=Yttrium
+item.asdust.element_040_zr.name=Zirconium
+item.asdust.element_041_nb.name=Niobium
+item.asdust.element_042_mo.name=Molybdenum
+item.asdust.element_043_tc.name=Technetium
+item.asdust.element_044_ru.name=Ruthenium
+item.asdust.element_045_rh.name=Rhodium
+item.asdust.element_046_pd.name=Palladium
+item.asdust.element_047_ag.name=Silver
+item.asdust.element_048_cd.name=Cadmium
+item.asdust.element_049_in.name=Indium
+item.asdust.element_050_sn.name=Tin
+item.asdust.element_051_sb.name=Antimony
+item.asdust.element_052_te.name=Tellurium
+item.asdust.element_053_i.name=Iodine
+item.asdust.element_054_xe.name=Xenon
+item.asdust.element_055_cs.name=Cesium
+item.asdust.element_056_ba.name=Barium
+item.asdust.element_057_la.name=Lanthanum
+item.asdust.element_058_ce.name=Cerium
+item.asdust.element_059_pr.name=Praseodymium
+item.asdust.element_060_nd.name=Neodymium
+item.asdust.element_061_pm.name=Promethium
+item.asdust.element_062_sm.name=Samarium
+item.asdust.element_063_eu.name=Europium
+item.asdust.element_064_gd.name=Gadolinium
+item.asdust.element_065_tb.name=Terbium
+item.asdust.element_066_dy.name=Dysprosium
+item.asdust.element_067_ho.name=Holmium
+item.asdust.element_068_er.name=Erbium
+item.asdust.element_069_tm.name=Thulium
+item.asdust.element_070_yb.name=Ytterbium
+item.asdust.element_071_lu.name=Lutetium
+item.asdust.element_072_hf.name=Hafnium
+item.asdust.element_073_ta.name=Tantalum
+item.asdust.element_074_w.name=Tungsten
+item.asdust.element_075_re.name=Rhenium
+item.asdust.element_076_os.name=Osmium
+item.asdust.element_077_ir.name=Iridium
+item.asdust.element_078_pt.name=Platinum
+item.asdust.element_079_au.name=Gold
+item.asdust.element_080_hg.name=Mercury
+item.asdust.element_081_tl.name=Thallium
+item.asdust.element_082_pb.name=Lead
+item.asdust.element_083_bi.name=Bismuth
+item.asdust.element_084_po.name=Polonium
+item.asdust.element_085_at.name=Astatine
+item.asdust.element_086_rn.name=Radon
+item.asdust.element_087_fr.name=Francium
+item.asdust.element_088_ra.name=Radium
+item.asdust.element_089_ac.name=Actinium
+item.asdust.element_090_th.name=Thorium
+item.asdust.element_091_pa.name=Protactinium
+item.asdust.element_092_u.name=Uranium
+item.asdust.element_093_np.name=Neptunium
+item.asdust.element_094_pu.name=Plutonium
+item.asdust.element_095_am.name=Americium
+item.asdust.element_096_cm.name=Curium
+item.asdust.element_097_bk.name=Berkelium
+item.asdust.element_098_cf.name=Californium
+item.asdust.element_099_es.name=Einsteinium
+item.asdust.element_100_fm.name=Fermium
+item.asdust.element_101_md.name=Mendelevium
+item.asdust.element_102_no.name=Nobelium
+item.asdust.element_103_lr.name=Lawrencium
+item.asdust.element_104_rf.name=Rutherfordium
 
 #CreativeTab Name
 itemGroup.asdust.main=AD MAIN

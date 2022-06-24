@@ -1,8 +1,9 @@
 package com.realswordteam.asdust.block;
 
 import com.realswordteam.asdust.ASDUST;
+import com.realswordteam.asdust.block.machine.tank.BlockCeramicTank;
 import com.realswordteam.asdust.block.machine.BlockMachineBase;
-import com.realswordteam.asdust.block.machine.BlockTank;
+import com.realswordteam.asdust.block.machine.tank.BlockWoodenTank;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
@@ -17,9 +18,9 @@ import java.util.List;
 
 @Mod.EventBusSubscriber(modid= ASDUST.MODID)
 public class BlockLoader{
-    public static Block blockconvert = null;
-    public static Block machinecraft = null;
-    public static Block tankwoodwithleather = null;
+    public static Block CONVERT = null;
+    public static Block MACHINE_CRAFT = null;
+    public static Block TANK_WOOD_LEATHER = null;
     public static Block TANK_MIXED_MORTAR_CERAMICS = null;
 
     public static List<Block> blocklist = new ArrayList<>();
@@ -32,12 +33,10 @@ public class BlockLoader{
     public static void registerBlock(RegistryEvent.Register<Block> event) {
         Block[] blocks = {
 
-            setBlockName(blockconvert = new Block(Material.IRON), "blockconvert"),
-            setBlockName(machinecraft = new BlockMachineBase(Material.IRON),"machinecraft"),
-            setBlockName(tankwoodwithleather = new BlockTank(Material.WOOD, 2000),"tankwoodwithleather"),
-
-            //create a new tank example: To create a new tank, create a new class and inherit the BlockTank class
-            setBlockName(TANK_MIXED_MORTAR_CERAMICS = new BlockTank(Material.IRON, 8000), "tank_mixed_mortar_ceramics")
+            setBlockName(CONVERT = new Block(Material.IRON), "blockconvert"),
+            setBlockName(MACHINE_CRAFT = new BlockMachineBase(Material.IRON),"machinecraft"),
+            setBlockName(TANK_WOOD_LEATHER = new BlockWoodenTank(),"tankwoodwithleather"),
+            setBlockName(TANK_MIXED_MORTAR_CERAMICS = new BlockCeramicTank(), "tank_mixed_mortar_ceramics")
 
         };
         blocklist.addAll(Arrays.asList(blocks));

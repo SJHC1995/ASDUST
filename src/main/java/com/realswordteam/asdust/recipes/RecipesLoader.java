@@ -22,13 +22,13 @@ public class RecipesLoader {
         //ASDUST
         addSimpleShapedRecipe("asdust:dirt",
                 new ItemStack(Blocks.DIRT),
-                "ABA", "BCB", "ABA", 'A', ItemLoader.imperfection, 'B', ItemLoader.loess, 'C', Items.CLAY_BALL);
+                "ABA", "BCB", "ABA", 'A', ItemLoader.IMPERFECTION, 'B', ItemLoader.LOESS, 'C', Items.CLAY_BALL);
         addSimpleShapedRecipe("asdust:crafting_table",
         new ItemStack(Blocks.CRAFTING_TABLE),
         "AAA","ABA","AAA",'A',Items.AIR,'B',Blocks.BEDROCK
     );
         addSimpleShapedRecipe("asdust:unfired_clay_bowl",
-                new ItemStack(ItemLoader.unfired_clay_bowl),
+                new ItemStack(ItemLoader.UNFIRED_CLAY_BOWL),
                 "   ", "A A", " A ", 'A', Items.CLAY_BALL);
 
         //Vanilla

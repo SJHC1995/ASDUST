@@ -23,7 +23,7 @@ public class ItemFluidContainer extends net.minecraftforge.fluids.capability.Ite
     public ItemFluidContainer(int capacity)
     {
         super(capacity);
-        this.setCreativeTab(CreativeTabLoader.TAB_MIXEDMORTARBALL);
+        this.setCreativeTab(CreativeTabLoader.TAB_MISC);
     }
 
     @Override

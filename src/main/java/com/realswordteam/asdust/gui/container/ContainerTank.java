@@ -1,7 +1,6 @@
 package com.realswordteam.asdust.gui.container;
 
-import com.realswordteam.asdust.block.machine.tileentity.TileEntityMachineBase;
-import com.realswordteam.asdust.block.machine.tileentity.TileEntityTank;
+import com.realswordteam.asdust.block.machine.tank.TileEntityBaseTank;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IContainerListener;
@@ -23,7 +22,7 @@ import java.util.Map;
 public class ContainerTank extends Container {
     private IItemHandler tankInput;
     private IItemHandler tankOutput;
-    protected TileEntityTank tileEntityTank;
+    protected TileEntityBaseTank tileEntityTank;
     public int processTime;
     protected FluidTank tank;
     public int fluidAmount;
@@ -35,7 +34,7 @@ public class ContainerTank extends Container {
     {
         super();
 
-        this.tileEntityTank = (TileEntityTank) tileEntity;
+        this.tileEntityTank = (TileEntityBaseTank) tileEntity;
 
         this.tank = tileEntityTank.getTank();
         this.fluidAmount = tank.getFluidAmount();

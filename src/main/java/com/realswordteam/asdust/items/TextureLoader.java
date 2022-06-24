@@ -20,6 +20,10 @@ public final class TextureLoader {
         {
             registerSimpleItemModel(item);
         }
+        for (Item item : ItemChemicalElementRegistry.chemicalElements)
+        {
+            registerSimpleItemModel(item);
+        }
         //Block
         for (Block block : BlockLoader.blocklist)
         {

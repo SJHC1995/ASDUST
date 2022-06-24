@@ -27,7 +27,14 @@ public class GuiContainerTank extends GuiContainer {
         this.ySize = 166;
         this.inventory = inventorySlotsIn;
         this.tank = inventorySlotsIn.getFluidTank();
-        this.tankName = inventorySlotsIn.blockName;
+
+        if (inventorySlotsIn.blockName.isEmpty())
+        {
+            this.tankName = "Name happened problem!";
+        }   else {
+            this.tankName = inventorySlotsIn.blockName;
+        }
+
         this.tankCapacity = inventorySlotsIn.tankCapacity;
     }
 

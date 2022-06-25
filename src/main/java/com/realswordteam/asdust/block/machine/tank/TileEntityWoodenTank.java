@@ -7,5 +7,6 @@ public class TileEntityWoodenTank extends TileEntityBaseTank {
     {
         this.tank.setCapacity(2000);
         this.blockName = BlockLoader.TANK_WOOD_LEATHER.getLocalizedName();
+        this.tank.specificKind = true;
     }
 }

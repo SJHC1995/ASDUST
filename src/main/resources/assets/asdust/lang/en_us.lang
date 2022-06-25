@@ -116,6 +116,20 @@ item.asdust.element_101_md.name=Mendelevium
 item.asdust.element_102_no.name=Nobelium
 item.asdust.element_103_lr.name=Lawrencium
 item.asdust.element_104_rf.name=Rutherfordium
+item.asdust.element_105_db.name=Dubnium
+item.asdust.element_106_sg.name=Seaborgium
+item.asdust.element_107_bh.name=Bohrium
+item.asdust.element_108_hs.name=Hassium
+item.asdust.element_109_mt.name=Meitnerium
+item.asdust.element_110_ds.name=Darmstadtium
+item.asdust.element_111_rg.name=Roentgenium
+item.asdust.element_112_cn.name=Copernicium
+item.asdust.element_113_nh.name=Nihonium
+item.asdust.element_114_fl.name=Flerovium
+item.asdust.element_115_mc.name=Moscovium
+item.asdust.element_116_lv.name=Livermorium
+item.asdust.element_117_ts.name=Tennessine
+item.asdust.element_118_og.name=Oganesson
 
 #CreativeTab Name
 itemGroup.asdust.main=AD MAIN

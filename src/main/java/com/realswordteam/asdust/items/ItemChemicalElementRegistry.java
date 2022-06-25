@@ -109,6 +109,20 @@ public class ItemChemicalElementRegistry {
     public static Item ELEMENT_102_No = null;
     public static Item ELEMENT_103_Lr = null;
     public static Item ELEMENT_104_Rf = null;
+    public static Item ELEMENT_105_Db = null;
+    public static Item ELEMENT_106_Sg = null;
+    public static Item ELEMENT_107_Bh = null;
+    public static Item ELEMENT_108_Hs = null;
+    public static Item ELEMENT_109_Mt = null;
+    public static Item ELEMENT_110_Ds = null;
+    public static Item ELEMENT_111_Rg = null;
+    public static Item ELEMENT_112_Cn = null;
+    public static Item ELEMENT_113_Nh = null;
+    public static Item ELEMENT_114_Fl = null;
+    public static Item ELEMENT_115_Mc = null;
+    public static Item ELEMENT_116_Lv = null;
+    public static Item ELEMENT_117_Ts = null;
+    public static Item ELEMENT_118_Og = null;
 
     public static Item[] chemicalElements =
             {
@@ -216,6 +230,20 @@ public class ItemChemicalElementRegistry {
                     setItemName(ELEMENT_102_No = new ItemChemicalElementBase(), "element_102_no"),
                     setItemName(ELEMENT_103_Lr = new ItemChemicalElementBase(), "element_103_lr"),
                     setItemName(ELEMENT_104_Rf = new ItemChemicalElementBase(), "element_104_rf"),
+                    setItemName(ELEMENT_105_Db = new ItemChemicalElementBase(), "element_105_db"),
+                    setItemName(ELEMENT_106_Sg = new ItemChemicalElementBase(), "element_106_sg"),
+                    setItemName(ELEMENT_107_Bh = new ItemChemicalElementBase(), "element_107_bh"),
+                    setItemName(ELEMENT_108_Hs = new ItemChemicalElementBase(), "element_108_hs"),
+                    setItemName(ELEMENT_109_Mt = new ItemChemicalElementBase(), "element_109_mt"),
+                    setItemName(ELEMENT_110_Ds = new ItemChemicalElementBase(), "element_110_ds"),
+                    setItemName(ELEMENT_111_Rg = new ItemChemicalElementBase(), "element_111_rg"),
+                    setItemName(ELEMENT_112_Cn = new ItemChemicalElementBase(), "element_112_cn"),
+                    setItemName(ELEMENT_113_Nh = new ItemChemicalElementBase(), "element_113_nh"),
+                    setItemName(ELEMENT_114_Fl = new ItemChemicalElementBase(), "element_114_fl"),
+                    setItemName(ELEMENT_115_Mc = new ItemChemicalElementBase(), "element_115_mc"),
+                    setItemName(ELEMENT_116_Lv = new ItemChemicalElementBase(), "element_116_lv"),
+                    setItemName(ELEMENT_117_Ts = new ItemChemicalElementBase(), "element_117_ts"),
+                    setItemName(ELEMENT_118_Og = new ItemChemicalElementBase(), "element_118_og"),
             };
 
     private static Item setItemName(Item item, String name)

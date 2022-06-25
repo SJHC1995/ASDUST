@@ -12,6 +12,8 @@ public class BlockCeramicTank extends BlockBaseTank {
     public BlockCeramicTank()
     {
         super(Material.ROCK);
+        this.setHardness(5.0f);
+        this.setResistance(10.0F);
     }
 
     @Nullable

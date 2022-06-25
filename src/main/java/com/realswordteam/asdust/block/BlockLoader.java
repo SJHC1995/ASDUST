@@ -22,6 +22,7 @@ public class BlockLoader{
     public static Block MACHINE_CRAFT = null;
     public static Block TANK_WOOD_LEATHER = null;
     public static Block TANK_MIXED_MORTAR_CERAMICS = null;
+    public static Block SIMPLE_KILN =null;
 
     public static List<Block> blocklist = new ArrayList<>();
     public static List<Item> itemlist = new ArrayList<>();
@@ -36,7 +37,8 @@ public class BlockLoader{
             setBlockName(CONVERT = new Block(Material.IRON), "blockconvert"),
             setBlockName(MACHINE_CRAFT = new BlockMachineBase(Material.IRON),"machinecraft"),
             setBlockName(TANK_WOOD_LEATHER = new BlockWoodenTank(),"tankwoodwithleather"),
-            setBlockName(TANK_MIXED_MORTAR_CERAMICS = new BlockCeramicTank(), "tank_mixed_mortar_ceramics")
+            setBlockName(TANK_MIXED_MORTAR_CERAMICS = new BlockCeramicTank(), "tank_mixed_mortar_ceramics"),
+                setBlockName(SIMPLE_KILN=new Block(Material.IRON),"simple_kiln")
 
         };
         blocklist.addAll(Arrays.asList(blocks));

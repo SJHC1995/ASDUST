@@ -147,7 +147,9 @@ gui.machine.tank.information.amount=Amount: %dmb
 gui.machine.tank.information.max_capacity=MaxCapacity: %dmb
 
 #Block Name
+tile.asdust.machinecraft.name=Machine Craft
 tile.asdust.tankwoodwithleather.name=Wood Tank With Leather
 tile.asdust.tank_mixed_mortar_ceramics.name=Mixed Mortar Ceramics Tank
+tile.asdust.simple_kiln.name=Simple Kiln
 
 fluid_container.information=%s, Amount: %dmb

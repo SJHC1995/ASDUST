@@ -152,6 +152,7 @@ itemGroup.asdust.mixedmortarball=AD 原料
 itemGroup.asdust.imperfection=AD 杂项
 #方块信息
 tile.asdust.blockconvert.name=转换方块
-tile.asdust.machinecraft.name=原始制作机器
+tile.asdust.machinecraft.name=原始工艺机器
 tile.asdust.tankwoodwithleather.name=带皮木制储罐
 tile.asdust.tank_mixed_mortar_ceramics.name=混合砂浆陶瓷储罐
+tile.asdust.simple_kiln.name=简易窑炉

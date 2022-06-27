@@ -1,6 +1,6 @@
 package com.realswordteam.asdust.block.machine;
 
-import com.realswordteam.asdust.ASDUST;
+import com.realswordteam.asdust.recipes.machine.RecipeCraft;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyDirection;
@@ -10,8 +10,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
@@ -21,6 +19,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.util.Map;
 import java.util.Random;
 
 public class BlockSimpleKiln extends MachineBase{
@@ -110,6 +109,8 @@ public class BlockSimpleKiln extends MachineBase{
     {
         if (!worldIn.isRemote)
         {
+            Map<ItemStack, RecipeCraft.RecipeT> o = RecipeCraft.getRecipeTMap();
+            System.out.println(o);
             if (!state.getValue(WORKING))
             {
                 worldIn.setBlockState(pos, state.withProperty(WORKING, true), 2);
@@ -193,6 +194,6 @@ public class BlockSimpleKiln extends MachineBase{
             case SOUTH:
                 return 1.0D - z;
         }
-        return x;
+        return z;
     }
 }

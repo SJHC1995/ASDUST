@@ -19,6 +19,7 @@ public class GuiContainerTest extends GuiContainer {
     protected ContainerTest inventory;
     private int totalBurnTime1;
     protected int tankCapacity;
+    protected int tankAmount;
     private FluidTank tank;
 
     public GuiContainerTest(ContainerTest inventorySlotsIn) {
@@ -29,6 +30,7 @@ public class GuiContainerTest extends GuiContainer {
         this.totalBurnTime1 = inventorySlotsIn.getTotalBurnTime();
         this.tank = inventorySlotsIn.getFluidTank();
         this.tankCapacity = inventorySlotsIn.tankCapacity;
+        this.tankAmount = inventorySlotsIn.fluidAmount;
         int i = 1;
     }
 

@@ -4,10 +4,12 @@ import com.realswordteam.asdust.block.tileentity.TileEntityLoader;
 import com.realswordteam.asdust.gui.GuiElementLoader;
 import com.realswordteam.asdust.misc.creativetabs.CreativeTabLoader;
 import com.realswordteam.asdust.recipes.RecipesLoader;
+import com.realswordteam.asdust.recipes.machine.RecipeCraft;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLModIdMappingEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.Logger;
 
@@ -40,5 +42,10 @@ public class ASDUST
 
         new GuiElementLoader();
         new RecipesLoader();
+    }
+
+    @EventHandler
+    public void refresh(FMLModIdMappingEvent event) {
+        RecipeCraft.refreshRecipeT();
     }
 }

@@ -79,7 +79,7 @@ public class ContainerTest extends Container {
         super.detectAndSendChanges();
 
         this.burnTime = tileEntityMachineBase.getBurnTime();
-        this.fluidAmount = tileEntityMachineBase.getFluidTank().getFluidAmount();
+        this.fluidAmount = tileEntityMachineBase.getTankAmount();
         Map<Fluid, Integer> ids = FluidRegistry.getRegisteredFluidIDs();
         for (Map.Entry<Fluid, Integer> entry : ids.entrySet())
         {

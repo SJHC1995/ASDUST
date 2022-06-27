@@ -1,8 +1,9 @@
 package com.realswordteam.asdust.block.machine.tileentity;
 
-import com.realswordteam.asdust.recipes.MachineTestRecipe;
+import com.realswordteam.asdust.recipes.ChangeItemStack;
+import com.realswordteam.asdust.recipes.machine.RecipeCraft;
+import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -12,6 +13,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.items.CapabilityItemHandler;
@@ -21,11 +23,13 @@ import java.util.*;
 
 public class TileEntityMachineCraft extends TileEntity implements ITickable {
     public int burnTime;
+    private int recordSlot,recordSlot2,recordSlot3,recordSlot4;
     protected ItemStackHandler ITEM_IN = new ItemStackHandler(4);
     protected ItemStackHandler ITEM_OUT = new ItemStackHandler(3);
 
     protected FluidTank fluidTank = new FluidTank(2000);
     protected Fluid fluid;
+    protected RecipeCraft.RecipeT recipeT = RecipeCraft.Empty;
 
     public TileEntityMachineCraft()
     {
@@ -38,7 +42,11 @@ public class TileEntityMachineCraft extends TileEntity implements ITickable {
     }
     public Fluid getFluid()
     {
-        return this.fluid;
+        if (this.fluidTank.getFluid() != null)
+        {
+            return this.fluidTank.getFluid().getFluid();
+        }
+        return null;
     }
 
     @Override
@@ -95,131 +103,20 @@ public class TileEntityMachineCraft extends TileEntity implements ITickable {
     @Override
     public void update()
     {
-        if (!this.world.isRemote)
+        if (!world.isRemote)
         {
-            List<Item> getItemList = new ArrayList<>();
-            for (int i = 0; i <= 3; i++)
+            if (canStart())
             {
-                if (!ITEM_IN.extractItem(i, 1, true).isEmpty())
+                if (++burnTime > 100)
                 {
-                    getItemList.add(ITEM_IN.extractItem(i, 1, true).getItem());
+                    processFinish();
+                    this.markDirty();
                 }
-            }
-
-            boolean flag1 = getItemList.isEmpty();
-            boolean flag2 = MachineTestRecipe.recipe.recipe(getItemList).isEmpty();
-
-            List<Item> outputSlotItem = new ArrayList<>();
-            for (int i = 0; i <= 2; i++)
-            {
-                if (!ITEM_OUT.extractItem(i, 1, true).isEmpty())
-                {
-                    outputSlotItem.add(ITEM_OUT.extractItem(i, 1, true).getItem());
-                }
-            }
-            boolean flag3 = new HashSet<>(MachineTestRecipe.recipe.getOutputRecipe(getItemList)).containsAll(outputSlotItem);
-
-            if (!flag1 && !flag2 && flag3)
-            {
-
-                    List<ItemStack> outputItemStack = new ArrayList<>(MachineTestRecipe.recipe.recipe(getItemList));
-                    ItemStack[] outputItemStackArray = new ItemStack[outputItemStack.size()];
-                    outputItemStack.toArray(outputItemStackArray);
-
-                    if (this.fluidTank.getFluidAmount() >= 100)
-                    {
-                        int burnTotalTime = 100;
-
-                        if (++this.burnTime >= burnTotalTime)
-                        {
-                            this.burnTime = 0;
-                            for (int i = 0; i <= 3; i++)
-                            {
-                                if (!ITEM_IN.extractItem(i, 1, true).isEmpty())
-                                {
-                                    ITEM_IN.extractItem(i, 1, false);
-                                }
-                            }
-//                            if (checkSlotIsEmpty())
-//                            {
-//                                for (int i = 0; i < outputItemStackArray.length; i++)
-//                                {
-//                                    ItemStack stack = outputItemStackArray[i];
-//                                    ITEM_OUT.insertItem(i, stack, false);
-//                                    System.out.println(i);
-//                                }
-//                            }
-
-                            Map<Integer, ItemStack> map = new HashMap<>();
-                            for (int i = 0; i <= 2; i++)
-                            {
-                                map.put(i, ITEM_OUT.getStackInSlot(i));
-                            }
-//                            if (!checkSlotIsEmpty())
-//                            {
-                                for (ItemStack itemStack : outputItemStackArray)
-                                {
-                                    ItemStack stack = itemStack.copy();
-                                    for (Map.Entry<Integer, ItemStack> entry : map.entrySet())
-                                    {
-                                        int a = entry.getKey();
-                                        boolean flag = (entry.getValue().getCount() + itemStack.getCount()) <= entry.getValue().getMaxStackSize();
-                                        if (itemStack.getItem().equals(entry.getValue().getItem()) && flag)
-                                        {
-                                            ITEM_OUT.insertItem(a, stack, false);
-                                            break;
-                                        } else if (entry.getValue().isEmpty()) {
-                                            ITEM_OUT.insertItem(a, stack, false);
-                                            break;
-                                        }
-                                    }
-                                }
-//                            }
-                            this.fluidTank.drain(100,true);
-                            this.markDirty();
-                        }
-                    }
-            }
-            else
+            }   else if (!canStart())
             {
                 this.burnTime = 0;
             }
-
-            if (this.fluidTank.getFluidAmount() != 0)
-            {
-                this.fluid = this.fluidTank.getFluid().getFluid();
-            }
         }
-    }
-//    public List<ItemStack> getStacks(Map<List<ItemStack>, List<ItemStack>> map, List<ItemStack> list)
-//    {
-//        List<ItemStack> list1 = new ArrayList<>();
-//        for(Map.Entry entry : map.entrySet())
-//        {
-//            if (entry.getKey().equals(list))
-//            {
-//                list1.add((ItemStack) entry.getValue());
-//            }
-//            return list1;
-//        }
-//        return list1;
-//    }
-
-    private boolean checkSlotIsEmpty()
-    {
-        if (ITEM_OUT.getStackInSlot(0).isEmpty())
-        {
-            if (ITEM_OUT.getStackInSlot(1).isEmpty())
-            {
-                if (ITEM_OUT.getStackInSlot(2).isEmpty())
-                {
-                    return true;
-                }
-                return false;
-            }
-            return false;
-        }
-        return false;
     }
 
     @Override
@@ -228,6 +125,190 @@ public class TileEntityMachineCraft extends TileEntity implements ITickable {
         return oldState.getBlock() != newState.getBlock();
     }
 
+    private boolean canStart()
+    {
+        ItemStack coreStack = ItemStack.EMPTY;
+        for (recordSlot = 0; recordSlot < ITEM_IN.getSlots(); recordSlot++)
+        {
+            ItemStack findStack = ITEM_IN.getStackInSlot(recordSlot);
+            ItemStack tempStack = getInput(findStack);
+            ItemStack inputStack = tempStack.copy();
+            if (isRecipeInput(findStack) && findStack.getCount() >= inputStack.getCount())
+            {
+                coreStack = findStack;
+                break;
+            }   else
+            {
+                recipeT = RecipeCraft.Empty;
+            }
+        }
+
+        if (!coreStack.isEmpty())
+        {
+            for (recordSlot2 = 0; recordSlot2 < ITEM_IN.getSlots(); recordSlot2++)
+            {
+                ItemStack findStack2 = ITEM_IN.getStackInSlot(recordSlot2);
+                ItemStack tempStack2 = getRecipeT(coreStack).getInput();
+                ItemStack inputStack2 = tempStack2.copy();
+                boolean flag = inputStack2.isItemEqual(findStack2) || inputStack2.isEmpty();
+                boolean flag2 = findStack2.getCount() >= inputStack2.getCount();
+                if (flag && flag2)
+                {
+                    recipeT = getRecipeT(coreStack);
+                    break;
+                }   else
+                {
+                    recipeT = RecipeCraft.Empty;
+                }
+            }
+        }
+
+        if (!recipeT.isEmpty())
+        {
+            for (recordSlot3 = 0; recordSlot3 < ITEM_OUT.getSlots(); recordSlot3++)
+            {
+                ItemStack inSlotOutputStack = ITEM_OUT.getStackInSlot(recordSlot3);
+                boolean flag1 = inSlotOutputStack.isItemEqual(recipeT.getOutput()) && inSlotOutputStack.getCount() < inSlotOutputStack.getMaxStackSize();
+                if (flag1 || inSlotOutputStack.isEmpty())
+                {
+                    for (recordSlot4 = 0; recordSlot4 < ITEM_OUT.getSlots(); recordSlot4++)
+                    {
+                        ItemStack inSlotByProductionStack = ITEM_OUT.getStackInSlot(recordSlot4);
+                        boolean flag2 = recordSlot3 != recordSlot4 && inSlotByProductionStack.isEmpty();
+                        boolean flag3 = inSlotByProductionStack.isItemEqual(recipeT.getByProduction().getItemStack()) && inSlotByProductionStack.getCount() < inSlotByProductionStack.getMaxStackSize();
+                        if (flag3 || flag2)
+                        {
+                            FluidStack recipeFluid = recipeT.getFluidStack();
+                            FluidStack containerFluid = this.fluidTank.getFluid();
+                            if (containerFluid != null && recipeFluid != null)
+                            {
+                                return containerFluid.amount >= recipeFluid.amount && containerFluid.isFluidEqual(recipeFluid);
+                            }   else if (recipeFluid == null)
+                            {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    private void processFinish()
+    {
+        if (!recipeT.isEmpty())
+        {
+            ItemStack outputRecipe = ITEM_OUT.getStackInSlot(recordSlot3);
+            ItemStack tempOutputRecipe = recipeT.getOutput();
+            ItemStack outputItem = tempOutputRecipe.copy();
+            if (outputRecipe.isEmpty())
+            {
+                ITEM_OUT.insertItem(recordSlot3, outputItem, false);
+            }   else
+            {
+                outputRecipe.grow(outputItem.getCount());
+            }
+
+            ItemStack byProductionRecipe = ITEM_OUT.getStackInSlot(recordSlot4);
+            ChangeItemStack tempByProductionRecipe = recipeT.getByProduction();
+            ItemStack tempByProductionRecipeItem = tempByProductionRecipe.getItemStack();
+            ItemStack byProductionItem = tempByProductionRecipeItem.copy();
+            int change = recipeT.getByProduction().getChange();
+            Random random = new Random();
+            int randomValue = random.nextInt(100);
+            boolean flag = randomValue < change;
+            if (byProductionRecipe.isEmpty() && flag)
+            {
+                ITEM_OUT.insertItem(recordSlot4, byProductionItem, false);
+            }   else if (flag)
+            {
+                byProductionRecipe.grow(byProductionItem.getCount());
+            }
+
+            ItemStack tempCoreRecipe = getInputFromRecipe(recipeT);
+            ItemStack coreItem = tempCoreRecipe.copy();
+            if (!coreItem.isEmpty())
+            {
+                ITEM_IN.getStackInSlot(recordSlot).shrink(coreItem.getCount());
+            }
+
+            ItemStack tempInputRecipe = recipeT.getInput();
+            ItemStack inputItem = tempInputRecipe.copy();
+            if (!inputItem.isEmpty())
+            {
+                ITEM_IN.getStackInSlot(recordSlot2).shrink(inputItem.getCount());
+            }
+
+            FluidStack recipeFluid = recipeT.getFluidStack();
+            if (recipeFluid != null)
+            {
+                this.fluidTank.drain(recipeT.getFluidStack().amount, true);
+            }
+
+        }
+        this.burnTime = 0;
+
+    }
+    private ItemStack getInput(ItemStack itemStack)
+    {
+        for (Map.Entry<ItemStack, RecipeCraft.RecipeT> entry : RecipeCraft.getRecipeTMap().entrySet())
+        {
+            if (itemStack.isItemEqual(entry.getKey()))
+            {
+                return entry.getKey();
+            }
+        }
+        return ItemStack.EMPTY;
+    }
+    private ItemStack getInputFromRecipe(RecipeCraft.RecipeT recipeT)
+    {
+        for (Map.Entry<ItemStack, RecipeCraft.RecipeT> entry : RecipeCraft.getRecipeTMap().entrySet())
+        {
+            if (recipeT.equals(entry.getValue()))
+            {
+                return entry.getKey();
+            }
+        }
+        return ItemStack.EMPTY;
+    }
+    private boolean isRecipeInput(ItemStack input)
+    {
+        for (Map.Entry<ItemStack, RecipeCraft.RecipeT> entry : RecipeCraft.getRecipeTMap().entrySet())
+        {
+            if (input.isItemEqual(entry.getKey()))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private RecipeCraft.RecipeT getRecipeT(ItemStack input)
+    {
+        for (Map.Entry<ItemStack, RecipeCraft.RecipeT> entry : RecipeCraft.getRecipeTMap().entrySet())
+        {
+            if (input.isItemEqual(entry.getKey()))
+            {
+                return entry.getValue();
+            }
+        }
+        return RecipeCraft.Empty;
+    }
+    private Map<Integer, ItemStack> getITEM_INMap()
+    {
+        Map<Integer, ItemStack> map = new Object2ObjectOpenHashMap<>();
+        for (int num = 0; num < ITEM_IN.getSlots(); num++)
+        {
+            map.put(num, ITEM_IN.getStackInSlot(num));
+        }
+        return map;
+    }
+
+    public int getTankAmount()
+    {
+        return this.fluidTank.getFluidAmount();
+    }
     public int getBurnTime()
     {
         return this.burnTime;

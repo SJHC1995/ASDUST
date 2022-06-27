@@ -1,6 +1,7 @@
 package com.realswordteam.asdust.block.machine;
 
 import com.realswordteam.asdust.ASDUST;
+import com.realswordteam.asdust.misc.creativetabs.CreativeTabLoader;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -25,6 +26,7 @@ public class MachineBase extends BlockContainer {
     {
         super(material);
         this.gui = gui;
+        this.setCreativeTab(CreativeTabLoader.TAB_ASDUST_MACHINE);
     }
 
     @Nullable

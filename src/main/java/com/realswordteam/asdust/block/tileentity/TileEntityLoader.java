@@ -1,6 +1,7 @@
 package com.realswordteam.asdust.block.tileentity;
 
 import com.realswordteam.asdust.ASDUST;
+import com.realswordteam.asdust.block.machine.tileentity.TileEntityKiln;
 import com.realswordteam.asdust.block.machine.tileentity.TileEntityMachineCraft;
 import com.realswordteam.asdust.block.machine.tank.TileEntityBaseTank;
 import com.realswordteam.asdust.block.machine.tank.TileEntityCeramicTank;
@@ -15,6 +16,7 @@ public class TileEntityLoader {
         registerTileEntity(TileEntityMachineCraft.class, "machinecraft");
         registerTileEntity(TileEntityBaseTank.class, "tank");
         registerTileEntity(TileEntityCeramicTank.class, "ceramic_tank");
+        registerTileEntity(TileEntityKiln.class, "kiln");
     }
 
     public static void registerTileEntity(Class<? extends TileEntity> tileEntityClass, String name)

@@ -1,75 +1,82 @@
 package com.realswordteam.asdust.recipes.machine;
 
 import com.realswordteam.asdust.recipes.ChangeItemStack;
+import com.realswordteam.asdust.recipes.input.InputFluidStack;
+import com.realswordteam.asdust.recipes.input.InputItemStack;
+import com.realswordteam.asdust.recipes.output.OutputItemStack;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class RecipeCraft {
-    private static Map<ItemStack, RecipeT> recipeTMap = new Object2ObjectOpenHashMap<>();
+    private static Map<String, RecipeT> recipeTMap = new Object2ObjectOpenHashMap<>();
+    private static List<RecipeT> recipeTList = new ArrayList<>();
+    public static RecipeT Empty = new RecipeCraft.RecipeT(new InputItemStack(), new InputFluidStack(), new OutputItemStack());
 
-    public static RecipeT Empty = new RecipeCraft.RecipeT(ItemStack.EMPTY, ItemStack.EMPTY, null, new ChangeItemStack(ItemStack.EMPTY, 100));
+    public static List<RecipeT> getRecipeTList()
+    {
+        return recipeTList;
+    }
+    public static Map<String, RecipeT> getRecipeTMap()
+    {
+        return recipeTMap;
+    }
+    public static void addRecipe(String name, RecipeT recipeT)
+    {
+        recipeTMap.put(name, recipeT);
+        recipeTList.add(recipeT);
+    }
 
     public static void refreshRecipeT()
     {
-        Map<ItemStack, RecipeT> tempRecipeT = new Object2ObjectOpenHashMap<>(recipeTMap.size());
+        Map<String, RecipeT> tempRecipeT = new Object2ObjectOpenHashMap<>(recipeTMap.size());
         RecipeT recipeT;
 
-        for (Map.Entry<ItemStack, RecipeT> entry : recipeTMap.entrySet())
+        for (Map.Entry<String, RecipeT> entry : recipeTMap.entrySet())
         {
             recipeT = entry.getValue();
-            ItemStack input = entry.getKey();
-            tempRecipeT.put(input, recipeT);
+            String name = entry.getKey();
+            tempRecipeT.put(name, recipeT);
         }
 
         recipeTMap.clear();
 
         recipeTMap = tempRecipeT;
     }
-    public static Map<ItemStack, RecipeT> getRecipeTMap()
-    {
-        return recipeTMap;
-    }
-    public static void addRecipe(ItemStack input, RecipeT recipeT)
-    {
-        recipeTMap.put(input, recipeT);
-    }
     public static class RecipeT
     {
-        final ItemStack input;
-        final ItemStack output;
-        final ChangeItemStack byProduction;
-        final FluidStack fluidStack;
-        public RecipeT(ItemStack input, ItemStack output, FluidStack fluidStack, ChangeItemStack byProduction)
+        final InputItemStack inputItemStack;
+        final InputFluidStack inputFluidStack;
+        final OutputItemStack outputItemStack;
+        public RecipeT(InputItemStack inputItemStack, InputFluidStack inputFluidStack, OutputItemStack outputItemStack)
         {
-            this.input = input;
-            this.output = output;
-            this.fluidStack = fluidStack;
-            this.byProduction = byProduction;
+            this.inputItemStack = inputItemStack;
+            this.inputFluidStack = inputFluidStack;
+            this.outputItemStack = outputItemStack;
         }
 
-        public ItemStack getInput()
+        public InputItemStack getInputItemStack()
         {
-            return input;
+            return inputItemStack;
         }
 
-        public ItemStack getOutput()
+        public OutputItemStack getOutputItemStack()
         {
-            return output;
+            return outputItemStack;
         }
-        public FluidStack getFluidStack()
+
+        public InputFluidStack getInputFluidStack()
         {
-            return fluidStack;
-        }
-        public ChangeItemStack getByProduction()
-        {
-            return byProduction;
+            return inputFluidStack;
         }
         public boolean isEmpty()
         {
-            return this.byProduction.isEmpty() && this.output.isEmpty() && this.input.isEmpty() && this.fluidStack == null;
+            return this.equals(Empty);
         }
     }
 

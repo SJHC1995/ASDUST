@@ -1,7 +1,8 @@
 package com.realswordteam.asdust.block;
 
 import com.realswordteam.asdust.ASDUST;
-import com.realswordteam.asdust.block.machine.BlockSimpleKiln;
+import com.realswordteam.asdust.block.machine.kiln.BlockCobbleStoneKiln;
+import com.realswordteam.asdust.block.machine.kiln.BlockSimpleKiln;
 import com.realswordteam.asdust.block.machine.MachineBase;
 import com.realswordteam.asdust.block.machine.tank.BlockCeramicTank;
 import com.realswordteam.asdust.block.machine.BlockMachineBase;
@@ -42,7 +43,7 @@ public class BlockLoader{
             setBlockName(TANK_WOOD_LEATHER = new BlockWoodenTank(),"tankwoodwithleather"),
             setBlockName(TANK_MIXED_MORTAR_CERAMICS = new BlockCeramicTank(), "tank_mixed_mortar_ceramics"),
                 setBlockName(SIMPLE_KILN = new BlockSimpleKiln(Material.IRON),"simple_kiln"),
-                setBlockName(COBBLESTONE_KILN = new MachineBase(0, Material.ROCK), "cobblestone_kiln")
+                setBlockName(COBBLESTONE_KILN = new BlockCobbleStoneKiln(), "cobblestone_kiln")
 
 
         };

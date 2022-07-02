@@ -1,5 +1,6 @@
-package com.realswordteam.asdust.block.machine;
+package com.realswordteam.asdust.block.machine.kiln;
 
+import com.realswordteam.asdust.block.machine.MachineBase;
 import com.realswordteam.asdust.recipes.machine.RecipeCraft;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
@@ -22,7 +23,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.Map;
 import java.util.Random;
 
-public class BlockSimpleKiln extends MachineBase{
+public class BlockSimpleKiln extends MachineBase {
     public static boolean isWorking;
     public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
     public static final PropertyBool WORKING = PropertyBool.create("working");
@@ -109,8 +110,6 @@ public class BlockSimpleKiln extends MachineBase{
     {
         if (!worldIn.isRemote)
         {
-            Map<ItemStack, RecipeCraft.RecipeT> o = RecipeCraft.getRecipeTMap();
-            System.out.println(o);
             if (!state.getValue(WORKING))
             {
                 worldIn.setBlockState(pos, state.withProperty(WORKING, true), 2);

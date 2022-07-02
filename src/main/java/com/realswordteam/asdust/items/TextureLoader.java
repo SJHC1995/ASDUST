@@ -2,11 +2,14 @@ package com.realswordteam.asdust.items;
 
 import com.realswordteam.asdust.ASDUST;
 import com.realswordteam.asdust.block.BlockLoader;
+import com.realswordteam.asdust.block.machine.tileentity.TileEntityKiln;
+import com.realswordteam.asdust.client.render.CobblestoneKilnRender;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
@@ -29,6 +32,8 @@ public final class TextureLoader {
         {
             registerSimpleBlockModel(block);
         }
+
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityKiln.class, new CobblestoneKilnRender());
     }
 
     private static void registerSimpleBlockModel(Block block) {
@@ -52,5 +57,7 @@ public final class TextureLoader {
             throw new RuntimeException("Model register failed!: " + item.getUnlocalizedName());
         }
     }
+
+
 }
 

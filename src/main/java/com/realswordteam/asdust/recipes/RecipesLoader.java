@@ -4,7 +4,10 @@ import com.realswordteam.asdust.ASDUST;
 import com.realswordteam.asdust.items.ItemLoader;
 import com.realswordteam.asdust.modules.CeramicsMod;
 import com.realswordteam.asdust.modules.Vanilla;
+import com.realswordteam.asdust.recipes.input.InputFluidStack;
+import com.realswordteam.asdust.recipes.input.InputItemStack;
 import com.realswordteam.asdust.recipes.machine.RecipeCraft;
+import com.realswordteam.asdust.recipes.output.OutputItemStack;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -47,32 +50,39 @@ public class RecipesLoader {
         }
 
         //ASDUST - CraftRecipes
-        RecipeCraft.addRecipe(new ItemStack(Items.IRON_INGOT),
+        addRecipeMachineCraft("dirt",
                 new RecipeCraft.RecipeT(
-                        new ItemStack(Item.getItemFromBlock(Blocks.DIRT)),
-                        new ItemStack(Items.APPLE, 2),
-                        new FluidStack(FluidRegistry.WATER, 100),
-                        new ChangeItemStack(new ItemStack(ItemLoader.IMPERFECTION), 75))
-        );
-        RecipeCraft.addRecipe(new ItemStack(Items.CLAY_BALL, 4),
-                new RecipeCraft.RecipeT(
-                        ItemStack.EMPTY,
-                        new ItemStack(Item.getItemFromBlock(Blocks.CLAY)),
-                        null,
-                        ChangeItemStack.Empty
+                        new InputItemStack(new ItemStack(Item.getItemFromBlock(Blocks.DIRT))),
+                        new InputFluidStack(),
+                        new OutputItemStack(new ItemStack(Items.STICK))
                 ));
-        RecipeCraft.addRecipe(new ItemStack(Item.getItemFromBlock(Blocks.DIRT), 2),
+        addRecipeMachineCraft("diamond",
                 new RecipeCraft.RecipeT(
-                        new ItemStack(Item.getItemFromBlock(Blocks.SAND), 8),
-                        new ItemStack(Item.getItemFromBlock(Blocks.CLAY), 4),
-                        new FluidStack(FluidRegistry.WATER, 500),
-                        new ChangeItemStack(new ItemStack(ItemLoader.LOESS, 8), 25)
+                        new InputItemStack(new ItemStack(Items.DIAMOND), new ItemStack(Items.CLAY_BALL)),
+                        new InputFluidStack(),
+                        new OutputItemStack(new ItemStack(Items.STICK))
+                ));
+        addRecipeMachineCraft("wood",
+                new RecipeCraft.RecipeT(
+                        new InputItemStack(new ItemStack(Item.getItemFromBlock(Blocks.LOG)), new ItemStack(Items.STICK), new ItemStack(Items.APPLE)),
+                        new InputFluidStack(),
+                        new OutputItemStack(new ItemStack(Items.STICK), new ItemStack(Items.DIAMOND))
+                ));
+        addRecipeMachineCraft("food",
+                new RecipeCraft.RecipeT(
+                        new InputItemStack(new ItemStack(Items.APPLE), new ItemStack(Items.BREAD), new ItemStack(Items.COOKED_CHICKEN), new ItemStack(Items.COOKED_PORKCHOP)),
+                        new InputFluidStack(new FluidStack(FluidRegistry.WATER, 1000)),
+                        new OutputItemStack(new ItemStack(Items.STICK), new ItemStack(Items.CLAY_BALL), new ItemStack(Items.DIAMOND))
                 ));
     }
 
     private void addSimpleShapedRecipe(String recipeName, ItemStack output, Object... params)
     {
         GameRegistry.addShapedRecipe(new ResourceLocation(recipeName), new ResourceLocation(ASDUST.NAME), output, params);
+    }
+    private void addRecipeMachineCraft(String name, RecipeCraft.RecipeT recipeT)
+    {
+        RecipeCraft.addRecipe(ASDUST.MODID + "." + "machine" + "." + "craft" + name, recipeT);
     }
 
     /**

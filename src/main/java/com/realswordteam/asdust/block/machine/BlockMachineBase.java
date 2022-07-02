@@ -4,6 +4,8 @@ import com.realswordteam.asdust.ASDUST;
 import com.realswordteam.asdust.block.machine.tileentity.TileEntityMachineCraft;
 import com.realswordteam.asdust.gui.GuiElementLoader;
 import com.realswordteam.asdust.misc.creativetabs.CreativeTabLoader;
+import com.realswordteam.asdust.recipes.input.InputItemStack;
+import com.realswordteam.asdust.recipes.machine.RecipeCraft;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -43,6 +45,8 @@ public class BlockMachineBase extends BlockContainer {
         IFluidHandler iFluidHandler = te.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
         if (!worldIn.isRemote)
         {
+            InputItemStack inputItemStack = new InputItemStack();
+            boolean flag = inputItemStack.isEmpty();
             if (!playerIn.isSneaking())
             {
                 if (!FluidUtil.interactWithFluidHandler(playerIn, hand, iFluidHandler))

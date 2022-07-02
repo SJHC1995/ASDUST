@@ -12,6 +12,32 @@ item.asdust.simple_calcium_hydroxide=Simple Calcium Hydroxide
 item.asdust.mixed_mortar_hard_ceramic_pot_embryo=Mixed Mortar Hard Ceramic Pot Embryo
 item.asdust.mixed_sand_hard_ceramic_pot=Mixed Sand Hard Ceramic Pot
 
+#CreativeTab Name
+itemGroup.asdust.main=AD MAIN
+itemGroup.asdust.element=AD ELEMENT
+itemGroup.asdust.machine=AD MACHINE
+itemGroup.asdust.gear_wood=AD PART
+itemGroup.asdust.mixedmortarball=AD RAW MATERIAL
+itemGroup.asdust.imperfection=AD MISC
+
+#Gui Information
+gui.machine.warning.tank.empty=Tank is Empty!
+gui.machine.warning.tank.empty1=You should fill it!
+gui.machine.tank.information.variety=Tank: %s
+gui.machine.tank.information.amount=Amount: %dmb
+gui.machine.tank.information.max_capacity=MaxCapacity: %dmb
+
+#Block Name
+tile.asdust.machinecraft.name=Machine Craft
+tile.asdust.tankwoodwithleather.name=Wood Tank With Leather
+tile.asdust.tank_mixed_mortar_ceramics.name=Mixed Mortar Ceramics Tank
+tile.asdust.simple_kiln.name=Simple Kiln
+
+fluid_container.information=%s, Amount: %dmb
+#Jei
+jei.asdust.machine_craft.name=Machine Craft
+
+#element
 item.asdust.element_001_h.name=Hydrogen
 item.asdust.element_002_he.name=Helium
 item.asdust.element_003_li.name=Lithium
@@ -130,26 +156,3 @@ item.asdust.element_115_mc.name=Moscovium
 item.asdust.element_116_lv.name=Livermorium
 item.asdust.element_117_ts.name=Tennessine
 item.asdust.element_118_og.name=Oganesson
-
-#CreativeTab Name
-itemGroup.asdust.main=AD MAIN
-itemGroup.asdust.element=AD ELEMENT
-itemGroup.asdust.machine=AD MACHINE
-itemGroup.asdust.gear_wood=AD PART
-itemGroup.asdust.mixedmortarball=AD RAW MATERIAL
-itemGroup.asdust.imperfection=AD MISC
-
-#Gui Information
-gui.machine.warning.tank.empty=Tank is Empty!
-gui.machine.warning.tank.empty1=You should fill it!
-gui.machine.tank.information.variety=Tank: %s
-gui.machine.tank.information.amount=Amount: %dmb
-gui.machine.tank.information.max_capacity=MaxCapacity: %dmb
-
-#Block Name
-tile.asdust.machinecraft.name=Machine Craft
-tile.asdust.tankwoodwithleather.name=Wood Tank With Leather
-tile.asdust.tank_mixed_mortar_ceramics.name=Mixed Mortar Ceramics Tank
-tile.asdust.simple_kiln.name=Simple Kiln
-
-fluid_container.information=%s, Amount: %dmb

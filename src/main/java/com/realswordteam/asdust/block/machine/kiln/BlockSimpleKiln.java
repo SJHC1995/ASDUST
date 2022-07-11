@@ -1,6 +1,8 @@
 package com.realswordteam.asdust.block.machine.kiln;
 
+import com.realswordteam.asdust.ASDUST;
 import com.realswordteam.asdust.block.machine.MachineBase;
+import com.realswordteam.asdust.gui.GuiElementLoader;
 import com.realswordteam.asdust.recipes.machine.RecipeCraft;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
@@ -29,7 +31,7 @@ public class BlockSimpleKiln extends MachineBase {
     public static final PropertyBool WORKING = PropertyBool.create("working");
     public BlockSimpleKiln(Material material)
     {
-        super(1, material);
+        super(2, material);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(WORKING, false));
     }
 
@@ -110,11 +112,13 @@ public class BlockSimpleKiln extends MachineBase {
     {
         if (!worldIn.isRemote)
         {
-            if (!state.getValue(WORKING))
-            {
-                worldIn.setBlockState(pos, state.withProperty(WORKING, true), 2);
-                return true;
-            }
+            playerIn.openGui(ASDUST.instance, GuiElementLoader.GUI_KILN, worldIn, pos.getX(), pos.getY(), pos.getZ());
+            return true;
+//            if (!state.getValue(WORKING))
+//            {
+//                worldIn.setBlockState(pos, state.withProperty(WORKING, true), 2);
+//                return true;
+//            }
 //            else if (state.getValue(WORKING))
 //            {
 //                worldIn.setBlockState(pos, state.withProperty(WORKING, false), 2);

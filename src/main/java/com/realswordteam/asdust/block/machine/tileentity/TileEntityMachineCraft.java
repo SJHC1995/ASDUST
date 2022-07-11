@@ -1,11 +1,7 @@
 package com.realswordteam.asdust.block.machine.tileentity;
 
-import com.realswordteam.asdust.recipes.ChangeItemStack;
-import com.realswordteam.asdust.recipes.input.InputItemStack;
 import com.realswordteam.asdust.recipes.machine.RecipeCraft;
-import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -21,11 +17,9 @@ import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
-import java.util.*;
-
 public class TileEntityMachineCraft extends TileEntity implements ITickable {
     public int burnTime;
-    private int recordSlot,recordSlot2,recordSlot3,recordSlot4,recordSlot5,recordSlot6,recordSlot7;
+    private int recordSlot,recordSlot2,recordSlot3;
     boolean flag = false, flag2 = false;
     boolean flag3 = false, flag4 = false;
     boolean flag5 = false, flag6 = false;
@@ -173,7 +167,7 @@ public class TileEntityMachineCraft extends TileEntity implements ITickable {
 
                 if (flag2)
                 {
-                    ItemStack fromRecipe = recipeT.getInputItemStack().getInput(0);
+                    ItemStack fromRecipe = recipeT.getInputItemStack().getInputStack(0);
                     for (int num = 0; num < ITEM_IN.getSlots(); num++)
                     {
                         if (ITEM_IN.getStackInSlot(num).isItemEqual(fromRecipe))
@@ -187,8 +181,8 @@ public class TileEntityMachineCraft extends TileEntity implements ITickable {
 
                 if (flag3)
                 {
-                    ItemStack fromRecipe_1 = recipeT.getInputItemStack().getInput(0);
-                    ItemStack fromRecipe_2 = recipeT.getInputItemStack().getInput(1);
+                    ItemStack fromRecipe_1 = recipeT.getInputItemStack().getInputStack(0);
+                    ItemStack fromRecipe_2 = recipeT.getInputItemStack().getInputStack(1);
                     for (int num = 0; num < ITEM_IN.getSlots(); num++)
                     {
                         if (ITEM_IN.getStackInSlot(num).isItemEqual(fromRecipe_1))
@@ -208,9 +202,9 @@ public class TileEntityMachineCraft extends TileEntity implements ITickable {
                 }
                 if (flag4)
                 {
-                    ItemStack fromRecipe_1 = recipeT.getInputItemStack().getInput(0);
-                    ItemStack fromRecipe_2 = recipeT.getInputItemStack().getInput(1);
-                    ItemStack fromRecipe_3 = recipeT.getInputItemStack().getInput(2);
+                    ItemStack fromRecipe_1 = recipeT.getInputItemStack().getInputStack(0);
+                    ItemStack fromRecipe_2 = recipeT.getInputItemStack().getInputStack(1);
+                    ItemStack fromRecipe_3 = recipeT.getInputItemStack().getInputStack(2);
                     for (int num = 0; num < ITEM_IN.getSlots(); num++)
                     {
                         if (ITEM_IN.getStackInSlot(num).isItemEqual(fromRecipe_1))
@@ -238,10 +232,10 @@ public class TileEntityMachineCraft extends TileEntity implements ITickable {
 
                 if (flag5)
                 {
-                    ItemStack fromRecipe_1 = recipeT.getInputItemStack().getInput(0);
-                    ItemStack fromRecipe_2 = recipeT.getInputItemStack().getInput(1);
-                    ItemStack fromRecipe_3 = recipeT.getInputItemStack().getInput(2);
-                    ItemStack fromRecipe_4 = recipeT.getInputItemStack().getInput(3);
+                    ItemStack fromRecipe_1 = recipeT.getInputItemStack().getInputStack(0);
+                    ItemStack fromRecipe_2 = recipeT.getInputItemStack().getInputStack(1);
+                    ItemStack fromRecipe_3 = recipeT.getInputItemStack().getInputStack(2);
+                    ItemStack fromRecipe_4 = recipeT.getInputItemStack().getInputStack(3);
                     for (int num = 0; num < ITEM_IN.getSlots(); num++)
                     {
                         if (ITEM_IN.getStackInSlot(num).isItemEqual(fromRecipe_1))
@@ -286,7 +280,6 @@ public class TileEntityMachineCraft extends TileEntity implements ITickable {
             flag8 = recipeT.getOutputItemStack().getSize() == 2;
             flag9 = recipeT.getOutputItemStack().getSize() == 3;
         }
-
         if (flag7)
         {
             ItemStack tempStack = recipeT.getOutputItemStack().getOutput(0);
@@ -318,7 +311,6 @@ public class TileEntityMachineCraft extends TileEntity implements ITickable {
                 }
             }
         }
-
         if (flag9) {
             ItemStack tempStack = recipeT.getOutputItemStack().getOutput(0);
             ItemStack fromRecipe_1 = tempStack.copy();
@@ -345,8 +337,6 @@ public class TileEntityMachineCraft extends TileEntity implements ITickable {
                 }
             }
         }
-
-
         if (!recipeT.isEmpty() && !fluidFlag)
         {
             if (recipeT.getInputFluidStack().getSize() != 0)
@@ -369,7 +359,6 @@ public class TileEntityMachineCraft extends TileEntity implements ITickable {
                     fluidFlag = true;
             }
         }
-
         if (flag6 && flag10 && fluidFlag)
         {
             return true;
@@ -453,63 +442,6 @@ public class TileEntityMachineCraft extends TileEntity implements ITickable {
                 }
             }
         }
-//        if (!recipeT.isEmpty())
-//        {
-//            //Output
-//            ItemStack outputRecipe = ITEM_OUT.getStackInSlot(recordSlot3);
-//            ItemStack tempOutputRecipe = recipeT.getOutput();
-//            ItemStack outputItem = tempOutputRecipe.copy();
-//            if (outputRecipe.isEmpty())
-//            {
-//                ITEM_OUT.insertItem(recordSlot3, outputItem, false);
-//            }   else
-//            {
-//                outputRecipe.grow(outputItem.getCount());
-//            }
-//
-//            //ByProduction
-//            ItemStack byProductionRecipe = ITEM_OUT.getStackInSlot(recordSlot4);
-//            ChangeItemStack tempByProductionRecipe = recipeT.getByProduction();
-//            ItemStack tempByProductionRecipeItem = tempByProductionRecipe.getItemStack();
-//            ItemStack byProductionItem = tempByProductionRecipeItem.copy();
-//            int change = recipeT.getByProduction().getChange();
-//            Random random = new Random();
-//            int randomValue = random.nextInt(100);
-//            boolean flag = randomValue < change;
-//            if (byProductionRecipe.isEmpty() && flag)
-//            {
-//                ITEM_OUT.insertItem(recordSlot4, byProductionItem, false);
-//            }   else if (flag)
-//            {
-//                byProductionRecipe.grow(byProductionItem.getCount());
-//            }
-//
-//            //Core
-//            ItemStack tempCoreRecipe = getInputFromRecipe(recipeT);
-//            ItemStack coreItem = tempCoreRecipe.copy();
-//            if (!coreItem.isEmpty())
-//            {
-//                ITEM_IN.getStackInSlot(recordSlot).shrink(coreItem.getCount());
-//            }
-//
-//            //Input
-//            ItemStack tempInputRecipe = recipeT.getInput();
-//            ItemStack inputItem = tempInputRecipe.copy();
-//            if (!inputItem.isEmpty())
-//            {
-//                ITEM_IN.getStackInSlot(recordSlot2).shrink(inputItem.getCount());
-//            }
-//
-//            //Fluid
-//            FluidStack recipeFluid = recipeT.getFluidStack();
-//            if (recipeFluid != null)
-//            {
-//                this.fluidTank.drain(recipeT.getFluidStack().amount, true);
-//            }
-//
-//        }
-//        this.burnTime = 0;
-
     }
 
 }

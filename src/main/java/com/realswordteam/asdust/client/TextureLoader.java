@@ -1,9 +1,11 @@
-package com.realswordteam.asdust.items;
+package com.realswordteam.asdust.client;
 
 import com.realswordteam.asdust.ASDUST;
 import com.realswordteam.asdust.block.BlockLoader;
-import com.realswordteam.asdust.block.machine.tileentity.TileEntityKiln;
+import com.realswordteam.asdust.block.machine.kiln.TileEntityKiln;
 import com.realswordteam.asdust.client.render.CobblestoneKilnRender;
+import com.realswordteam.asdust.items.ItemChemicalElementRegistry;
+import com.realswordteam.asdust.items.ItemLoader;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;

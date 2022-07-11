@@ -1,6 +1,5 @@
 package com.realswordteam.asdust.modules.jei.machinecraft;
 
-import com.realswordteam.asdust.recipes.ChangeItemStack;
 import com.realswordteam.asdust.recipes.input.InputItemStack;
 import com.realswordteam.asdust.recipes.machine.RecipeCraft;
 import com.realswordteam.asdust.recipes.output.OutputItemStack;
@@ -8,10 +7,8 @@ import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class MachineCraftWrapper implements IRecipeWrapper {
@@ -33,7 +30,7 @@ public class MachineCraftWrapper implements IRecipeWrapper {
             InputItemStack inputItemStack = recipeT.getInputItemStack();
             for (int num = 0; num < inputItemStack.getSize(); num++)
             {
-                inputs.add(inputItemStack.getInput(num));
+                inputs.add(inputItemStack.getInputStack(num));
             }
         }
         ingredients.setInputs(VanillaTypes.ITEM, inputs);

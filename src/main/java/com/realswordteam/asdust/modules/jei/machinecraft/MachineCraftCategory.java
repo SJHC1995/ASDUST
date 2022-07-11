@@ -8,9 +8,7 @@ import mezz.jei.api.gui.IDrawable;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.IRecipeCategory;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
@@ -24,10 +22,10 @@ public class MachineCraftCategory implements IRecipeCategory<MachineCraftWrapper
     private final IDrawable background;
     private final String localizedName;
     private final IDrawable icon;
-    private final String RESOURCE_NAME = ASDUST.MODID + ":" + "textures/gui/jei/jei_machine_craft.png";
 
     public MachineCraftCategory(IGuiHelper guiHelper) {
         super();
+        String RESOURCE_NAME = ASDUST.MODID + ":" + "textures/gui/jei/jei_machine_craft.png";
         ResourceLocation iconResource = new ResourceLocation(RESOURCE_NAME);
         background = guiHelper.createDrawable(iconResource, 0, 0, 151, 60);
         localizedName = I18n.format("jei.asdust.machine_craft.name");
@@ -55,8 +53,6 @@ public class MachineCraftCategory implements IRecipeCategory<MachineCraftWrapper
     }
     @Override
     public void setRecipe(@Nonnull IRecipeLayout recipeLayout, @Nonnull MachineCraftWrapper recipeWrapper, @Nonnull IIngredients ingredients) {
-        int inputSlot = 0;
-        int outputSlot = 1;
         recipeLayout.getItemStacks().init(0, true, 8, 10);
         recipeLayout.getItemStacks().init(1, true, 28, 10);
         recipeLayout.getItemStacks().init(2, true, 8, 32);
@@ -79,10 +75,4 @@ public class MachineCraftCategory implements IRecipeCategory<MachineCraftWrapper
         return ASDUST.MODID;
     }
 
-//    @Override
-//    public void drawExtras(Minecraft minecraft) {
-//        ResourceLocation iconResource = new ResourceLocation(RESOURCE_NAME);
-//        minecraft.getTextureManager().bindTexture(iconResource);
-//        minecraft.ingameGUI.drawTexturedModalRect(0, 0, 0, 0, 151, 60);
-//    }
 }

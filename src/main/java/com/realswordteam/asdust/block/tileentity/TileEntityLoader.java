@@ -1,7 +1,7 @@
 package com.realswordteam.asdust.block.tileentity;
 
 import com.realswordteam.asdust.ASDUST;
-import com.realswordteam.asdust.block.machine.tileentity.TileEntityKiln;
+import com.realswordteam.asdust.block.machine.kiln.TileEntityKiln;
 import com.realswordteam.asdust.block.machine.tileentity.TileEntityMachineCraft;
 import com.realswordteam.asdust.block.machine.tank.TileEntityBaseTank;
 import com.realswordteam.asdust.block.machine.tank.TileEntityCeramicTank;

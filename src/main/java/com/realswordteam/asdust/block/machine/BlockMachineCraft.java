@@ -5,7 +5,6 @@ import com.realswordteam.asdust.block.machine.tileentity.TileEntityMachineCraft;
 import com.realswordteam.asdust.gui.GuiElementLoader;
 import com.realswordteam.asdust.misc.creativetabs.CreativeTabLoader;
 import com.realswordteam.asdust.recipes.input.InputItemStack;
-import com.realswordteam.asdust.recipes.machine.RecipeCraft;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -30,9 +29,9 @@ import net.minecraftforge.items.IItemHandler;
 
 import java.util.*;
 
-public class BlockMachineBase extends BlockContainer {
+public class BlockMachineCraft extends BlockContainer {
 
-    public BlockMachineBase(Material material){
+    public BlockMachineCraft(Material material){
         super(material);
         this.setCreativeTab(CreativeTabLoader.TAB_ASDUST_MACHINE);
         this.setDefaultState(this.getBlockState().getBaseState().withProperty(FACING, EnumFacing.EAST));

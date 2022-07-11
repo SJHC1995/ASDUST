@@ -12,7 +12,9 @@ import net.minecraftforge.items.ItemStackHandler;
 public class TileEntityKiln extends TileEntity {
     protected ItemStackHandler inputsHandler = new ItemStackHandler(2);
 
-    protected ItemStackHandler outputsHandler,  fuelHandler;
+    protected ItemStackHandler outputsHandler = new ItemStackHandler();
+
+    protected ItemStackHandler fuelHandler = new ItemStackHandler();
 
     @Override
     public boolean hasCapability(Capability<?> capability, EnumFacing facing)
@@ -48,7 +50,7 @@ public class TileEntityKiln extends TileEntity {
     @Override
     public NBTTagCompound writeToNBT(NBTTagCompound compound)
     {
-        compound = super.writeToNBT(compound);
+        super.writeToNBT(compound);
         compound.setTag("item_input", this.inputsHandler.serializeNBT());
         compound.setTag("item_output", this.outputsHandler.serializeNBT());
         compound.setTag("fuel", this.fuelHandler.serializeNBT());

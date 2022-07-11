@@ -150,7 +150,7 @@ public class TileEntityBaseTank extends TileEntity implements ITickable {
     @Override
     public NBTTagCompound writeToNBT(NBTTagCompound compound)
     {
-        compound = super.writeToNBT(compound);
+        super.readFromNBT(compound);
         compound.setTag("Item_Put", this.ITEM_IN.serializeNBT());
         compound.setTag("Item_Out", this.ITEM_OUT.serializeNBT());
         compound.setInteger("tankCapacity", this.tankCapacity);

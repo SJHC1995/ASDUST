@@ -282,7 +282,7 @@ public class TileEntityMachineCraft extends TileEntity implements ITickable {
         }
         if (flag7)
         {
-            ItemStack tempStack = recipeT.getOutputItemStack().getOutput(0);
+            ItemStack tempStack = recipeT.getOutputItemStack().getOutputStack(0);
             ItemStack fromRecipe_1 = tempStack.copy();
             for (int num = 0; num < ITEM_OUT.getSlots(); num++)
             {
@@ -294,9 +294,9 @@ public class TileEntityMachineCraft extends TileEntity implements ITickable {
             }
         }
         if (flag8) {
-            ItemStack tempStack = recipeT.getOutputItemStack().getOutput(0);
+            ItemStack tempStack = recipeT.getOutputItemStack().getOutputStack(0);
             ItemStack fromRecipe_1 = tempStack.copy();
-            ItemStack tempStack1 = recipeT.getOutputItemStack().getOutput(1);
+            ItemStack tempStack1 = recipeT.getOutputItemStack().getOutputStack(1);
             ItemStack fromRecipe_2 = tempStack1.copy();
             for (int num = 0; num < ITEM_OUT.getSlots(); num++) {
                 if (ITEM_OUT.getStackInSlot(num).isItemEqual(fromRecipe_1) || ITEM_OUT.getStackInSlot(num).isEmpty()) {
@@ -312,11 +312,11 @@ public class TileEntityMachineCraft extends TileEntity implements ITickable {
             }
         }
         if (flag9) {
-            ItemStack tempStack = recipeT.getOutputItemStack().getOutput(0);
+            ItemStack tempStack = recipeT.getOutputItemStack().getOutputStack(0);
             ItemStack fromRecipe_1 = tempStack.copy();
-            ItemStack tempStack1 = recipeT.getOutputItemStack().getOutput(1);
+            ItemStack tempStack1 = recipeT.getOutputItemStack().getOutputStack(1);
             ItemStack fromRecipe_2 = tempStack1.copy();
-            ItemStack tempStack2 = recipeT.getOutputItemStack().getOutput(2);
+            ItemStack tempStack2 = recipeT.getOutputItemStack().getOutputStack(2);
             ItemStack fromRecipe_3 = tempStack2.copy();
             for (int num = 0; num < ITEM_OUT.getSlots(); num++) {
                 if (ITEM_OUT.getStackInSlot(num).isItemEqual(fromRecipe_1) || ITEM_OUT.getStackInSlot(num).isEmpty()) {
@@ -375,11 +375,11 @@ public class TileEntityMachineCraft extends TileEntity implements ITickable {
         fluidFlag = false;
         this.burnTime = 0;
 
-        ItemStack tempStack = recipeT.getOutputItemStack().getOutput(0);
+        ItemStack tempStack = recipeT.getOutputItemStack().getOutputStack(0);
         ItemStack fromRecipe_1 = tempStack.copy();
-        ItemStack tempStack1 = recipeT.getOutputItemStack().getOutput(1);
+        ItemStack tempStack1 = recipeT.getOutputItemStack().getOutputStack(1);
         ItemStack fromRecipe_2 = tempStack1.copy();
-        ItemStack tempStack2 = recipeT.getOutputItemStack().getOutput(2);
+        ItemStack tempStack2 = recipeT.getOutputItemStack().getOutputStack(2);
         ItemStack fromRecipe_3 = tempStack2.copy();
 
         if (!recipeT.isEmpty())

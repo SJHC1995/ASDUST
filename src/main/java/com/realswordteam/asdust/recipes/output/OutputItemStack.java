@@ -7,29 +7,34 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class OutputItemStack {
+public class OutputItemStack implements OutputStack<ItemStack>{
     final List<ItemStack> outputs = new ArrayList<>();
-    public static OutputItemStack EMPTY = new OutputItemStack(ItemStack.EMPTY);
+
     public OutputItemStack(ItemStack... itemStacks)
     {
         outputs.addAll(Arrays.asList(itemStacks));
     }
+
+    @Override
     public int getSize() {
         return outputs.size();
     }
-    public List<ItemStack> getOutputs()
-    {
+
+    @Override
+    public List<ItemStack> getOutputStackList() {
         return outputs;
     }
 
-    public ItemStack getOutput(int value)
-    {
+    @Override
+    public ItemStack getOutputStack(int value) {
         if (value < outputs.size() && value >= 0)
         {
             return outputs.get(value);
         }
         return ItemStack.EMPTY;
     }
+
+    @Override
     public boolean isEmpty()
     {
         return outputs.isEmpty();

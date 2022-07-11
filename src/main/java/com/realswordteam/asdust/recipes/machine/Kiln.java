@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class RecipeKiln implements RecipeWrapper<RecipeSimple>{
+public class Kiln implements RecipeWrapper<RecipeSimple>{
 
     public Map<String, RecipeSimple> recipeSimpleMap = new Object2ObjectOpenHashMap<>();
 

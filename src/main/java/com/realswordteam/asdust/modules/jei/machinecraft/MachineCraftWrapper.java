@@ -49,7 +49,7 @@ public class MachineCraftWrapper implements IRecipeWrapper {
             OutputItemStack outputItemStack = recipeT.getOutputItemStack();
             for (int num = 0; num < outputItemStack.getSize(); num++)
             {
-                outputs.add(outputItemStack.getOutput(num));
+                outputs.add(outputItemStack.getOutputStack(num));
             }
         }
 

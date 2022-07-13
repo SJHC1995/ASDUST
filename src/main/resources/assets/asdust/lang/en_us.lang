@@ -11,7 +11,7 @@ item.asdust.simple_calcium_oxide=Simple Calcium Oxide
 item.asdust.simple_calcium_hydroxide=Simple Calcium Hydroxide
 item.asdust.mixed_mortar_hard_ceramic_pot_embryo=Mixed Mortar Hard Ceramic Pot Embryo
 item.asdust.mixed_sand_hard_ceramic_pot=Mixed Sand Hard Ceramic Pot
-
+item.asdust.hey.name=Hey
 #CreativeTab Name
 itemGroup.asdust.main=AD MAIN
 itemGroup.asdust.element=AD ELEMENT

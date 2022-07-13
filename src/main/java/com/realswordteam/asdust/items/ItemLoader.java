@@ -21,6 +21,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
         public static Item LOESS = null;
         public static Item UNFIRED_CLAY_BOWL = null;
         public static Item CERAMIC_BOWl = null;
+        public static Item HEY=null;
 
         static Item[] items = {
                 setItemName(AD_MAIN = new ItemMainBase(), "admain"),
@@ -32,7 +33,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
                 setItemName(IMPERFECTION = new ItemMiscBase(), "imperfection"),
                 setItemName(LOESS = new ItemRawMaterialBase(), "loess"),
                 setItemName(UNFIRED_CLAY_BOWL = new ItemMiscBase(), "unfired_clay_bowl"),
-                setItemName(CERAMIC_BOWl = new ItemFluidContainer(250), "ceramic_bowl")
+                setItemName(CERAMIC_BOWl = new ItemFluidContainer(250), "ceramic_bowl"),
+                setItemName(HEY=new ItemRawMaterialBase(),"hey"),
         };
 
 

@@ -36,6 +36,8 @@ tile.asdust.simple_kiln.name=Simple Kiln
 fluid_container.information=%s, Amount: %dmb
 #Jei
 jei.asdust.machine_craft.name=Machine Craft
+#Fluid
+fluid.asdust.plant_oil=Plant Oil
 
 #element
 item.asdust.element_001_h.name=Hydrogen

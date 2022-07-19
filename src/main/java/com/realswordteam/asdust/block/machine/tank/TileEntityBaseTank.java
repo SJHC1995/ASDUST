@@ -23,12 +23,12 @@ public class TileEntityBaseTank extends TileEntity implements ITickable {
     protected ItemStack oldItemStack = ItemStack.EMPTY;
     protected int tankCapacity;
     protected String blockName = "null";
-    protected SpecificKindTank tank = new SpecificKindTank(1000);
+    protected SpecificKindFluidTank tank = new SpecificKindFluidTank(1000);
     public TileEntityBaseTank()
     {
         this.tank.specificKind = false;
     }
-    public SpecificKindTank getTank()
+    public SpecificKindFluidTank getTank()
     {
         return this.tank;
     }

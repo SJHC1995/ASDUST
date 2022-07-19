@@ -3,9 +3,9 @@ package com.realswordteam.asdust.block.machine;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.ItemStackHandler;
 
-public class Util {
+public class SimpleUtil {
 
-    public static boolean checkInputItemStackIsEmpty(ItemStackHandler handler)
+    public static boolean checkItemStackOfHandlerIsEmpty(ItemStackHandler handler)
     {
         for (int num = 0; num < handler.getSlots(); num++)
         {

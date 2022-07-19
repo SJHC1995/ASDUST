@@ -5,8 +5,11 @@ import net.minecraft.item.ItemStack;
 import java.util.Random;
 
 public class ChangeItemStack {
+
     final ItemStack itemStack;
+
     final int max;
+
     final int min;
 
     static final ChangeItemStack Empty = new ChangeItemStack(ItemStack.EMPTY, 1,1);
@@ -16,10 +19,12 @@ public class ChangeItemStack {
         this.max = max;
         this.min = min;
     }
+
     public boolean isEmpty()
     {
         return itemStack.isEmpty();
     }
+
     public ItemStack getItemStack()
     {
         if (!itemStack.isEmpty())

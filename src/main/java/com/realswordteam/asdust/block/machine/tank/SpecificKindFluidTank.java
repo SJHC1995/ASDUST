@@ -4,9 +4,9 @@ import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
 
-public class SpecificKindTank extends FluidTank {
+public class SpecificKindFluidTank extends FluidTank {
     public boolean specificKind;
-    public SpecificKindTank(int capacity)
+    public SpecificKindFluidTank(int capacity)
     {
         super(capacity);
     }

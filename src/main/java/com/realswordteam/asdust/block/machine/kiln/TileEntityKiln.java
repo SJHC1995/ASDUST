@@ -1,6 +1,10 @@
 package com.realswordteam.asdust.block.machine.kiln;
 
-import com.realswordteam.asdust.block.machine.Util;
+import com.realswordteam.asdust.block.BlockLoader;
+import com.realswordteam.asdust.block.machine.SimpleUtil;
+import com.realswordteam.asdust.block.machine.tileentity.TileEntityMachineBase;
+import com.realswordteam.asdust.network.MessageKiln;
+import com.realswordteam.asdust.network.NetWorkLoader;
 import com.realswordteam.asdust.recipes.RecipesLoader;
 import com.realswordteam.asdust.recipes.machine.Kiln;
 import com.realswordteam.asdust.recipes.recipe.RecipeSimple;
@@ -10,13 +14,14 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
 import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
 import java.util.Map;
+import java.util.Random;
 
-public class TileEntityKiln extends TileEntity implements ITickable {
+public class TileEntityKiln extends TileEntityMachineBase implements ITickable {
     protected ItemStackHandler inputsHandler = new ItemStackHandler(2);
 
     protected ItemStackHandler outputsHandler = new ItemStackHandler();
@@ -25,40 +30,84 @@ public class TileEntityKiln extends TileEntity implements ITickable {
 
     public Kiln kiln = RecipesLoader.kiln;
 
-    private int burnTime;
+    private int kilnCookTime;
+    private int kilnBurnTime;
+    private int totalKilnBurnTime;
+
+    private int slagNumber;
+
+
+    public TileEntityKiln() {
+        super();
+        this.blockName = BlockLoader.COBBLESTONE_KILN.getLocalizedName();
+    }
+
+    public int getKilnCookTime()
+    {
+        return kilnCookTime;
+    }
+
+    public int getKilnBurnTime()
+    {
+        return this.kilnBurnTime;
+    }
+
+    public int getTotalKilnBurnTime()
+    {
+        return this.totalKilnBurnTime;
+    }
+
+    public int getSlagNumber()
+    {
+        return this.slagNumber;
+    }
+
+    public boolean shrinkSlagNumber()
+    {
+        if (slagNumber >= 1)
+        {
+            this.slagNumber--;
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isBurning()
+    {
+        return this.kilnBurnTime > 0;
+    }
 
     @Override
     public void update() {
+        if (isBurning())
+        {
+            --this.kilnBurnTime;
+        }
         if (!world.isRemote)
         {
             if (canStart())
             {
-                if (canBurn())
+                if (this.kilnBurnTime == 0)
                 {
-                    if (++burnTime >= getFuelBurnTime)
-                    {
-                        processFinish();
-                        this.markDirty();
-                    }
+                    this.kilnCookTime = 0;
+                }
+                if (this.kilnBurnTime > 0)
+                {
+                    ++this.kilnCookTime;
+                }
+                if (this.kilnCookTime > 200)
+                {
+                    sendPacket();
+                    processFinish();
+                    this.markDirty();
+                    this.kilnCookTime = 0;
                 }
             }
         }
     }
 
-    @Override
-    public boolean hasCapability(Capability<?> capability, EnumFacing facing)
-    {
-        if (CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.equals(capability))
-        {
-            return true;
-        }
-        return super.hasCapability(capability, facing);
-    }
-
     private boolean flag;
     private boolean flag1, flag2, flag3, flag4, flag5;
-
-    private boolean isBurning;
 
     private RecipeSimple recipe;
 
@@ -66,8 +115,53 @@ public class TileEntityKiln extends TileEntity implements ITickable {
 
     private boolean canStart()
     {
-        // first check
-        if (!Util.checkInputItemStackIsEmpty(inputsHandler) && !flag)
+        if (isBurning() && !isFilledWithSlag())
+        {
+            if (canSmelt())
+            {
+                return true;
+            }
+        }
+        if (!isBurning() && !isFilledWithSlag())
+        {
+            if (canSmelt())
+            {
+                if (!fuelHandler.getStackInSlot(0).isEmpty())
+                {
+                    ItemStack containerFuel = fuelHandler.getStackInSlot(0);
+                    Map<ItemStack, Integer> getFuels = RecipesLoader.kileFuel.getFuels();
+                    for (Map.Entry<ItemStack, Integer> entry : getFuels.entrySet())
+                    {
+                        ItemStack tempStack = entry.getKey();
+                        ItemStack getStack = tempStack.copy();
+                        if (containerFuel.isItemEqual(getStack))
+                        {
+                            this.kilnBurnTime = entry.getValue();
+                            this.totalKilnBurnTime = this.kilnBurnTime;
+                            containerFuel.shrink(getStack.getCount());
+                            randomSpawnSlag();
+                            sendPacket();
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        if (isFilledWithSlag())
+        {
+            this.kilnCookTime = 0;
+        }
+        return false;
+    }
+
+    private boolean isFilledWithSlag()
+    {
+        return this.slagNumber == 10;
+    }
+
+    private boolean canSmelt()
+    {
+        if (!SimpleUtil.checkItemStackOfHandlerIsEmpty(inputsHandler) && !flag)
         {
             for (RecipeSimple recipe : kiln.getRecipeList())
             {
@@ -84,6 +178,7 @@ public class TileEntityKiln extends TileEntity implements ITickable {
                             inputsHandler.getStackInSlot(num).shrink(fromRecipe.getCount());
                             this.recipe = recipe;
                             flag = true;
+                            break;
                         }
                     }
                 }
@@ -100,10 +195,11 @@ public class TileEntityKiln extends TileEntity implements ITickable {
                             {
                                 if (inputsHandler.getStackInSlot(num1).isItemEqual(fromRecipe_2))
                                 {
-                                    Util.getItemStackFromHandler(num, inputsHandler).shrink(fromRecipe_1.getCount());
-                                    Util.getItemStackFromHandler(num1, inputsHandler).shrink(fromRecipe_2.getCount());
+                                    SimpleUtil.getItemStackFromHandler(num, inputsHandler).shrink(fromRecipe_1.getCount());
+                                    SimpleUtil.getItemStackFromHandler(num1, inputsHandler).shrink(fromRecipe_2.getCount());
                                     this.recipe = recipe;
                                     flag = true;
+                                    break;
                                 }
                             }
                         }
@@ -124,7 +220,8 @@ public class TileEntityKiln extends TileEntity implements ITickable {
             ItemStack fromRecipe_1 = tempStack.copy();
             for (int num = 0; num < outputsHandler.getSlots(); num++)
             {
-                if (outputsHandler.getStackInSlot(num).isItemEqual(fromRecipe_1) || outputsHandler.getStackInSlot(num).isEmpty())
+                if (outputsHandler.getStackInSlot(num).isItemEqual(fromRecipe_1) && outputsHandler.getStackInSlot(num).getCount() < fromRecipe_1.getMaxStackSize()
+                        || outputsHandler.getStackInSlot(num).isEmpty())
                 {
                     recordSlot = num;
                     flag5 = true;
@@ -133,30 +230,9 @@ public class TileEntityKiln extends TileEntity implements ITickable {
         }
 
         //third check
-        if (flag && flag5 && isBurning)
+        if (flag && flag5)
         {
             return true;
-        }
-        return false;
-    }
-
-    private int getFuelBurnTime;
-
-    private boolean canBurn()
-    {
-        if (!(recipe == null) && !isBurning)
-        {
-            ItemStack fuelSlotStack = fuelHandler.getStackInSlot(0);
-            for (Map.Entry<ItemStack, Integer> entry : RecipesLoader.kileFuel.getFuels().entrySet())
-            {
-                if (fuelSlotStack.isItemEqual(entry.getKey()))
-                {
-                    getFuelBurnTime = entry.getValue();
-                    fuelHandler.getStackInSlot(0).shrink(fuelSlotStack.getCount());
-                    isBurning = true;
-                    return true;
-                }
-            }
         }
         return false;
     }
@@ -183,8 +259,42 @@ public class TileEntityKiln extends TileEntity implements ITickable {
                 }
             }
         }
-        burnTime = 0;
         flag3 = false;
+    }
+
+    private void randomSpawnSlag()
+    {
+        Random random = new Random();
+        int value = random.nextInt(2);
+        if (this.slagNumber <= 9)
+        {
+            this.slagNumber = value + this.slagNumber;
+        }
+    }
+
+    public void sendPacket()
+    {
+        int dimension = world.provider.getDimension();
+        double x = getPos().getX();
+        double y = getPos().getY();
+        double z = getPos().getZ();
+        NetWorkLoader.instance.sendToAllAround(new MessageKiln(this), new NetworkRegistry.TargetPoint(dimension, x, y, z, 128D));
+    }
+
+    //
+    public void receiveMessageFromServer(int slagNumber)
+    {
+        this.slagNumber = slagNumber;
+    }
+
+    @Override
+    public boolean hasCapability(Capability<?> capability, EnumFacing facing)
+    {
+        if (CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.equals(capability))
+        {
+            return true;
+        }
+        return super.hasCapability(capability, facing);
     }
 
     @Override
@@ -206,6 +316,12 @@ public class TileEntityKiln extends TileEntity implements ITickable {
         this.inputsHandler.deserializeNBT(compound.getCompoundTag("item_input"));
         this.outputsHandler.deserializeNBT(compound.getCompoundTag("item_output"));
         this.fuelHandler.deserializeNBT(compound.getCompoundTag("fuel"));
+
+        this.kilnCookTime = compound.getInteger("cookTime");
+        this.kilnBurnTime = compound.getInteger("burnTime");
+        this.totalKilnBurnTime = compound.getInteger("totalBurnTime");
+
+        this.slagNumber = compound.getInteger("slagNumber");
     }
 
     @Override
@@ -215,6 +331,12 @@ public class TileEntityKiln extends TileEntity implements ITickable {
         compound.setTag("item_input", this.inputsHandler.serializeNBT());
         compound.setTag("item_output", this.outputsHandler.serializeNBT());
         compound.setTag("fuel", this.fuelHandler.serializeNBT());
+
+        compound.setInteger("cookTime", this.kilnCookTime);
+        compound.setInteger("burnTime", this.kilnBurnTime);
+        compound.setInteger("totalBurnTime", this.totalKilnBurnTime);
+
+        compound.setInteger("slagNumber", this.slagNumber);
         return compound;
     }
 

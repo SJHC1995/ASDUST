@@ -23,6 +23,11 @@ public class ExtendLootTable {
 
     public static List<ExtendLootTable> extendLootTables = new ArrayList<>();
 
+    public static void addEntityLootTable(ExtendLootTable extendLootTable)
+    {
+        extendLootTables.add(extendLootTable);
+    }
+
     public static void spawnEntityItem(World world, EntityLivingBase entity)
     {
         List<ChangeItemStack> list = getChangeItemsFromEntity(entity);
@@ -30,27 +35,6 @@ public class ExtendLootTable {
         {
             world.spawnEntity(new EntityItem(world, entity.posX, entity.posY, entity.posZ, changeItemStack.spawnItemStack()));
         }
-    }
-    public static List<ResourceLocation> getResources()
-    {
-        List<ResourceLocation> resourceLocations = new ArrayList<>();
-        for (ExtendLootTable lootTable : extendLootTables)
-        {
-            resourceLocations.add(lootTable.resourceLocation);
-        }
-        return resourceLocations;
-    }
-
-    public static boolean compareEntity(ResourceLocation resource)
-    {
-        for (ResourceLocation listName : getResources())
-        {
-            if (listName.equals(resource))
-            {
-                return true;
-            }
-        }
-        return false;
     }
 
     public static List<ChangeItemStack> getChangeItemsFromEntity(EntityLivingBase entity)
@@ -67,9 +51,26 @@ public class ExtendLootTable {
         return null;
     }
 
-    public static void addEntityLootTable(ExtendLootTable extendLootTable)
+    public static boolean compareEntity(ResourceLocation resource)
     {
-        extendLootTables.add(extendLootTable);
+        for (ResourceLocation listName : getResources())
+        {
+            if (listName.equals(resource))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static List<ResourceLocation> getResources()
+    {
+        List<ResourceLocation> resourceLocations = new ArrayList<>();
+        for (ExtendLootTable lootTable : extendLootTables)
+        {
+            resourceLocations.add(lootTable.resourceLocation);
+        }
+        return resourceLocations;
     }
 
     public ExtendLootTable(ResourceLocation resourceLocation, ChangeItemStack... changeItemStacks) {

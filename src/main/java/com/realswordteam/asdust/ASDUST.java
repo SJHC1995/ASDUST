@@ -4,6 +4,7 @@ import com.realswordteam.asdust.block.tileentity.TileEntityLoader;
 import com.realswordteam.asdust.fluid.FluidLoader;
 import com.realswordteam.asdust.gui.GuiElementLoader;
 import com.realswordteam.asdust.misc.creativetabs.CreativeTabLoader;
+import com.realswordteam.asdust.network.NetWorkLoader;
 import com.realswordteam.asdust.recipes.RecipesLoader;
 import com.realswordteam.asdust.recipes.machine.RecipeCraft;
 import net.minecraft.init.Blocks;
@@ -33,6 +34,7 @@ public class ASDUST
         new TileEntityLoader();
         new CreativeTabLoader();
         new FluidLoader();
+        new NetWorkLoader(event);
 //        new FluidManager();
     }
 

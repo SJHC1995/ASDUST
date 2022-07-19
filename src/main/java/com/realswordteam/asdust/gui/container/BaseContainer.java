@@ -3,9 +3,26 @@ package com.realswordteam.asdust.gui.container;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
-import net.minecraftforge.items.IItemHandler;
 
-public class ContainerBase extends Container {
+public class BaseContainer extends Container {
+    protected String blockName;
+    protected String playerInventoryName;
+
+    public BaseContainer(EntityPlayer player, String blockName)
+    {
+        this.playerInventoryName = player.inventory.getDisplayName().getUnformattedText();
+        this.blockName = blockName;
+    }
+
+    public String getBlockName()
+    {
+        return blockName;
+    }
+
+    public String getPlayerInventoryName()
+    {
+        return playerInventoryName;
+    }
     @Override
     public boolean canInteractWith(EntityPlayer playerIn) {
         return false;

@@ -21,9 +21,10 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
         public static Item LOESS = null;
         public static Item UNFIRED_CLAY_BOWL = null;
         public static Item CERAMIC_BOWl = null;
-        public static Item HEY=null;
+        public static Item HAY = null;
+        public static Item BRIQUETTE = null;
 
-        static Item[] items = {
+        private static final Item[] items = {
                 setItemName(AD_MAIN = new ItemMainBase(), "admain"),
                 setItemName(AD_CE = new ItemMainBase(), "adce"),
                 setItemName(AD_MACHINE = new ItemMainBase(), "admachine"),
@@ -34,7 +35,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
                 setItemName(LOESS = new ItemRawMaterialBase(), "loess"),
                 setItemName(UNFIRED_CLAY_BOWL = new ItemMiscBase(), "unfired_clay_bowl"),
                 setItemName(CERAMIC_BOWl = new ItemFluidContainer(250), "ceramic_bowl"),
-                setItemName(HEY=new ItemRawMaterialBase(),"hey"),
+                setItemName(HAY = new ItemRawMaterialBase(),"hay"),
+                setItemName(BRIQUETTE = new ItemRawMaterialBase(), "briquette")
         };
 
 

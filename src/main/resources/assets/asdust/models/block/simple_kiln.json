@@ -3,7 +3,7 @@
 	"parent": "block/cube_all",
 	"textures": {
 		"0": "blocks/cobblestone",
-		"3": "asdust:blocks/cobblestone_kiln_top",
+		"3": "asdust:blocks/simple_kiln_top",
 		"particle": "blocks/cobblestone"
 	},
 	"elements": [
@@ -84,8 +84,7 @@
 	"groups": [
 		0,
 		{
-			"name": "bone",
-			"origin": [0, 0, 0],
+			"name": "bone",			"origin": [0, 0, 0],
 			"color": 0,
 			"children": [1, 2, 3, 4]
 		},

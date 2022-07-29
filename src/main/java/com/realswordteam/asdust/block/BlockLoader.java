@@ -20,12 +20,12 @@ import java.util.List;
 
 @Mod.EventBusSubscriber(modid= ASDUST.MODID)
 public class BlockLoader{
-    public static Block CONVERT = null;
+
     public static Block MACHINE_CRAFT = null;
     public static Block TANK_WOOD_LEATHER = null;
     public static Block TANK_MIXED_MORTAR_CERAMICS = null;
     public static Block SIMPLE_KILN = null;
-    public static Block COBBLESTONE_KILN = null;
+
 
     public static List<Block> blocklist = new ArrayList<>();
     public static List<Item> itemlist = new ArrayList<>();
@@ -37,12 +37,12 @@ public class BlockLoader{
     public static void registerBlock(RegistryEvent.Register<Block> event) {
         Block[] blocks = {
 
-            setBlockName(CONVERT = new Block(Material.IRON), "blockconvert"),
+
             setBlockName(MACHINE_CRAFT = new BlockMachineCraft(Material.IRON),"machinecraft"),
             setBlockName(TANK_WOOD_LEATHER = new BlockWoodenTank(),"tankwoodwithleather"),
             setBlockName(TANK_MIXED_MORTAR_CERAMICS = new BlockCeramicTank(), "tank_mixed_mortar_ceramics"),
                 setBlockName(SIMPLE_KILN = new BlockSimpleKiln(Material.IRON),"simple_kiln"),
-                setBlockName(COBBLESTONE_KILN = new BlockCobbleStoneKiln(), "cobblestone_kiln")
+
 
 
         };

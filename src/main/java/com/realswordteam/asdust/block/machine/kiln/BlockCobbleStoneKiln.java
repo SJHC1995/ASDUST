@@ -14,8 +14,11 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
+import java.util.Random;
 
 public class BlockCobbleStoneKiln extends BlockSimpleKiln{
     public BlockCobbleStoneKiln()
@@ -34,21 +37,25 @@ public class BlockCobbleStoneKiln extends BlockSimpleKiln{
     {
         if (!worldIn.isRemote)
         {
-            TileEntityKiln te = (TileEntityKiln) worldIn.getTileEntity(pos);
-            ItemStack handStack = playerIn.getHeldItemMainhand();
-            if (handStack.getItem().equals(Items.STICK))
+            TileEntity te =  worldIn.getTileEntity(pos);
+            if (te instanceof TileEntityKiln)
             {
-                te.shrinkSlagNumber();
-                te.sendPacket();
-                handStack.damageItem(1, playerIn);
-            }   else
-            {
-                playerIn.openGui(ASDUST.instance, GuiElementLoader.GUI_KILN, worldIn, pos.getX(), pos.getY(), pos.getZ());
+                ((TileEntityKiln) te).onBlockActivatedInKiln(worldIn, playerIn, pos);
+                return true;
             }
-            return true;
         }
         return false;
     }
 
-
+    @Override
+    @SideOnly(Side.CLIENT)
+    @SuppressWarnings("incomplete-switch")
+    public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand)
+    {
+        TileEntity te = worldIn.getTileEntity(pos);
+        if (te instanceof TileEntityKiln)
+        {
+            ((TileEntityKiln) te).spawnParticlesInWorking(worldIn, stateIn, rand, pos);
+        }
+    }
 }

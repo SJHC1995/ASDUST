@@ -26,85 +26,11 @@ import java.util.Map;
 import java.util.Random;
 
 public class BlockSimpleKiln extends MachineBase {
-    public static boolean isWorking;
     public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
-    public static final PropertyBool WORKING = PropertyBool.create("working");
     public BlockSimpleKiln(Material material)
     {
         super(2, material);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(WORKING, false));
-    }
-
-
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    @SuppressWarnings("incomplete-switch")
-    public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand)
-    {
-        if (stateIn.getValue(WORKING))
-        {
-            EnumFacing enumfacing = stateIn.getValue(FACING);
-            double d0 = (double)pos.getX() + 0.5D;
-            double d1 = (double)pos.getY() + rand.nextDouble() * 6.0D / 16.0D;
-            double d2 = (double)pos.getZ() + 0.5D;
-            double d3 = 0.52D;
-            double d4 = rand.nextDouble() * 0.6D - 0.3D;
-            double d5 = pos.getY() + 1.0D;
-            double d6 = pos.getX() + 0.1875D;
-            double d7 = pos.getZ();
-
-            if (rand.nextDouble() < 0.1D)
-            {
-                worldIn.playSound((double)pos.getX() + 0.5D, (double)pos.getY(), (double)pos.getZ() + 0.5D, SoundEvents.BLOCK_FURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
-            }
-
-            int randNum = rand.nextInt(10), randNum2 = rand.nextInt(10), randNum3 = rand.nextInt(10),
-                    randNum4 = rand.nextInt(10), randNum5 = rand.nextInt(10), randNum6 = rand.nextInt(10), randNum7 = rand.nextInt(10);
-            if (randNum < 3)
-            {
-                this.spawnSimpleParticle(enumfacing, worldIn, pos, d6, d5, d7 + 0.1875D);
-            }
-            if (randNum2 < 3)
-            {
-                this.spawnSimpleParticle(enumfacing, worldIn, pos, d6, d5, d7 + 0.4375D);
-            }
-            if (randNum3 < 3)
-            {
-                this.spawnSimpleParticle(enumfacing, worldIn, pos, d6, d5, d7 + 0.6875D);
-            }
-            if (randNum4 < 3)
-            {
-                this.spawnSimpleParticle(enumfacing, worldIn, pos, d6 + 0.3125D, d5, d7 + 0.4375D);
-            }
-            if (randNum5 < 3)
-            {
-                this.spawnSimpleParticle(enumfacing, worldIn, pos, d6 + 0.625D, d5, d7 + 0.1875D);
-            }
-            if (randNum6 < 3)
-            {
-                this.spawnSimpleParticle(enumfacing, worldIn, pos, d6 + 0.625D, d5, d7 + 0.4375D);
-            }
-            if (randNum7 < 3)
-            {
-                this.spawnSimpleParticle(enumfacing, worldIn, pos, d6 + 0.625D, d5, d7 + 0.6875D);
-            }
-
-            switch (enumfacing)
-            {
-                case WEST:
-                    worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, d0 - 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
-                    break;
-                case EAST:
-                    worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, d0 + 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
-                    break;
-                case NORTH:
-                    worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, d0 + d4, d1, d2 - 0.52D, 0.0D, 0.0D, 0.0D);
-                    break;
-                case SOUTH:
-                    worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, d0 + d4, d1, d2 + 0.52D, 0.0D, 0.0D, 0.0D);
-            }
-        }
+        this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
     }
 
     @Override
@@ -114,17 +40,6 @@ public class BlockSimpleKiln extends MachineBase {
         {
             playerIn.openGui(ASDUST.instance, GuiElementLoader.GUI_KILN, worldIn, pos.getX(), pos.getY(), pos.getZ());
             return true;
-//            if (!state.getValue(WORKING))
-//            {
-//                worldIn.setBlockState(pos, state.withProperty(WORKING, true), 2);
-//                return true;
-//            }
-//            else if (state.getValue(WORKING))
-//            {
-//                worldIn.setBlockState(pos, state.withProperty(WORKING, false), 2);
-//                return true;
-//            }
-
         }
         return false;
     }
@@ -138,7 +53,7 @@ public class BlockSimpleKiln extends MachineBase {
     @Override
     protected BlockStateContainer createBlockState()
     {
-        return new BlockStateContainer(this, FACING, WORKING);
+        return new BlockStateContainer(this, FACING);
     }
 
     @Override
@@ -150,7 +65,6 @@ public class BlockSimpleKiln extends MachineBase {
         {
             enumfacing = EnumFacing.NORTH;
         }
-
         return this.getDefaultState().withProperty(FACING, enumfacing);
     }
 
@@ -160,43 +74,4 @@ public class BlockSimpleKiln extends MachineBase {
         return (state.getValue(FACING)).getIndex();
     }
 
-    private void spawnSimpleParticle(EnumFacing facing, World world, BlockPos pos, double x, double y, double z)
-    {
-
-        double x1 = this.fastCalculateParticlesX(facing, x - pos.getX(), z - pos.getZ());
-        double z1 = this.fastCalculateParticlesZ(facing, x - pos.getX(), z - pos.getZ());
-        world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x1 + pos.getX(), y, z1 + pos.getZ(), 0.0D, 0.0D, 0.0D);
-    }
-
-    private double fastCalculateParticlesX(EnumFacing facing, double x, double z)
-    {
-        switch (facing)
-        {
-            case WEST:
-                return z;
-            case EAST:
-                return 1.0D - z;
-            case NORTH:
-                return x;
-            case SOUTH:
-                return 1.0D - x;
-        }
-        return x;
-    }
-
-    private double fastCalculateParticlesZ(EnumFacing facing, double x, double z)
-    {
-        switch (facing)
-        {
-            case WEST:
-                return 1.0D -x;
-            case EAST:
-                return x;
-            case NORTH:
-                return z;
-            case SOUTH:
-                return 1.0D - z;
-        }
-        return z;
-    }
 }

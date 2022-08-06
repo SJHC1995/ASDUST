@@ -1,4 +1,6 @@
 package com.realswordteam.asdust.block.machine.bucket;
 
-public class TileEntityBaseBucket extends {
+import com.realswordteam.asdust.block.tileentity.TileEntityLoader;
+
+public class TileEntityBaseBucket extends TileEntityLoader {
 }

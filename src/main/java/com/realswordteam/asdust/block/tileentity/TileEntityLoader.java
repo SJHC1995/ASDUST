@@ -2,6 +2,7 @@ package com.realswordteam.asdust.block.tileentity;
 
 import com.realswordteam.asdust.ASDUST;
 import com.realswordteam.asdust.block.machine.bucket.TileEntityBaseBucket;
+import com.realswordteam.asdust.block.machine.bucket.TileEntityWoodenBucket;
 import com.realswordteam.asdust.block.machine.kiln.TileEntityKiln;
 import com.realswordteam.asdust.block.machine.tileentity.TileEntityMachineCraft;
 import com.realswordteam.asdust.block.machine.tank.TileEntityBaseTank;
@@ -18,7 +19,7 @@ public class TileEntityLoader {
         registerTileEntity(TileEntityBaseTank.class, "tank");
         registerTileEntity(TileEntityCeramicTank.class, "ceramic_tank");
         registerTileEntity(TileEntityKiln.class, "kiln");
-        registerTileEntity(TileEntityBaseBucket.class,"wooden_bucket");
+        registerTileEntity(TileEntityWoodenBucket.class,"wooden_bucket");
     }
 
 

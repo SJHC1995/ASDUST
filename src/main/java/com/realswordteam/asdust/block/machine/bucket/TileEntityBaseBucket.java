@@ -1,6 +1,7 @@
 package com.realswordteam.asdust.block.machine.bucket;
 
-import com.realswordteam.asdust.block.tileentity.TileEntityLoader;
+import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityBaseBucket extends TileEntityLoader {
+public class TileEntityBaseBucket extends TileEntity {
+
 }

@@ -54,25 +54,14 @@ public class RecipesLoader {
                 new RecipeCraft.RecipeT(
                         new InputItemStack(new ItemStack(Item.getItemFromBlock(Blocks.DIRT))),
                         new InputFluidStack(),
-                        new OutputItemStack(new ItemStack(Items.STICK))
+                        new OutputItemStack(new ItemStack(Blocks.DIRT))
                 ));
-        addRecipeMachineCraft("diamond",
+
+        addRecipeMachineCraft("loess",
                 new RecipeCraft.RecipeT(
-                        new InputItemStack(new ItemStack(Items.DIAMOND), new ItemStack(Items.CLAY_BALL)),
-                        new InputFluidStack(),
-                        new OutputItemStack(new ItemStack(Items.STICK))
-                ));
-        addRecipeMachineCraft("wood",
-                new RecipeCraft.RecipeT(
-                        new InputItemStack(new ItemStack(Item.getItemFromBlock(Blocks.LOG)), new ItemStack(Items.STICK), new ItemStack(Items.APPLE)),
-                        new InputFluidStack(),
-                        new OutputItemStack(new ItemStack(Items.STICK), new ItemStack(Items.DIAMOND))
-                ));
-        addRecipeMachineCraft("food",
-                new RecipeCraft.RecipeT(
-                        new InputItemStack(new ItemStack(Items.APPLE), new ItemStack(Items.BREAD), new ItemStack(Items.COOKED_CHICKEN), new ItemStack(Items.COOKED_PORKCHOP)),
-                        new InputFluidStack(new FluidStack(FluidRegistry.WATER, 1000)),
-                        new OutputItemStack(new ItemStack(Items.STICK), new ItemStack(Items.CLAY_BALL), new ItemStack(Items.DIAMOND))
+                        new InputItemStack(new ItemStack(Blocks.DIRT,3),  new ItemStack(Items.CLAY_BALL)),
+                        new InputFluidStack(new FluidStack(FluidRegistry.WATER, 500)),
+                        new OutputItemStack(new ItemStack(ItemLoader.LOESS,4),new ItemStack(ItemLoader.IMPERFECTION,4))
                 ));
     }
 

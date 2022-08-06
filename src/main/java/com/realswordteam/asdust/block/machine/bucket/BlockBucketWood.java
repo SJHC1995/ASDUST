@@ -1,7 +1,6 @@
 package com.realswordteam.asdust.block.machine.bucket;
 
 import com.realswordteam.asdust.block.machine.BlockBaseBucket;
-import com.realswordteam.asdust.block.machine.tank.TileEntityWoodenTank;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;

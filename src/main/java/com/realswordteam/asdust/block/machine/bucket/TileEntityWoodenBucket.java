@@ -1,4 +1,6 @@
 package com.realswordteam.asdust.block.machine.bucket;
 
-public class TileEntityWoodenBucket {
+import net.minecraft.tileentity.TileEntity;
+
+public class TileEntityWoodenBucket extends TileEntity {
 }

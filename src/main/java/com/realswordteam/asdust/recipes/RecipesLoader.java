@@ -50,12 +50,7 @@ public class RecipesLoader {
         }
 
         //ASDUST - CraftRecipes
-        addRecipeMachineCraft("dirt",
-                new RecipeCraft.RecipeT(
-                        new InputItemStack(new ItemStack(Item.getItemFromBlock(Blocks.DIRT))),
-                        new InputFluidStack(),
-                        new OutputItemStack(new ItemStack(Blocks.DIRT))
-                ));
+
 
         addRecipeMachineCraft("loess",
                 new RecipeCraft.RecipeT(

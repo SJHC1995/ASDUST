@@ -1,6 +1,7 @@
 package com.realswordteam.asdust.block;
 
 import com.realswordteam.asdust.ASDUST;
+import com.realswordteam.asdust.block.machine.bucket.BlockBucketWood;
 import com.realswordteam.asdust.block.machine.kiln.BlockBaseKiln;
 import com.realswordteam.asdust.block.machine.kiln.BlockCobbleStoneKiln;
 import com.realswordteam.asdust.block.machine.tank.BlockCeramicTank;
@@ -20,12 +21,12 @@ import java.util.List;
 
 @Mod.EventBusSubscriber(modid= ASDUST.MODID)
 public class BlockLoader{
-    public static Block CONVERT = null;
+    public static Block WOODEN_BUCKET = null;
     public static Block MACHINE_CRAFT = null;
     public static Block TANK_WOOD_LEATHER = null;
     public static Block TANK_MIXED_MORTAR_CERAMICS = null;
     public static Block SIMPLE_KILN = null;
-
+    public  static Block BLOCK_FURNACE_BRICK=null;
     public static List<Block> blocklist = new ArrayList<>();
     public static List<Item> itemlist = new ArrayList<>();
 /**
@@ -35,12 +36,12 @@ public class BlockLoader{
 @SubscribeEvent
     public static void registerBlock(RegistryEvent.Register<Block> event) {
         Block[] blocks = {
-
-            setBlockName(CONVERT = new Block(Material.IRON), "blockconvert"),
             setBlockName(MACHINE_CRAFT = new BlockMachineCraft(Material.IRON),"machinecraft"),
             setBlockName(TANK_WOOD_LEATHER = new BlockWoodenTank(),"tankwoodwithleather"),
             setBlockName(TANK_MIXED_MORTAR_CERAMICS = new BlockCeramicTank(), "tank_mixed_mortar_ceramics"),
-            setBlockName(SIMPLE_KILN = new BlockCobbleStoneKiln(), "simple_kiln")
+            setBlockName(SIMPLE_KILN = new BlockCobbleStoneKiln(), "simple_kiln"),
+                setBlockName(WOODEN_BUCKET=new BlockBucketWood(),"wooden_bucket"),
+                setBlockName(BLOCK_FURNACE_BRICK=new Block(Material.ROCK),"block_furnace_brick")
 
 
         };

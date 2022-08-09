@@ -139,6 +139,8 @@ item.asdust.mixed_mortar_hard_ceramic_pot_embryo.name=混合砂浆硬质陶瓷�
 item.asdust.mixed_sand_hard_ceramic_pot.name=混合砂型硬质陶瓷锅
 item.asdust.heyc.name=干燥的草
 item.asdust.loess.name=黄土球
+item.asdust.plant_ash.name=草木灰
+
 #Gui信息
 
 gui.machine.warning.tank.empty=这个储罐空空如也!

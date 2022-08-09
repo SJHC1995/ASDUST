@@ -1,8 +1,9 @@
 {
 	"credit": "Made with Blockbench",
+	"parent": "block/cube_all",
 	"textures": {
-		"0": "log_oak",
-		"particle": "log_oak"
+		"0": "blocks/log_oak",
+		"particle": "blocks/log_oak"
 	},
 	"elements": [
 		{

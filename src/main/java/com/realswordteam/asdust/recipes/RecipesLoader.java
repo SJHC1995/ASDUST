@@ -58,29 +58,12 @@ public class RecipesLoader {
         }
 
         //ASDUST - CraftRecipes
-        addRecipeMachineCraft("dirt",
+
+        addRecipeMachineCraft("loess",
                 new RecipeCraft.RecipeT(
-                        new InputItemStack(new ItemStack(Item.getItemFromBlock(Blocks.DIRT))),
-                        new InputFluidStack(),
-                        new OutputItemStack(new ItemStack(Items.STICK))
-                ));
-        addRecipeMachineCraft("diamond",
-                new RecipeCraft.RecipeT(
-                        new InputItemStack(new ItemStack(Items.DIAMOND), new ItemStack(Items.CLAY_BALL)),
-                        new InputFluidStack(),
-                        new OutputItemStack(new ItemStack(Items.STICK))
-                ));
-        addRecipeMachineCraft("wood",
-                new RecipeCraft.RecipeT(
-                        new InputItemStack(new ItemStack(Item.getItemFromBlock(Blocks.LOG)), new ItemStack(Items.STICK), new ItemStack(Items.APPLE)),
-                        new InputFluidStack(),
-                        new OutputItemStack(new ItemStack(Items.STICK), new ItemStack(Items.DIAMOND))
-                ));
-        addRecipeMachineCraft("food",
-                new RecipeCraft.RecipeT(
-                        new InputItemStack(new ItemStack(Items.APPLE), new ItemStack(Items.BREAD), new ItemStack(Items.COOKED_CHICKEN), new ItemStack(Items.COOKED_PORKCHOP)),
-                        new InputFluidStack(new FluidStack(FluidRegistry.WATER, 1000)),
-                        new OutputItemStack(new ItemStack(Items.STICK), new ItemStack(Items.CLAY_BALL), new ItemStack(Items.DIAMOND))
+                        new InputItemStack(new ItemStack(Blocks.DIRT,3),  new ItemStack(Items.CLAY_BALL)),
+                        new InputFluidStack(new FluidStack(FluidRegistry.WATER, 500)),
+                        new OutputItemStack(new ItemStack(ItemLoader.LOESS,4),new ItemStack(ItemLoader.IMPERFECTION,4))
                 ));
 
         //ASDUST - FUEL
@@ -89,16 +72,16 @@ public class RecipesLoader {
         //ASDUST - KILN
         addRecipeMachineKiln("food",
                 new RecipeSimple(
-                        new InputItemStack(new ItemStack(Items.APPLE)),
-                        new OutputItemStack(new ItemStack(Items.COAL))
+                        new InputItemStack(new ItemStack(Blocks.LOG)),
+                        new OutputItemStack(new ItemStack(ItemLoader.PLANT_ASH,4))
                 ));
 
         //ASDUST - ExtendEntityDrops
         addExtendEntityDrops("minecraft:zombie",
-                new ChangeItemStack(new ItemStack(Items.COAL), 16, 0),
-                new ChangeItemStack(new ItemStack(Items.DIAMOND), 4, 2));
+                new ChangeItemStack(new ItemStack(Items.BONE), 4, 2),
+                new ChangeItemStack(new ItemStack(Items.ROTTEN_FLESH), 6, 1));
         addExtendEntityDrops("minecraft:pig",
-                new ChangeItemStack(new ItemStack(Items.APPLE), 2, 0));
+                new ChangeItemStack(new ItemStack(ItemLoader.ANIMAL_FAT), 2, 0));
     }
 
     //Fuel

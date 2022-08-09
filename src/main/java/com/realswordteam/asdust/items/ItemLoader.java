@@ -26,6 +26,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
         public static Item SIMPLE_CALCIUM_HYDROXIDE=null;
         public static Item SIMPLE_BRICK_EMBRYO=null;
         public static Item CONDENSED_BRICK= null;
+        public static Item FURNACE_BRICK=null;
 
         static Item[] items = {
                 setItemName(AD_MAIN = new ItemMainBase(), "admain"),
@@ -43,7 +44,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
                 setItemName(SIMPLE_CALCIUM_HYDROXIDE=new ItemRawMaterialBase(),"simple_calcium_hydroxide"),
                 setItemName(SIMPLE_BRICK_EMBRYO=new ItemRawMaterialBase(),"simple_brick_embryo"),
                 setItemName(CONDENSED_BRICK=new ItemRawMaterialBase(),"condensed_brick"),
-
+                setItemName(FURNACE_BRICK=new ItemRawMaterialBase(),"furnace_brick")
         };
 
 

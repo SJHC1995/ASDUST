@@ -1,8 +1,9 @@
 {
 	"credit": "Made with Blockbench",
+	"parent": "block/cube_all",
 	"textures": {
-		"0": "stonebrick",
-		"particle": "stonebrick"
+		"0": "asdust:block/block_furnace_brick",
+		"particle": "asdust:blocks/block_furnace_brick"
 	},
 	"elements": [
 		{

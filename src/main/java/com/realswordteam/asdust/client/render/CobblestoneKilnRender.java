@@ -26,19 +26,50 @@ public class CobblestoneKilnRender extends TileEntitySpecialRenderer<TileEntityK
     {
         mc.renderEngine.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
 
-        fastRenderSlag(x + ConvertUtil.convertPxToDouble(4),y,z + ConvertUtil.convertPxToDouble(4), 22.5F, 1);
-        fastRenderSlag(x + ConvertUtil.convertPxToDouble(12),y,z + ConvertUtil.convertPxToDouble(3), 0, 1);
-        fastRenderSlag(x + ConvertUtil.convertPxToDouble(9),y,z + ConvertUtil.convertPxToDouble(7), 45F, 1);
+        int slagNumber = te.getSlagNumber();
+        if (slagNumber >= 1)
+        {
+            fastRenderSlag(x + ConvertUtil.convertPxToDouble(4),y,z + ConvertUtil.convertPxToDouble(4), 22.5F, 1);
+        }
+        if (slagNumber >= 2)
+        {
+            fastRenderSlag(x + ConvertUtil.convertPxToDouble(12),y,z + ConvertUtil.convertPxToDouble(3), 0, 1);
+        }
+        if (slagNumber >= 4)
+        {
+            fastRenderSlag(x + ConvertUtil.convertPxToDouble(9),y,z + ConvertUtil.convertPxToDouble(7), 45F, 1);
+        }
 
+        if (slagNumber >= 3)
+        {
+            fastRenderSlag(x + ConvertUtil.convertPxToDouble(9),y,z + ConvertUtil.convertPxToDouble(3), 0, 0.5);
+        }
 
-        fastRenderSlag(x + ConvertUtil.convertPxToDouble(9),y,z + ConvertUtil.convertPxToDouble(3), 0, 0.5);
-        fastRenderSlag(x + ConvertUtil.convertPxToDouble(3),y,z + ConvertUtil.convertPxToDouble(8), 0, 0.5);
-        fastRenderSlag(x + ConvertUtil.convertPxToDouble(6),y,z + ConvertUtil.convertPxToDouble(9), 45F, 0.5);
-        fastRenderSlag(x + ConvertUtil.convertPxToDouble(12),y,z + ConvertUtil.convertPxToDouble(9), 22.5F, 0.5);
+        if (slagNumber >= 5)
+        {
+            fastRenderSlag(x + ConvertUtil.convertPxToDouble(3),y,z + ConvertUtil.convertPxToDouble(8), 0, 0.5);
+        }
+        if (slagNumber >= 6)
+        {
+            fastRenderSlag(x + ConvertUtil.convertPxToDouble(6),y,z + ConvertUtil.convertPxToDouble(9), 45F, 0.5);
+        }
 
-        fastRenderSlag(x + ConvertUtil.convertPxToDouble(12),y + ConvertUtil.convertPxToDouble(4.5F),z + ConvertUtil.convertPxToDouble(3), 0, 0.5);
-        fastRenderSlag(x + ConvertUtil.convertPxToDouble(5),y + ConvertUtil.convertPxToDouble(4.5F),z + ConvertUtil.convertPxToDouble(3), 22.5F, 0.5);
-        fastRenderSlag(x + ConvertUtil.convertPxToDouble(9),y + ConvertUtil.convertPxToDouble(4.5F),z + ConvertUtil.convertPxToDouble(7), 67.5F, 0.5);
+        if (slagNumber >= 7)
+        {
+            fastRenderSlag(x + ConvertUtil.convertPxToDouble(12),y,z + ConvertUtil.convertPxToDouble(9), 22.5F, 0.5);
+
+            fastRenderSlag(x + ConvertUtil.convertPxToDouble(12),y + ConvertUtil.convertPxToDouble(4.5F),z + ConvertUtil.convertPxToDouble(3), 0, 0.5);
+        }
+
+        if (slagNumber >= 9)
+        {
+            fastRenderSlag(x + ConvertUtil.convertPxToDouble(5),y + ConvertUtil.convertPxToDouble(4.5F),z + ConvertUtil.convertPxToDouble(3), 22.5F, 0.5);
+        }
+
+        if (slagNumber >= 10)
+        {
+            fastRenderSlag(x + ConvertUtil.convertPxToDouble(9),y + ConvertUtil.convertPxToDouble(4.5F),z + ConvertUtil.convertPxToDouble(7), 67.5F, 0.5);
+        }
     }
 
     private void fastRenderSlag(double x, double y, double z, float angle, double scale)

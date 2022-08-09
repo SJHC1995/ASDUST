@@ -3,6 +3,8 @@ package com.realswordteam.asdust.modules.jei;
 import com.realswordteam.asdust.ASDUST;
 import com.realswordteam.asdust.block.BlockLoader;
 import com.realswordteam.asdust.gui.guicontainer.GuiContainerTest;
+import com.realswordteam.asdust.modules.jei.kiln.MachineKilnCategory;
+import com.realswordteam.asdust.modules.jei.kiln.MachineKilnMaker;
 import com.realswordteam.asdust.modules.jei.machinecraft.MachineCraftCategory;
 import com.realswordteam.asdust.modules.jei.machinecraft.MachineCraftMaker;
 import mezz.jei.api.*;
@@ -13,6 +15,7 @@ import net.minecraft.item.ItemStack;
 public class JeiPlugin implements IModPlugin {
 
     public static String MACHINE_CRAFT = ASDUST.MODID + "." + "machine_craft";
+    public static String MACHINE_KILN = ASDUST.MODID + "." + "machine_kiln";
 
     @Override
     public void registerCategories(IRecipeCategoryRegistration registry) {
@@ -20,7 +23,8 @@ public class JeiPlugin implements IModPlugin {
         IGuiHelper guiHelper = jeiHelpers.getGuiHelper();
 
         registry.addRecipeCategories(
-                new MachineCraftCategory(guiHelper)
+                new MachineCraftCategory(guiHelper),
+                new MachineKilnCategory(guiHelper)
         );
 
     }
@@ -31,10 +35,12 @@ public class JeiPlugin implements IModPlugin {
         IJeiHelpers jeiHelpers = registry.getJeiHelpers();
 
         registry.addRecipes(MachineCraftMaker.getRecipe(jeiHelpers), MACHINE_CRAFT);
+        registry.addRecipes(MachineKilnMaker.getRecipe(jeiHelpers), MACHINE_KILN);
 
         registry.addRecipeClickArea(GuiContainerTest.class, 54, 39, 14, 14, MACHINE_CRAFT);
 
         registry.addRecipeCatalyst(new ItemStack(BlockLoader.MACHINE_CRAFT), MACHINE_CRAFT);
+        registry.addRecipeCatalyst(new ItemStack(BlockLoader.SIMPLE_KILN), MACHINE_KILN);
 
     }
 }

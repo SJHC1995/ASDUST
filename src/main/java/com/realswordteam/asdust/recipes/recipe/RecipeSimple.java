@@ -8,14 +8,24 @@ public class RecipeSimple {
 
     public OutputItemStack outputItemStack;
 
-    RecipeSimple()
+    public boolean isEmpty()
     {
-
+        return inputItemStack.isEmpty() && outputItemStack.isEmpty();
     }
 
-    RecipeSimple(InputItemStack inputItemStack, OutputItemStack outputItemStack)
+    public RecipeSimple(InputItemStack inputItemStack, OutputItemStack outputItemStack)
     {
         this.inputItemStack = inputItemStack;
         this.outputItemStack = outputItemStack;
+    }
+
+    public InputItemStack getInputItemStack()
+    {
+        return inputItemStack;
+    }
+
+    public OutputItemStack getOutputItemStack()
+    {
+        return outputItemStack;
     }
 }

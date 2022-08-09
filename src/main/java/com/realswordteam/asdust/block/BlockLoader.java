@@ -27,7 +27,8 @@ public class BlockLoader{
     public static Block TANK_MIXED_MORTAR_CERAMICS = null;
     public static Block SIMPLE_KILN = null;
 
-public static Block WOODEN_BUSKET =null;
+    public static Block WOODEN_BUSKET =null;
+    public static Block BLOCK_FURNACE_BRICK=null;
     public static List<Block> blocklist = new ArrayList<>();
     public static List<Item> itemlist = new ArrayList<>();
 /**
@@ -38,7 +39,7 @@ public static Block WOODEN_BUSKET =null;
     public static void registerBlock(RegistryEvent.Register<Block> event) {
         Block[] blocks = {
 
-
+setBlockName(BLOCK_FURNACE_BRICK=new Block(Material.IRON),"block_furnace_brick"),
             setBlockName(MACHINE_CRAFT = new BlockMachineCraft(Material.IRON),"machinecraft"),
             setBlockName(TANK_WOOD_LEATHER = new BlockWoodenTank(),"tankwoodwithleather"),
             setBlockName(TANK_MIXED_MORTAR_CERAMICS = new BlockCeramicTank(), "tank_mixed_mortar_ceramics"),

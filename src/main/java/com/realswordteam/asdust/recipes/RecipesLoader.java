@@ -79,4 +79,5 @@ public class RecipesLoader {
                     "minecraft:crafting_table"
 
             };
+
 }

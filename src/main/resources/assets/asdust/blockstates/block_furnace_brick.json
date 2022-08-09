@@ -1,0 +1,11 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "asdust:block_furnace_brick"
+
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{}]
+  }
+}

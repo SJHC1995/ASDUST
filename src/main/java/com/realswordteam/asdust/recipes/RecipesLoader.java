@@ -70,7 +70,7 @@ public class RecipesLoader {
         kileFuel.addFuel(new ItemStack(Items.COAL), 100);
 
         //ASDUST - KILN
-        addRecipeMachineKiln("food",
+        addRecipeMachineKiln("ash",
                 new RecipeSimple(
                         new InputItemStack(new ItemStack(Blocks.LOG)),
                         new OutputItemStack(new ItemStack(ItemLoader.PLANT_ASH,4))

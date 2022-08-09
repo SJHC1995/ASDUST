@@ -17,6 +17,7 @@ item.asdust.mixed_sand_hard_ceramic_pot=Mixed Sand Hard Ceramic Pot
 item.asdust.heyc.name=Hey
 item.asdust.loess.name=Loess
 item.asdust.plant_ash.name=Plant Ash
+item.asdust.animal_fat.name=Animal Fat
 #CreativeTab Name
 itemGroup.asdust.main=AD MAIN
 itemGroup.asdust.element=AD ELEMENT
@@ -43,6 +44,7 @@ tile.asdust.wooden_bucket.name=Wooden Bucket
 fluid_container.information=%s, Amount: %dmb
 #Jei
 jei.asdust.machine_craft.name=Machine Craft
+jei.asdust.machine_kiln.name=Simple Kiln
 
 #element
 item.asdust.element_001_h.name=Hydrogen

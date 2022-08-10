@@ -17,6 +17,7 @@ item.asdust.loess.name=Loess
 item.asdust.plant_ash.name=Plant Ash
 item.asdust.animal_fat.name=Animal Fat
 item.asdust.crude_salt.name=Crude Salt
+item.asdust.briquette.name=Briquette
 #CreativeTab Name
 
 itemGroup.asdust.element=AD ELEMENT

@@ -106,23 +106,22 @@ item.asdust.element_103_lr.name=铹
 item.asdust.element_104_rf.name=𬬻
 item.asdust.element_105_db.name=𬭊
 item.asdust.element_106_sg.name=𬭳
-item.asdust.element_107_bh.name=𬭛
+item.asdust.element_107_bh.name=Bh
 item.asdust.element_108_hs.name=𬭶
 item.asdust.element_109_mt.name=鿏
 item.asdust.element_110_ds.name=𫟼
 item.asdust.element_111_rg.name=𬬭
-item.asdust.element_112_cn.name=鎶
-item.asdust.element_113_nh.name=
-item.asdust.element_114_fl.name=
-item.asdust.element_115_mc.name=
-item.asdust.element_116_lv.name=
-item.asdust.element_117_ts.name=
-item.asdust.element_118_og.name=
+item.asdust.element_112_cn.name=Cn
+item.asdust.element_113_nh.name=Nh
+item.asdust.element_114_fl.name=Fl
+item.asdust.element_115_mc.name=Mc
+item.asdust.element_116_lv.name=Lv
+item.asdust.element_117_ts.name=Ts
+item.asdust.element_118_og.name=Og
 #物品名称
 
 
-item.asdust.admain.name=AD 主类
-item.asdust.adce.name=AD 元素
+
 item.asdust.gearwood.name=木齿轮
 item.asdust.gearwoodgroup.name=木齿轮组
 item.asdust.mixedmortarball.name=混合砂浆球
@@ -134,7 +133,7 @@ item.asdust.simple_calcium_hydroxide.name=简制氢氧化钙
 item.asdust.simple_brick_embryo.name=简制砖胚
 item.asdust.condensed_brick.name=混凝砖
 item.asdust.furnace_brick.name=炉窑砖
-
+item.asdust.briquette.name=煤饼
 item.asdust.mixed_mortar_hard_ceramic_pot_embryo.name=混合砂浆硬质陶瓷锅胚
 item.asdust.mixed_sand_hard_ceramic_pot.name=混合砂型硬质陶瓷锅
 item.asdust.heyc.name=干燥的草

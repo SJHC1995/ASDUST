@@ -31,6 +31,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
         public static Item ANIMAL_FAT=null;
         public static Item BRIQUETTE = null;
         public static Item CRUDE_SALT =null;
+        public static Item DUST_COAL = null;
         static Item[] items = {
 
                 setItemName(GEAR_WOOD = new ItemPartBase(), "gearwood"),
@@ -49,7 +50,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
                 setItemName(PLANT_ASH=new ItemRawMaterialBase(),"plant_ash"),
                 setItemName(ANIMAL_FAT=new ItemMiscBase(),"animal_fat"),
                 setItemName(BRIQUETTE = new ItemRawMaterialBase(), "briquette"),
-                setItemName(CRUDE_SALT=new ItemRawMaterialBase(),"crude_salt")
+                setItemName(CRUDE_SALT=new ItemRawMaterialBase(),"crude_salt"),
+                setItemName(DUST_COAL=new ItemRawMaterialBase(),"dust_coal"),
 
         };
 

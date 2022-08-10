@@ -64,18 +64,38 @@ public class RecipesLoader {
                         new InputItemStack(new ItemStack(Blocks.DIRT,3),  new ItemStack(Items.CLAY_BALL)),
                         new InputFluidStack(new FluidStack(FluidRegistry.WATER, 500)),
                         new OutputItemStack(new ItemStack(ItemLoader.LOESS,4),new ItemStack(ItemLoader.IMPERFECTION,4))
+
                 ));
+        addRecipeMachineCraft("coal_dust",
+        new RecipeCraft.RecipeT(
+                new InputItemStack(new ItemStack(Items.COAL,1)),
+                new InputFluidStack(new FluidStack(FluidRegistry.WATER,250)),
+                new OutputItemStack(new ItemStack(ItemLoader.DUST_COAL,1))
+                ));
+        addRecipeMachineCraft("briquette",
+                new RecipeCraft.RecipeT(
+                        new InputItemStack(new ItemStack(ItemLoader.DUST_COAL,3),new ItemStack(ItemLoader.LOESS)),
+                        new InputFluidStack(new FluidStack(FluidRegistry.WATER,1000)),
+                        new OutputItemStack(new ItemStack(ItemLoader.BRIQUETTE,4))
 
+                ));
         //ASDUST - FUEL
-        kileFuel.addFuel(new ItemStack(Items.COAL), 100);
-
+        kileFuel.addFuel(new ItemStack(Items.COAL), 20);
+        kileFuel.addFuel(new ItemStack(ItemLoader.BRIQUETTE),100);
         //ASDUST - KILN
         addRecipeMachineKiln("ash",
                 new RecipeSimple(
                         new InputItemStack(new ItemStack(Blocks.LOG)),
                         new OutputItemStack(new ItemStack(ItemLoader.PLANT_ASH,4))
                 ));
+        addRecipeMachineKiln("oxide_calcium",
+                new RecipeSimple(
+                        new InputItemStack(new ItemStack(Blocks.COBBLESTONE,2)),
+                        new OutputItemStack(new ItemStack(ItemLoader.SIMPLE_CALCIUM_OXIDE,2))
+                )
 
+
+        );
         //ASDUST - ExtendEntityDrops
         addExtendEntityDrops("minecraft:zombie",
                 new ChangeItemStack(new ItemStack(Items.BONE), 4, 2),

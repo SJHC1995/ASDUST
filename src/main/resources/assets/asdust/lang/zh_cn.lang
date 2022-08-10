@@ -141,7 +141,7 @@ item.asdust.loess.name=黄土球
 item.asdust.plant_ash.name=草木灰
 item.asdust.animal_fat.name=动物油脂
 item.asdust.crude_salt.name=粗盐
-
+item.asdust.dust_coal.name=煤粉
 #Gui信息
 
 gui.machine.warning.tank.empty=这个储罐空空如也!

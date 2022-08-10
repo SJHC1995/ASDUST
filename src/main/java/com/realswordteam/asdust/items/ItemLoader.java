@@ -32,9 +32,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
         public static Item BRIQUETTE = null;
         public static Item CRUDE_SALT =null;
         static Item[] items = {
-                setItemName(AD_MAIN = new ItemMainBase(), "admain"),
-                setItemName(AD_CE = new ItemMainBase(), "adce"),
-                setItemName(AD_MACHINE = new ItemMainBase(), "admachine"),
+
                 setItemName(GEAR_WOOD = new ItemPartBase(), "gearwood"),
                 setItemName(GEAR_WOOD_GROUP = new ItemPartBase(), "gearwoodgroup"),
                 setItemName(MIXED_MORTAR_BALL = new ItemRawMaterialBase(), "mixedmortarball"),

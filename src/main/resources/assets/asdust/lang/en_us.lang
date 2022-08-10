@@ -1,6 +1,4 @@
 #Item name
-item.asdust.asdustmain.name=AS DUST MAIN
-item.asdust.adce.name=AS DUST ChemicalElement
 item.asdust.gearwood.name=Wood Gear
 item.asdust.gearwoodgroup.name=Wood Gear Group
 item.asdust.mixedmortarball.name=Mixed Montar Ball
@@ -20,7 +18,7 @@ item.asdust.plant_ash.name=Plant Ash
 item.asdust.animal_fat.name=Animal Fat
 item.asdust.crude_salt.name=Crude Salt
 #CreativeTab Name
-itemGroup.asdust.main=AD MAIN
+
 itemGroup.asdust.element=AD ELEMENT
 itemGroup.asdust.machine=AD MACHINE
 itemGroup.asdust.gear_wood=AD PART

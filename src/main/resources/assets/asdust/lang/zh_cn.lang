@@ -153,8 +153,6 @@ gui.machine.tank.information.max_capacity=极限储量体积：%dmB
 
 
 #创造栏
-
-itemGroup.asdust.main=AD 主类
 itemGroup.asdust.element=AD 元素
 itemGroup.asdust.machine=AD 机器
 itemGroup.asdust.gear_wood=AD 部件

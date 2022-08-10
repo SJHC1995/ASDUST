@@ -30,7 +30,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
         public static Item PLANT_ASH=null;
         public static Item ANIMAL_FAT=null;
         public static Item BRIQUETTE = null;
-
+        public static Item CRUDE_SALT =null;
         static Item[] items = {
                 setItemName(AD_MAIN = new ItemMainBase(), "admain"),
                 setItemName(AD_CE = new ItemMainBase(), "adce"),
@@ -50,7 +50,9 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
                 setItemName(FURNACE_BRICK=new ItemRawMaterialBase(),"furnace_brick"),
                 setItemName(PLANT_ASH=new ItemRawMaterialBase(),"plant_ash"),
                 setItemName(ANIMAL_FAT=new ItemMiscBase(),"animal_fat"),
-                setItemName(BRIQUETTE = new ItemRawMaterialBase(), "briquette")
+                setItemName(BRIQUETTE = new ItemRawMaterialBase(), "briquette"),
+                setItemName(CRUDE_SALT=new ItemRawMaterialBase(),"crude_salt")
+
         };
 
 

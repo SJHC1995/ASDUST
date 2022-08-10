@@ -15,6 +15,7 @@ import net.minecraft.world.World;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class ExtendLootTable {
 
@@ -31,9 +32,10 @@ public class ExtendLootTable {
     public static void spawnEntityItem(World world, EntityLivingBase entity)
     {
         List<ChangeItemStack> list = getChangeItemsFromEntity(entity);
+        Random random = entity.getRNG();
         for (ChangeItemStack changeItemStack : list)
         {
-            world.spawnEntity(new EntityItem(world, entity.posX, entity.posY, entity.posZ, changeItemStack.spawnItemStack()));
+            world.spawnEntity(new EntityItem(world, entity.posX, entity.posY, entity.posZ, changeItemStack.spawnItemStack(random)));
         }
     }
 

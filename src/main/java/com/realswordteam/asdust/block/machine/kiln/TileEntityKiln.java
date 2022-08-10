@@ -8,7 +8,9 @@ import com.realswordteam.asdust.gui.GuiElementLoader;
 import com.realswordteam.asdust.modules.PyrotechMod;
 import com.realswordteam.asdust.network.MessageKiln;
 import com.realswordteam.asdust.network.NetWorkLoader;
+import com.realswordteam.asdust.recipes.ChangeItemStack;
 import com.realswordteam.asdust.recipes.RecipesLoader;
+import com.realswordteam.asdust.recipes.input.InputFuel;
 import com.realswordteam.asdust.recipes.machine.Kiln;
 import com.realswordteam.asdust.recipes.recipe.RecipeSimple;
 import net.minecraft.block.state.IBlockState;
@@ -77,25 +79,33 @@ public class TileEntityKiln extends TileEntityMachineBase implements ITickable {
 
     public void onBlockActivatedInKiln(World world, EntityPlayer player, BlockPos pos)
     {
-        if (player.getHeldItemMainhand().getItem().equals(Items.STICK))
+        if (clearSlag(player.getHeldItemMainhand(), player, pos, false))
         {
-            clearSlag(player.getHeldItemMainhand(), player, pos);
+            clearSlag(player.getHeldItemMainhand(), player, pos, true);
         }   else
         {
             player.openGui(ASDUST.instance, GuiElementLoader.GUI_KILN, world, pos.getX(), pos.getY(), pos.getZ());
         }
     }
 
-    public boolean clearSlag(ItemStack handStack, EntityPlayer player, BlockPos pos)
+    public boolean clearSlag(ItemStack handStack, EntityPlayer player, BlockPos pos, boolean canClear)
     {
         if (slagNumber >= 1)
         {
-            handStack.damageItem(3, player);
+            if(handStack.getItem().equals(Items.STICK))
+            {
+                if (canClear) {
+                    handStack.damageItem(3, player);
 
-            EntityItem entitySlag = new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(PyrotechMod.SLAG));
-            world.spawnEntity(entitySlag);
-            this.slagNumber--;
-            return true;
+                    ChangeItemStack randomItem = new ChangeItemStack(new ItemStack(PyrotechMod.SLAG), 2, 0);
+                    EntityItem entitySlag = new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), randomItem.spawnItemStack(player.getRNG()));
+                    world.spawnEntity(entitySlag);
+                    this.slagNumber--;
+                    return true;
+                }
+                return true;
+            }
+            return false;
         }
         return false;
     }
@@ -117,6 +127,7 @@ public class TileEntityKiln extends TileEntityMachineBase implements ITickable {
         }
         if (!world.isRemote)
         {
+            BlockCobbleStoneKiln.setState(world, pos, isBurning());
             if (canStart())
             {
                 if (this.kilnBurnTime == 0)
@@ -135,79 +146,6 @@ public class TileEntityKiln extends TileEntityMachineBase implements ITickable {
                     this.kilnCookTime = 0;
                 }
             }
-        }
-    }
-    public void spawnParticlesInWorking(World worldIn, IBlockState stateIn, Random rand, BlockPos pos)
-    {
-        if (isBurning())
-        {
-            this.spawnParticles(worldIn, stateIn, rand, pos);
-        }
-    }
-
-    private void spawnParticles(World worldIn, IBlockState stateIn, Random rand, BlockPos pos)
-    {
-        SimpleSpawnParticle ssp = new SimpleSpawnParticle();
-
-        EnumFacing enumfacing = stateIn.getValue(FACING);
-        double d0 = (double)pos.getX() + 0.5D;
-        double d1 = (double)pos.getY() + rand.nextDouble() * 6.0D / 16.0D;
-        double d2 = (double)pos.getZ() + 0.5D;
-        double d3 = 0.52D;
-        double d4 = rand.nextDouble() * 0.6D - 0.3D;
-        double d5 = pos.getY() + 1.0D;
-        double d6 = pos.getX() + 0.1875D;
-        double d7 = pos.getZ();
-
-        if (rand.nextDouble() < 0.1D)
-        {
-            worldIn.playSound((double)pos.getX() + 0.5D, (double)pos.getY(), (double)pos.getZ() + 0.5D, SoundEvents.BLOCK_FURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
-        }
-
-        int randNum = rand.nextInt(10), randNum2 = rand.nextInt(10), randNum3 = rand.nextInt(10),
-                randNum4 = rand.nextInt(10), randNum5 = rand.nextInt(10), randNum6 = rand.nextInt(10), randNum7 = rand.nextInt(10);
-        if (randNum < 3)
-        {
-            ssp.spawnSimpleParticle(enumfacing, worldIn, pos, d6, d5, d7 + 0.1875D);
-        }
-        if (randNum2 < 3)
-        {
-            ssp.spawnSimpleParticle(enumfacing, worldIn, pos, d6, d5, d7 + 0.4375D);
-        }
-        if (randNum3 < 3)
-        {
-            ssp.spawnSimpleParticle(enumfacing, worldIn, pos, d6, d5, d7 + 0.6875D);
-        }
-        if (randNum4 < 3)
-        {
-            ssp.spawnSimpleParticle(enumfacing, worldIn, pos, d6 + 0.3125D, d5, d7 + 0.4375D);
-        }
-        if (randNum5 < 3)
-        {
-            ssp.spawnSimpleParticle(enumfacing, worldIn, pos, d6 + 0.625D, d5, d7 + 0.1875D);
-        }
-        if (randNum6 < 3)
-        {
-            ssp.spawnSimpleParticle(enumfacing, worldIn, pos, d6 + 0.625D, d5, d7 + 0.4375D);
-        }
-        if (randNum7 < 3)
-        {
-            ssp.spawnSimpleParticle(enumfacing, worldIn, pos, d6 + 0.625D, d5, d7 + 0.6875D);
-        }
-
-        switch (enumfacing)
-        {
-            case WEST:
-                worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, d0 - 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
-                break;
-            case EAST:
-                worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, d0 + 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
-                break;
-            case NORTH:
-                worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, d0 + d4, d1, d2 - 0.52D, 0.0D, 0.0D, 0.0D);
-                break;
-            case SOUTH:
-                worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, d0 + d4, d1, d2 + 0.52D, 0.0D, 0.0D, 0.0D);
         }
     }
 
@@ -257,7 +195,7 @@ public class TileEntityKiln extends TileEntityMachineBase implements ITickable {
                         this.kilnBurnTime = entry.getValue();
                         this.totalKilnBurnTime = this.kilnBurnTime;
                         containerFuel.shrink(getStack.getCount());
-                        randomSpawnSlag();
+                        randomSpawnSlag(world.rand);
                         sendPacket();
                         return true;
                     }
@@ -270,7 +208,7 @@ public class TileEntityKiln extends TileEntityMachineBase implements ITickable {
 
     private boolean isFilledWithSlag()
     {
-        return this.slagNumber == 10;
+        return this.slagNumber >= 10;
     }
 
     private boolean canSmelt(boolean canConsume)
@@ -389,9 +327,8 @@ public class TileEntityKiln extends TileEntityMachineBase implements ITickable {
         flag3 = false;
     }
 
-    private void randomSpawnSlag()
+    private void randomSpawnSlag(Random random)
     {
-        Random random = new Random();
         int value = random.nextInt(2);
         if (this.slagNumber <= 9)
         {

@@ -4,10 +4,14 @@
 		"model": "asdust:simple_kiln"
 	},
 	"variants": {
-		"facing=south": {"model": "asdust:simple_kiln", "y": 90},
-		"facing=north": {"model": "asdust:simple_kiln", "y": 270},
-		"facing=east": {"model": "asdust:simple_kiln"},
-		"facing=west": {"model": "asdust:simple_kiln", "y": 180},
+		"facing=south,working=false": {"model": "asdust:simple_kiln", "y": 90},
+		"facing=north,working=false": {"model": "asdust:simple_kiln", "y": 270},
+		"facing=east,working=false": {"model": "asdust:simple_kiln"},
+		"facing=west,working=false": {"model": "asdust:simple_kiln", "y": 180},
+		"facing=south,working=true": {"model": "asdust:simple_kiln", "y": 90},
+		"facing=north,working=true": {"model": "asdust:simple_kiln", "y": 270},
+		"facing=east,working=true": {"model": "asdust:simple_kiln"},
+		"facing=west,working=true": {"model": "asdust:simple_kiln", "y": 180},
 		"normal": [{}],
 		"inventory": [{}]
 	}

@@ -3,16 +3,17 @@ package com.realswordteam.asdust.gui.container;
 import com.realswordteam.asdust.block.machine.kiln.TileEntityKiln;
 import com.realswordteam.asdust.gui.slot.OutputSlot;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.Container;
+import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
-public class ContainerKiln extends ContainerBase {
+public class ContainerKiln extends BaseContainer {
 
     private IItemHandler kilnInput;
 
@@ -20,10 +21,19 @@ public class ContainerKiln extends ContainerBase {
 
     private IItemHandler fuelInput;
 
-    public TileEntity te;
+    public int kilnBurnTime;
+
+    public int totalKilnBurnTime;
+
+    public int kilnCookTime;
+
+    public int slagNumber;
+
+    public TileEntityKiln te;
 
     public ContainerKiln(TileEntityKiln te, EntityPlayer player)
     {
+        super(player, te.getBlockName());
         this.te = te;
 
         this.kilnInput = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.UP);
@@ -91,5 +101,49 @@ public class ContainerKiln extends ContainerBase {
         slot.onTake(playerIn, newStack);
 
         return oldStack;
+    }
+
+    @Override
+    public void detectAndSendChanges()
+    {
+        super.detectAndSendChanges();
+
+        this.kilnBurnTime = te.getKilnBurnTime();
+        this.totalKilnBurnTime = te.getTotalKilnBurnTime();
+        this.kilnCookTime = te.getKilnCookTime();
+        this.slagNumber = te.getSlagNumber();
+
+        for (IContainerListener i : this.listeners)
+        {
+            i.sendWindowProperty(this, 0, this.kilnBurnTime);
+            i.sendWindowProperty(this, 1, this.totalKilnBurnTime);
+            i.sendWindowProperty(this, 2, this.kilnCookTime);
+            i.sendWindowProperty(this, 3, this.slagNumber);
+        }
+    }
+
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void updateProgressBar(int id, int data)
+    {
+        super.updateProgressBar(id, data);
+
+        switch (id)
+        {
+            case 0:
+                this.kilnBurnTime = data;
+                break;
+            case 1:
+                this.totalKilnBurnTime = data;
+                break;
+            case 2:
+                this.kilnCookTime = data;
+                break;
+            case 3:
+                this.slagNumber = data;
+                break;
+            default:
+                break;
+        }
     }
 }

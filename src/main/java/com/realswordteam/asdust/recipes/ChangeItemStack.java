@@ -13,6 +13,13 @@ public class ChangeItemStack {
     final int min;
 
     static final ChangeItemStack Empty = new ChangeItemStack(ItemStack.EMPTY, 1,1);
+
+    /**
+     *
+     * @param itemStack the item of needing spawn randomly
+     * @param max the max amount of item
+     * @param min the min amount of item
+     */
     public ChangeItemStack(ItemStack itemStack, int max, int min)
     {
         this.itemStack = itemStack;
@@ -34,10 +41,9 @@ public class ChangeItemStack {
         return ItemStack.EMPTY;
     }
 
-    public ItemStack spawnItemStack()
+    public ItemStack spawnItemStack(Random random)
     {
         ItemStack itemStack = getItemStack();
-        Random random = new Random();
         if (this.max == 1 && this.min == 1)
         {
             return itemStack;

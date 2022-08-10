@@ -3,9 +3,11 @@ package com.realswordteam.asdust;
 import com.realswordteam.asdust.block.tileentity.TileEntityLoader;
 import com.realswordteam.asdust.gui.GuiElementLoader;
 import com.realswordteam.asdust.misc.creativetabs.CreativeTabLoader;
+import com.realswordteam.asdust.network.NetWorkLoader;
 import com.realswordteam.asdust.recipes.RecipesLoader;
 import com.realswordteam.asdust.recipes.machine.RecipeCraft;
 import net.minecraft.init.Blocks;
+import net.minecraftforge.client.model.ModelFluid;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -31,6 +33,7 @@ public class ASDUST
         logger = event.getModLog();
         new TileEntityLoader();
         new CreativeTabLoader();
+        new NetWorkLoader(event);
 //        new FluidManager();
     }
 
@@ -39,7 +42,7 @@ public class ASDUST
     {
         // some example code
         logger.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
-
+        new com.realswordteam.asdust.event.EventHandler();
         new GuiElementLoader();
         new RecipesLoader();
     }

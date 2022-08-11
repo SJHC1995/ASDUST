@@ -98,10 +98,10 @@ public class RecipesLoader {
         );
         //ASDUST - ExtendEntityDrops
         addExtendEntityDrops("minecraft:zombie",
-                new ChangeItemStack(new ItemStack(Items.BONE), 4, 2),
-                new ChangeItemStack(new ItemStack(Items.ROTTEN_FLESH), 6, 1));
+                new ChangeItemStack(new ItemStack(Items.BONE), 5, 2),
+                new ChangeItemStack(new ItemStack(Items.ROTTEN_FLESH), 6, 2));
         addExtendEntityDrops("minecraft:pig",
-                new ChangeItemStack(new ItemStack(ItemLoader.ANIMAL_FAT), 2, 0));
+                new ChangeItemStack(new ItemStack(ItemLoader.ANIMAL_FAT), 5, 1));
     }
 
     //Fuel

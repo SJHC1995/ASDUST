@@ -11,9 +11,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Mod.EventBusSubscriber(modid = ASDUST.MODID)
     public class ItemLoader
     {
-        public static Item AD_MAIN = null;
-        public static Item AD_CE = null;
-        public static Item AD_MACHINE = null;
+
         public static Item GEAR_WOOD = null;
         public static Item GEAR_WOOD_GROUP = null;
         public static Item MIXED_MORTAR_BALL =null;

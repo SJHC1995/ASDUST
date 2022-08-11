@@ -30,6 +30,19 @@ public class RecipesLoader {
     public RecipesLoader()
     {
         //ASDUST
+        addSimpleShapedRecipe("wood_gear",
+                new ItemStack(ItemLoader.GEAR_WOOD),
+                "ABA","BCB","ABA","A",Items.STICK,"B",Blocks.PLANKS,"C",Items.AIR);
+        addSimpleShapedRecipe("group_wood_gear",
+                new ItemStack(ItemLoader.GEAR_WOOD_GROUP),
+                "ABA","BBB","ABA","A",Blocks.LOG,"B",ItemLoader.GEAR_WOOD);
+        addSimpleShapedRecipe("tank_wood_with_leather",
+                new ItemStack(BlockLoader.TANK_WOOD_LEATHER),
+                "ABA","BCB","DAD","A",Items.LEATHER,"B",Items.CLAY_BALL,"C",Blocks.PLANKS,"D",Blocks.LOG);
+        addSimpleShapedRecipe("flint",
+                new ItemStack(Items.FLINT),
+                "AAB","BBB","BBB","A",Blocks.GRAVEL,"B",Items.AIR
+                );
         addSimpleShapedRecipe("asdust:dirt",
                 new ItemStack(Blocks.DIRT),
                 "ABA", "BCB", "ABA", 'A', ItemLoader.IMPERFECTION, 'B', ItemLoader.LOESS, 'C', Items.CLAY_BALL);
@@ -47,7 +60,10 @@ public class RecipesLoader {
         addSimpleShapedRecipe("asdust:stone_brick",
                 new ItemStack(Blocks.STONEBRICK),
                 "AB","CA","A",ItemLoader.CONDENSED_BRICK,"B",ItemLoader.SIMPLE_CALCIUM_HYDROXIDE,"C",ItemLoader.SIMPLE_BRICK_EMBRYO);
-
+        addSimpleShapedRecipe("machine_craft",
+                new ItemStack(BlockLoader.MACHINE_CRAFT),
+                "ABA","CDC","EAE",ItemLoader.GEAR_WOOD_GROUP,"B",BlockLoader.TANK_WOOD_LEATHER,"C",Blocks.LOG,"D",Items.FLINT,"E",Blocks.PLANKS
+        );
         //Vanilla
         for (String string : vanillaRecipe)
         {

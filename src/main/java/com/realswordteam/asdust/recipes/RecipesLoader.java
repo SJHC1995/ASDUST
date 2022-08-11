@@ -1,6 +1,7 @@
 package com.realswordteam.asdust.recipes;
 
 import com.realswordteam.asdust.ASDUST;
+import com.realswordteam.asdust.block.BlockLoader;
 import com.realswordteam.asdust.entity.ExtendLootTable;
 import com.realswordteam.asdust.items.ItemLoader;
 import com.realswordteam.asdust.modules.CeramicsMod;
@@ -40,6 +41,12 @@ public class RecipesLoader {
         addSimpleShapedRecipe("asdust:unfired_clay_bowl",
                 new ItemStack(ItemLoader.UNFIRED_CLAY_BOWL),
                 "   ", "A A", " A ", 'A', Items.CLAY_BALL);
+        addSimpleShapedRecipe("asdust:block_furnace_brick",
+                new ItemStack(BlockLoader.BLOCK_FURNACE_BRICK,2),
+                "AAA","ABA","AAA","A",ItemLoader.FURNACE_BRICK,"B",Items.CLAY_BALL);
+        addSimpleShapedRecipe("asdust:stone_brick",
+                new ItemStack(Blocks.STONEBRICK),
+                "AB","CA","A",ItemLoader.CONDENSED_BRICK,"B",ItemLoader.SIMPLE_CALCIUM_HYDROXIDE,"C",ItemLoader.SIMPLE_BRICK_EMBRYO);
 
         //Vanilla
         for (String string : vanillaRecipe)
@@ -79,6 +86,18 @@ public class RecipesLoader {
                         new OutputItemStack(new ItemStack(ItemLoader.BRIQUETTE,4))
 
                 ));
+        addRecipeMachineCraft("simple_brick_embryo",
+                new RecipeCraft.RecipeT(
+                        new InputItemStack(new ItemStack(ItemLoader.SIMPLE_CALCIUM_HYDROXIDE,4),new ItemStack(ItemLoader.MIXED_MORTAR_BALL)),
+                        new InputFluidStack(new FluidStack(FluidRegistry.WATER,1000)),
+                        new OutputItemStack(new ItemStack(ItemLoader.SIMPLE_BRICK_EMBRYO,4))
+                        ));
+        addRecipeMachineCraft("furnace_brick",
+                new RecipeCraft.RecipeT(
+                        new InputItemStack(new ItemStack(ItemLoader.CONDENSED_BRICK,8),new ItemStack(ItemLoader.MIXED_MORTAR_BALL)),
+                        new InputFluidStack(new FluidStack(FluidRegistry.WATER,250)),
+                        new OutputItemStack(new ItemStack(ItemLoader.FURNACE_BRICK,8))
+                ));
         //ASDUST - FUEL
         kileFuel.addFuel(new ItemStack(Items.COAL), 20);
         kileFuel.addFuel(new ItemStack(ItemLoader.BRIQUETTE),100);
@@ -92,10 +111,13 @@ public class RecipesLoader {
                 new RecipeSimple(
                         new InputItemStack(new ItemStack(Blocks.COBBLESTONE,2)),
                         new OutputItemStack(new ItemStack(ItemLoader.SIMPLE_CALCIUM_OXIDE,2))
-                )
+                ));
+        addRecipeMachineKiln("condensed_brick",
+                new RecipeSimple(
+                        new InputItemStack(new ItemStack(ItemLoader.SIMPLE_BRICK_EMBRYO)),
+                        new OutputItemStack(new ItemStack(ItemLoader.CONDENSED_BRICK))
+                ));
 
-
-        );
         //ASDUST - ExtendEntityDrops
         addExtendEntityDrops("minecraft:zombie",
                 new ChangeItemStack(new ItemStack(Items.BONE), 5, 2),

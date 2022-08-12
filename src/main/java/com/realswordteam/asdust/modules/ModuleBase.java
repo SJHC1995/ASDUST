@@ -1,5 +1,6 @@
 package com.realswordteam.asdust.modules;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 

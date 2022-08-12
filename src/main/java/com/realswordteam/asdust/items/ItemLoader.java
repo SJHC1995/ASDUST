@@ -14,6 +14,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
         public static Item GEAR_WOOD = null;
         public static Item GEAR_WOOD_GROUP = null;
+        public static Item GEAR_STONE = null;
+        public static Item GEAR_STONE_GROUP =null;
         public static Item MIXED_MORTAR_BALL =null;
         public static Item IMPERFECTION = null;
         public static Item LOESS = null;
@@ -30,10 +32,13 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
         public static Item BRIQUETTE = null;
         public static Item CRUDE_SALT =null;
         public static Item DUST_COAL = null;
+
         static Item[] items = {
 
                 setItemName(GEAR_WOOD = new ItemPartBase(), "gearwood"),
                 setItemName(GEAR_WOOD_GROUP = new ItemPartBase(), "gearwoodgroup"),
+                setItemName(GEAR_STONE=new ItemPartBase(),"gearstone"),
+                setItemName(GEAR_STONE_GROUP=new ItemPartBase(),"gearstonegroup"),
                 setItemName(MIXED_MORTAR_BALL = new ItemRawMaterialBase(), "mixedmortarball"),
                 setItemName(IMPERFECTION = new ItemMiscBase(), "imperfection"),
                 setItemName(LOESS = new ItemRawMaterialBase(), "loess"),
@@ -50,6 +55,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
                 setItemName(BRIQUETTE = new ItemRawMaterialBase(), "briquette"),
                 setItemName(CRUDE_SALT=new ItemRawMaterialBase(),"crude_salt"),
                 setItemName(DUST_COAL=new ItemRawMaterialBase(),"dust_coal"),
+
 
         };
 

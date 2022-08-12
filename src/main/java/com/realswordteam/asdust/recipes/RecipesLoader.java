@@ -88,7 +88,7 @@ public class RecipesLoader {
 
             addSimpleShapedRecipe("crafting_table",
                     new ItemStack(Blocks.CRAFTING_TABLE),
-                    "ABA","   ","A A",'A',Blocks.LOG,'B', PyrotechMod.WORKTABLE);
+                    "ABA","DEF","ACA",'A',Blocks.LOG,'B', PyrotechMod.WORKTABLE,'C',PyrotechMod.STONE_HAMMER,'D',Items.FLINT,'E',BlockLoader.MACHINE_CRAFT,'F',ItemLoader.GEAR_STONE_GROUP);
         }
 
 

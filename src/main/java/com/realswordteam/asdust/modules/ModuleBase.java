@@ -14,4 +14,5 @@ public class ModuleBase {
     {
         return Block.REGISTRY.getObject(new ResourceLocation(resourceName));
     }
+
 }

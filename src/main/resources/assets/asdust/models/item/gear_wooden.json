@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "asdust:items/gearwoodgroup"
+    "layer0": "asdust:items/gear_wooden"
   }
 }

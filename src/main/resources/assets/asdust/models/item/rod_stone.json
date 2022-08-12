@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "asdust:items/gearwood"
+    "layer0": "asdust:items/rod_stone"
   }
 }

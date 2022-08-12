@@ -37,7 +37,7 @@ public class CreativeTabLoader {
         TAB_PARTS = new CreativeTabs(ASDUST.MODID + ".gear_wood") {
             @Override
             public ItemStack getTabIconItem() {
-                return new ItemStack(ItemLoader.GEAR_WOOD);
+                return new ItemStack(ItemLoader.GEAR_WOODEN);
             }
         };
         TAB_RAW_MATERIAL = new CreativeTabs(ASDUST.MODID + ".mixedmortarball") {

@@ -32,11 +32,11 @@ public class RecipesLoader {
     {
         //ASDUST
         addSimpleShapedRecipe("wood_gear",
-                new ItemStack(ItemLoader.GEAR_WOOD),
+                new ItemStack(ItemLoader.GEAR_WOODEN),
                 "ABA","B B","ABA",'A',Items.STICK,'B',Blocks.PLANKS);
         addSimpleShapedRecipe("group_wood_gear",
-                new ItemStack(ItemLoader.GEAR_WOOD_GROUP),
-                "ABA","BBB","ABA",'A',Blocks.LOG,'B',ItemLoader.GEAR_WOOD);
+                new ItemStack(ItemLoader.GEARS_WOODEN),
+                "ABA","BBB","ABA",'A',Blocks.LOG,'B',ItemLoader.GEAR_WOODEN);
         addSimpleShapedRecipe("tank_wood_with_leather",
                 new ItemStack(BlockLoader.TANK_WOOD_LEATHER),
                 "ABA","BCB","DAD",'A',Items.LEATHER,'B',Items.CLAY_BALL,'C',Blocks.PLANKS,'D',Blocks.LOG);
@@ -63,7 +63,7 @@ public class RecipesLoader {
                 "AB","CA",'A',ItemLoader.CONDENSED_BRICK,'B',ItemLoader.SIMPLE_CALCIUM_HYDROXIDE,'C',ItemLoader.SIMPLE_BRICK_EMBRYO);
         addSimpleShapedRecipe("machine_craft",
                 new ItemStack(BlockLoader.MACHINE_CRAFT),
-                "ABA","CDC","EAE",'A', ItemLoader.GEAR_WOOD_GROUP,'B',BlockLoader.TANK_WOOD_LEATHER,'C',Blocks.LOG,'D',Items.FLINT,'E',Blocks.PLANKS
+                "ABA","CDC","EAE",'A', ItemLoader.GEARS_WOODEN,'B',BlockLoader.TANK_WOOD_LEATHER,'C',Blocks.LOG,'D',Items.FLINT,'E',Blocks.PLANKS
         );
         //Vanilla
         for (String string : vanillaRecipe)
@@ -88,7 +88,7 @@ public class RecipesLoader {
 
             addSimpleShapedRecipe("crafting_table",
                     new ItemStack(Blocks.CRAFTING_TABLE),
-                    "ABA","DEF","ACA",'A',Blocks.LOG,'B', PyrotechMod.WORKTABLE,'C',PyrotechMod.STONE_HAMMER,'D',Items.FLINT,'E',BlockLoader.MACHINE_CRAFT,'F',ItemLoader.GEAR_STONE_GROUP);
+                    "ABA","DEF","ACA",'A',Blocks.LOG,'B', PyrotechMod.WORKTABLE,'C',PyrotechMod.STONE_HAMMER,'D',Items.FLINT,'E',BlockLoader.MACHINE_CRAFT,'F',ItemLoader.GEARS_STONE);
         }
 
 

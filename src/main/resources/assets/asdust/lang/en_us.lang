@@ -1,8 +1,9 @@
 #Item name
-item.asdust.gearwood.name=Wood Gear
-item.asdust.gearwoodgroup.name=Wood Gear Group
-item.asdust.gearstone.name=Stone Gear
-item.asdust.gearstonegroup.name=Stone Gear Group
+item.asdust.gear_wood.name=Wooden Gear
+item.asdust.gears_wood.name=Wooden Gears
+item.asdust.gear_stone.name=Stone Gear
+item.asdust.gears_stone.name=Stone Gear Group
+item.asdust.rod_stone.name=Stone_Rod
 item.asdust.mixedmortarball.name=Mixed Montar Ball
 item.asdust.imperfection.name=Imperfection
 item.asdust.unfired_clay_bowl.name= Unfired Clay Bowl

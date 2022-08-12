@@ -124,6 +124,9 @@ item.asdust.element_118_og.name=Og
 
 item.asdust.gearwood.name=木齿轮
 item.asdust.gearwoodgroup.name=木齿轮组
+item.asdust.gearstone.name=石齿轮
+item.asdust.gearstonegroup.name=石齿轮组
+item.asdust.rod_stone.name=石棒
 item.asdust.mixedmortarball.name=混合砂浆球
 item.asdust.imperfection.name=杂质
 item.asdust.unfired_clay_bowl.name=粘土碗胚

@@ -12,10 +12,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
     public class ItemLoader
     {
 
-        public static Item GEAR_WOOD = null;
-        public static Item GEAR_WOOD_GROUP = null;
+        public static Item GEAR_WOODEN = null;
+        public static Item GEARS_WOODEN = null;
         public static Item GEAR_STONE = null;
-        public static Item GEAR_STONE_GROUP =null;
+        public static Item GEARS_STONE =null;
+        public static Item STONE_ROD=null;
         public static Item MIXED_MORTAR_BALL =null;
         public static Item IMPERFECTION = null;
         public static Item LOESS = null;
@@ -35,10 +36,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
         static Item[] items = {
 
-                setItemName(GEAR_WOOD = new ItemPartBase(), "gearwood"),
-                setItemName(GEAR_WOOD_GROUP = new ItemPartBase(), "gearwoodgroup"),
-                setItemName(GEAR_STONE=new ItemPartBase(),"gearstone"),
-                setItemName(GEAR_STONE_GROUP=new ItemPartBase(),"gearstonegroup"),
+                setItemName(GEAR_WOODEN = new ItemPartBase(), "gear_wooden"),
+                setItemName(GEARS_WOODEN = new ItemPartBase(), "gears_wooden"),
+                setItemName(GEAR_STONE=new ItemPartBase(),"gear_stone"),
+                setItemName(GEARS_STONE=new ItemPartBase(),"gears_stone"),
+                setItemName(STONE_ROD=new ItemRawMaterialBase(),"rod_stone"),
                 setItemName(MIXED_MORTAR_BALL = new ItemRawMaterialBase(), "mixedmortarball"),
                 setItemName(IMPERFECTION = new ItemMiscBase(), "imperfection"),
                 setItemName(LOESS = new ItemRawMaterialBase(), "loess"),

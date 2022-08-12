@@ -9,4 +9,9 @@ public class ModuleBase {
     {
         return Item.REGISTRY.getObject(new ResourceLocation(resourceName));
     }
+
+    public static Block getModuleBlock(String resourceName)
+    {
+        return Block.REGISTRY.getObject(new ResourceLocation(resourceName));
+    }
 }

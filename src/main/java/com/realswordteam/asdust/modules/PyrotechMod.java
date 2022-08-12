@@ -6,5 +6,5 @@ import net.minecraft.item.Item;
 public class PyrotechMod {
 
     public static final Item SLAG = ModuleBase.getModuleItem("pyrotech:slag");
-    public static final Block WORKTABLE =ModuleBase.getModuleItem("pyrotech:worktable");
+    public static final Block WORKTABLE =ModuleBase.getModuleBlock("pyrotech:worktable");
 }

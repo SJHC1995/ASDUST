@@ -5,9 +5,12 @@ import com.realswordteam.asdust.block.BlockLoader;
 import com.realswordteam.asdust.modules.jei.JeiPlugin;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.IDrawable;
+import mezz.jei.api.gui.IDrawableAnimated;
+import mezz.jei.api.gui.IDrawableStatic;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.IRecipeCategory;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -22,6 +25,8 @@ public class MachineKilnCategory implements IRecipeCategory<MachineKilnWrapper> 
 
     private final IDrawable icon;
 
+    protected IDrawableAnimated flame;
+
     public MachineKilnCategory(IGuiHelper guiHelper) {
         super();
         String RESOURCE_NAME = ASDUST.MODID + ":" + "textures/gui/jei/jei_machine_kiln.png";
@@ -29,6 +34,8 @@ public class MachineKilnCategory implements IRecipeCategory<MachineKilnWrapper> 
         background = guiHelper.createDrawable(iconResource, 0, 0, 151, 60);
         localizedName = I18n.format("jei.asdust.machine_kiln.name");
         icon = guiHelper.createDrawableIngredient(new ItemStack(BlockLoader.SIMPLE_KILN));
+        IDrawableStatic a = guiHelper.createDrawable(iconResource, 151, 0, 15, 14);
+        flame = guiHelper.createAnimatedDrawable(a, 20, IDrawableAnimated.StartDirection.TOP, true);
     }
 
     @Nonnull
@@ -59,6 +66,11 @@ public class MachineKilnCategory implements IRecipeCategory<MachineKilnWrapper> 
     @Override
     public IDrawable getIcon() {
         return icon;
+    }
+
+    @Override
+    public void drawExtras(Minecraft minecraft) {
+        flame.draw(minecraft, 1, 1);
     }
 
     @Override

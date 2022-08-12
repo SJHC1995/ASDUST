@@ -48,7 +48,9 @@ public class RecipesLoader {
                 new ItemStack(Blocks.DIRT),
                 "ABA", "BCB", "ABA", 'A', ItemLoader.IMPERFECTION, 'B', ItemLoader.LOESS, 'C', Items.CLAY_BALL);
 
-
+        addSimpleShapedRecipe("crafting_table",
+                new ItemStack(Blocks.CRAFTING_TABLE),
+                "   "," B ","   ",'B',Blocks.BEDROCK);
 
         addSimpleShapedRecipe("unfired_clay_bowl",
                 new ItemStack(ItemLoader.UNFIRED_CLAY_BOWL),
@@ -78,13 +80,17 @@ public class RecipesLoader {
                     new ItemStack(CeramicsMod.Unfired_Clay_Bucket, 2),
                     "A A", "A A", "AAA", 'A', Item.getItemFromBlock(Blocks.CLAY));
         }
+
         //Pyrotech
         if (Loader.isModLoaded("pyrotech")){
+
             Vanilla.removeCraftTableRecipe("pyrotech:crafting_table");
+
             addSimpleShapedRecipe("crafting_table",
                     new ItemStack(Blocks.CRAFTING_TABLE),
-                    "ABA","DEF","ACA",'A',Blocks.LOG,'B', PyrotechMod.WORKTABLE);
+                    "ABA","   ","A A",'A',Blocks.LOG,'B', PyrotechMod.WORKTABLE);
         }
+
 
         //ASDUST - CraftRecipes
 

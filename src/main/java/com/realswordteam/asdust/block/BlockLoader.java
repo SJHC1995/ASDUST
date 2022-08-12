@@ -40,8 +40,8 @@ public class BlockLoader{
             setBlockName(TANK_WOOD_LEATHER = new BlockWoodenTank(),"tankwoodwithleather"),
             setBlockName(TANK_MIXED_MORTAR_CERAMICS = new BlockCeramicTank(), "tank_mixed_mortar_ceramics"),
             setBlockName(SIMPLE_KILN = new BlockCobbleStoneKiln(), "simple_kiln"),
-                setBlockName(WOODEN_BUCKET=new BlockBucketWood(),"wooden_bucket"),
-                setBlockName(BLOCK_FURNACE_BRICK=new Block(Material.ROCK),"block_furnace_brick")
+            setBlockName(WOODEN_BUCKET=new BlockBucketWood(),"wooden_bucket"),
+            setBlockName(BLOCK_FURNACE_BRICK=new Block(Material.ROCK),"block_furnace_brick")
 
 
         };

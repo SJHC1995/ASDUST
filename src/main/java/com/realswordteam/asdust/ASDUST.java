@@ -3,6 +3,7 @@ package com.realswordteam.asdust;
 import com.realswordteam.asdust.block.tileentity.TileEntityLoader;
 import com.realswordteam.asdust.gui.GuiElementLoader;
 import com.realswordteam.asdust.misc.creativetabs.CreativeTabLoader;
+import com.realswordteam.asdust.misc.oredictionary.ModOreDictionary;
 import com.realswordteam.asdust.network.NetWorkLoader;
 import com.realswordteam.asdust.recipes.RecipesLoader;
 import com.realswordteam.asdust.recipes.machine.RecipeCraft;
@@ -45,6 +46,7 @@ public class ASDUST
         new com.realswordteam.asdust.event.EventHandler();
         new GuiElementLoader();
         new RecipesLoader();
+        new ModOreDictionary();
     }
 
     @EventHandler

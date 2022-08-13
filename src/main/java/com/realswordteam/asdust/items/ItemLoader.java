@@ -16,7 +16,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
         public static Item GEARS_WOODEN = null;
         public static Item GEAR_STONE = null;
         public static Item GEARS_STONE =null;
-        public static Item STONE_ROD = null;
+        public static Item ROD_STONE = null;
         public static Item MIXED_MORTAR_BALL = null;
         public static Item IMPERFECTION = null;
         public static Item LOESS = null;
@@ -41,7 +41,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
                 setItemName(GEAR_STONE = new ItemPartBase(),"gear_stone"),
                 setItemName(GEARS_STONE = new ItemPartBase(),"gears_stone"),
 
-                setItemName(STONE_ROD = new ItemRawMaterialBase(),"rod_stone"),
+                setItemName(ROD_STONE = new ItemRawMaterialBase(),"rod_stone"),
                 setItemName(MIXED_MORTAR_BALL = new ItemRawMaterialBase(), "mixedmortarball"),
                 setItemName(HEYC = new ItemRawMaterialBase(),"heyc"),
                 setItemName(SIMPLE_CALCIUM_OXIDE = new ItemRawMaterialBase(),"simple_calcium_oxide"),

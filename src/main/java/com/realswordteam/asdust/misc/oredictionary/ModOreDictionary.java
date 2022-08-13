@@ -10,8 +10,13 @@ public class ModOreDictionary {
 
     private void itemOreDictionary()
     {
-        registerItemToOreDictionary(ItemLoader.STONE_ROD, "stickStone");
+        registerItemToOreDictionary(ItemLoader.ROD_STONE, "stickStone");
+        registerItemToOreDictionary(ItemLoader.GEAR_WOODEN,"gearWood");
+        registerItemToOreDictionary(ItemLoader.GEAR_STONE,"gearStone");
+        registerItemToOreDictionary(ItemLoader.GEARS_WOODEN,"gearsWood");
+        registerItemToOreDictionary(ItemLoader.GEARS_STONE,"gearsStone");
     }
+
 
     private void blockOreDictionary()
     {

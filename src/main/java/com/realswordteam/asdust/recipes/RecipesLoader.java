@@ -87,6 +87,12 @@ public class RecipesLoader {
             addSimpleShapedRecipe("crafting_table",
                     new ItemStack(Blocks.CRAFTING_TABLE),
                     "ABA","DEF","ACA",'A',Blocks.LOG,'B', PyrotechMod.WORKTABLE,'C',PyrotechMod.STONE_HAMMER,'D',Items.FLINT,'E',BlockLoader.MACHINE_CRAFT,'F',ItemLoader.GEARS_STONE);
+
+            Vanilla.removeCraftTableRecipe("pyrotech:worktable");
+
+            addSimpleShapedRecipe("worktable",
+                    new ItemStack(PyrotechMod.WORKTABLE),
+                    "AA ","BC ",'A',Blocks.LOG,'B',PyrotechMod.CRUDE_AXE,"C",PyrotechMod.CRUDE_HAMMER);
         }
 
 

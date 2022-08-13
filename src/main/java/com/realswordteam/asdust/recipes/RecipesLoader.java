@@ -48,9 +48,7 @@ public class RecipesLoader {
                 new ItemStack(Blocks.DIRT),
                 "ABA", "BCB", "ABA", 'A', ItemLoader.IMPERFECTION, 'B', ItemLoader.LOESS, 'C', Items.CLAY_BALL);
 
-        addSimpleShapedRecipe("crafting_table",
-                new ItemStack(Blocks.CRAFTING_TABLE),
-                "   "," B ","   ",'B',Blocks.BEDROCK);
+
 
         addSimpleShapedRecipe("unfired_clay_bowl",
                 new ItemStack(ItemLoader.UNFIRED_CLAY_BOWL),

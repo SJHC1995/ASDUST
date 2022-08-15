@@ -82,17 +82,15 @@ public class RecipesLoader {
         //Pyrotech
         if (Loader.isModLoaded("pyrotech")){
 
-            Vanilla.removeCraftTableRecipe("pyrotech:crafting_table");
-
             addSimpleShapedRecipe("crafting_table",
                     new ItemStack(Blocks.CRAFTING_TABLE),
                     "ABA","DEF","ACA",'A',Blocks.LOG,'B', PyrotechMod.WORKTABLE,'C',PyrotechMod.STONE_HAMMER,'D',Items.FLINT,'E',BlockLoader.MACHINE_CRAFT,'F',ItemLoader.GEARS_STONE);
 
-            Vanilla.removeCraftTableRecipe("pyrotech:worktable");
+            Vanilla.removeCraftTableRecipe("pyrotech:tech/basic/worktable");
 
             addSimpleShapedRecipe("worktable",
                     new ItemStack(PyrotechMod.WORKTABLE),
-                    "AA ","BC ","   ",'A',Blocks.LOG,'B',PyrotechMod.CRUDE_AXE,'C',PyrotechMod.CRUDE_HAMMER);
+                    "AA","BC",'A',Blocks.LOG,'B',PyrotechMod.CRUDE_AXE,'C',PyrotechMod.CRUDE_HAMMER);
         }
 
 
@@ -171,7 +169,6 @@ public class RecipesLoader {
                     "minecraft:stonebrick",
                     "minecraft:furnace",
                     "minecraft:crafting_table"
-
             };
 
     private void addSimpleShapedRecipe(String recipeName, ItemStack output, Object... params)

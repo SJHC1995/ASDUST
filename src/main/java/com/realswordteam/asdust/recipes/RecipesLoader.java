@@ -92,7 +92,7 @@ public class RecipesLoader {
 
             addSimpleShapedRecipe("worktable",
                     new ItemStack(PyrotechMod.WORKTABLE),
-                    "AA ","BC ",'A',Blocks.LOG,'B',PyrotechMod.CRUDE_AXE,"C",PyrotechMod.CRUDE_HAMMER);
+                    "AA ","BC ","   ",'A',Blocks.LOG,'B',PyrotechMod.CRUDE_AXE,'C',PyrotechMod.CRUDE_HAMMER);
         }
 
 

@@ -66,6 +66,9 @@ public class RecipesLoader {
         addSimpleShapedRecipe("simple_kiln",
                 new ItemStack(BlockLoader.SIMPLE_KILN),
                 "AAA","ABA","AAA",'A',Blocks.COBBLESTONE,'B',Blocks.CLAY);
+        addSimpleShapedRecipe("bucket",
+                new ItemStack(BlockLoader.WOODEN_BUCKET),
+                "ABA","ABA","AAA",'A',Blocks.LOG,'B',Blocks.CLAY);
         //Vanilla
         for (String string : vanillaRecipe)
         {
@@ -130,6 +133,13 @@ public class RecipesLoader {
                         new InputItemStack(new ItemStack(ItemLoader.CONDENSED_BRICK,8),new ItemStack(ItemLoader.MIXED_MORTAR_BALL)),
                         new InputFluidStack(new FluidStack(FluidRegistry.WATER,250)),
                         new OutputItemStack(new ItemStack(ItemLoader.FURNACE_BRICK,8))
+                ));
+        addRecipeMachineCraft("clay",
+                new RecipeCraft.RecipeT(
+                        new InputItemStack(new ItemStack(Items.CLAY_BALL,4)),
+                        new InputFluidStack(new FluidStack(FluidRegistry.WATER,1000)),
+                        new OutputItemStack(new ItemStack(Blocks.CLAY))
+
                 ));
         //ASDUST - FUEL
         kileFuel.addFuel(new ItemStack(Items.COAL), 20);

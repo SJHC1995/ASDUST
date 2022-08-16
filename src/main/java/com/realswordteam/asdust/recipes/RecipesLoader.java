@@ -63,6 +63,9 @@ public class RecipesLoader {
                 new ItemStack(BlockLoader.MACHINE_CRAFT),
                 "ABA","CDC","EAE",'A', ItemLoader.GEARS_WOODEN,'B',BlockLoader.TANK_WOOD_LEATHER,'C',Blocks.LOG,'D',Items.FLINT,'E',Blocks.PLANKS
         );
+        addSimpleShapedRecipe("simple_kiln",
+                new ItemStack(BlockLoader.SIMPLE_KILN),
+                "AAA","ABA","AAA",'A',Blocks.COBBLESTONE,'B',Blocks.CLAY);
         //Vanilla
         for (String string : vanillaRecipe)
         {
@@ -146,6 +149,11 @@ public class RecipesLoader {
                 new RecipeSimple(
                         new InputItemStack(new ItemStack(ItemLoader.SIMPLE_BRICK_EMBRYO)),
                         new OutputItemStack(new ItemStack(ItemLoader.CONDENSED_BRICK))
+                ));
+        addRecipeMachineKiln("bowl",
+                new RecipeSimple(
+                        new InputItemStack(new ItemStack(ItemLoader.UNFIRED_CLAY_BOWL)),
+                        new OutputItemStack(new ItemStack(ItemLoader.CERAMIC_BOWl))
                 ));
 
         //ASDUST - ExtendEntityDrops

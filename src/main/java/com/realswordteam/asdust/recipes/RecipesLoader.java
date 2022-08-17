@@ -14,13 +14,10 @@ import com.realswordteam.asdust.recipes.machine.Kiln;
 import com.realswordteam.asdust.recipes.machine.RecipeCraft;
 import com.realswordteam.asdust.recipes.output.OutputItemStack;
 import com.realswordteam.asdust.recipes.recipe.RecipeSimple;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
@@ -141,6 +138,7 @@ public class RecipesLoader {
                         new OutputItemStack(new ItemStack(Blocks.CLAY))
 
                 ));
+
         //ASDUST - FUEL
         kileFuel.addFuel(new ItemStack(Items.COAL), 20);
         kileFuel.addFuel(new ItemStack(ItemLoader.BRIQUETTE),100);

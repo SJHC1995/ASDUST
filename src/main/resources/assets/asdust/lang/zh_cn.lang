@@ -167,6 +167,7 @@ tile.asdust.tankwoodwithleather.name=带皮木制储罐
 tile.asdust.tank_mixed_mortar_ceramics.name=混合砂浆陶瓷储罐
 tile.asdust.simple_kiln.name=简易窑炉
 tile.asdust.wooden_bucket.name=原木桶
+tile.asdust.cassiterite.name=锡石
 #Jei信息
 jei.asdust.machine_craft.name=原始工艺机械
 jei.asdust.machine_kiln.name=简易窑炉

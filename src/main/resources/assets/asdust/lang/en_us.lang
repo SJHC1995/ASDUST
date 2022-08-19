@@ -44,6 +44,7 @@ tile.asdust.tankwoodwithleather.name=Wood Tank With Leather
 tile.asdust.tank_mixed_mortar_ceramics.name=Mixed Mortar Ceramics Tank
 tile.asdust.simple_kiln.name=Simple Kiln
 tile.asdust.wooden_bucket.name=Wooden Bucket
+tile.asdust.cassiterite.name=Cassiterite
 
 fluid_container.information=%s, Amount: %dmb
 #Jei

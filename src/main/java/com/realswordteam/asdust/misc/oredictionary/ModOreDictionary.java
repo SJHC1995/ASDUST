@@ -1,5 +1,6 @@
 package com.realswordteam.asdust.misc.oredictionary;
 
+import com.realswordteam.asdust.block.BlockLoader;
 import com.realswordteam.asdust.items.ItemLoader;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -20,6 +21,7 @@ public class ModOreDictionary {
 
     private void blockOreDictionary()
     {
+        registerBlockToOreDictionary(BlockLoader.CASSITERITE,"oreTin");
     }
 
     private void itemStackOreDictionary()

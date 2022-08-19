@@ -2,6 +2,7 @@ package com.realswordteam.asdust.misc.creativetabs;
 
 import com.realswordteam.asdust.ASDUST;
 import com.realswordteam.asdust.block.BlockLoader;
+import com.realswordteam.asdust.block.ore.OreBlockLoader;
 import com.realswordteam.asdust.items.ItemChemicalElementRegistry;
 import com.realswordteam.asdust.items.ItemLoader;
 import net.minecraft.creativetab.CreativeTabs;
@@ -18,14 +19,16 @@ public class CreativeTabLoader {
     public static CreativeTabs TAB_RAW_MATERIAL;
 
     public static CreativeTabs TAB_MISC;
-
+    public static CreativeTabs TAB_BASE_BLOCK;
+    public static CreativeTabs TAB_ORE;
     public CreativeTabLoader() {
 
         TAB_ASDUST_CE = new CreativeTabs(ASDUST.MODID + ".element") {
             @Override
             public ItemStack getTabIconItem() {
                 return new ItemStack(ItemChemicalElementRegistry.ELEMENT_001_H);
-            };
+            }
+
         };
 
         TAB_ASDUST_MACHINE = new CreativeTabs(ASDUST.MODID + ".machine") {
@@ -52,5 +55,16 @@ public class CreativeTabLoader {
                 return new ItemStack(ItemLoader.IMPERFECTION);
             }
         };
+        TAB_BASE_BLOCK = new CreativeTabs(ASDUST.MODID + ".block_furnace_brick") {
+            @Override
+            public ItemStack getTabIconItem() {return new ItemStack(BlockLoader.BLOCK_FURNACE_BRICK);}
+        };
+        TAB_ORE = new CreativeTabs(ASDUST.MODID + ".ore") {
+            @Override
+            public ItemStack getTabIconItem() {return new ItemStack(OreBlockLoader.CASSITERITE);}
+
+
+        } ;
     }
 }
+

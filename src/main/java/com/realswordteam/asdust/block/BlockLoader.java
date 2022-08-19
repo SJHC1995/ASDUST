@@ -27,7 +27,7 @@ public class BlockLoader{
     public static Block TANK_MIXED_MORTAR_CERAMICS = null;
     public static Block SIMPLE_KILN = null;
     public  static Block BLOCK_FURNACE_BRICK = null;
-    public static  Block CASSITERITE = null;
+
     public static List<Block> blocklist = new ArrayList<>();
     public static List<Item> itemlist = new ArrayList<>();
 /**
@@ -43,7 +43,7 @@ public class BlockLoader{
             setBlockName(SIMPLE_KILN = new BlockCobbleStoneKiln(), "simple_kiln"),
             setBlockName(WOODEN_BUCKET = new BlockBucketWood(),"wooden_bucket"),
             setBlockName(BLOCK_FURNACE_BRICK = new Block(Material.ROCK),"block_furnace_brick"),
-                setBlockName(CASSITERITE = new Block(Material.IRON),"cassiterite"),
+
 
 
         };

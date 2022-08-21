@@ -3,6 +3,7 @@ package com.realswordteam.asdust.client;
 import com.realswordteam.asdust.ASDUST;
 import com.realswordteam.asdust.block.BlockLoader;
 import com.realswordteam.asdust.block.machine.kiln.TileEntityKiln;
+import com.realswordteam.asdust.block.ore.OreBlockLoader;
 import com.realswordteam.asdust.client.render.CobblestoneKilnRender;
 import com.realswordteam.asdust.items.ItemChemicalElementRegistry;
 import com.realswordteam.asdust.items.ItemLoader;
@@ -31,6 +32,11 @@ public final class TextureLoader {
         }
         //Block
         for (Block block : BlockLoader.blocklist)
+        {
+            registerSimpleBlockModel(block);
+        }
+
+        for (Block block : OreBlockLoader.blocklist)
         {
             registerSimpleBlockModel(block);
         }

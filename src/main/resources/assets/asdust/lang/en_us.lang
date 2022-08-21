@@ -29,6 +29,8 @@ itemGroup.asdust.machine=AD MACHINE
 itemGroup.asdust.gear_wood=AD PART
 itemGroup.asdust.mixedmortarball=AD RAW MATERIAL
 itemGroup.asdust.imperfection=AD MISC
+itemGroup.asdust.block_furnace_block=AD BUILD BLOCK
+itemGroup.asdust.ore=AD ORE
 
 #Gui Information
 gui.machine.warning.tank.empty=Tank is Empty!

@@ -160,6 +160,8 @@ itemGroup.asdust.machine=AD 机器
 itemGroup.asdust.gear_wood=AD 部件
 itemGroup.asdust.mixedmortarball=AD 原料
 itemGroup.asdust.imperfection=AD 杂项
+itemGroup.asdust.block_furnace_block=AD 建筑方块
+itemGroup.asdust.ore=AD 矿石
 #方块信息
 tile.asdust.block_furnace_brick.name=炉窑砖块
 tile.asdust.machinecraft.name=原始工艺机器

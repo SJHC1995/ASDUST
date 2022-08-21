@@ -11,8 +11,7 @@ public class BlockOreBase extends Block {
     public BlockOreBase(){
         super(Material.ROCK);
         this.setCreativeTab(CreativeTabLoader.TAB_ORE);
-            this.setHarvestLevel(1,1,this.s
-        );
+            this.setHarvestLevel();
     }
 
 

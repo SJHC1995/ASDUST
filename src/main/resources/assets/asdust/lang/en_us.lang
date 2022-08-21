@@ -39,17 +39,24 @@ gui.machine.tank.information.variety=Tank: %s
 gui.machine.tank.information.amount=Amount: %dmb
 gui.machine.tank.information.max_capacity=MaxCapacity: %dmb
 
-#Block Name
+#Build Block Name
 tile.asdust.block_furnace_brick.name=Furnace Brick Block
+
+#Machine Block Name
 tile.asdust.machinecraft.name=Machine Craft
 tile.asdust.tankwoodwithleather.name=Wood Tank With Leather
 tile.asdust.tank_mixed_mortar_ceramics.name=Mixed Mortar Ceramics Tank
 tile.asdust.simple_kiln.name=Simple Kiln
 tile.asdust.wooden_bucket.name=Wooden Bucket
-tile.asdust.cassiterite.name=Cassiterite
 
+#Ore Name
+tile.asdust.cassiterite.name=Cassiterite
+tile.asdust.malachite.name=Malachite
+
+#Fluid Information
 fluid_container.information=%s, Amount: %dmb
-#Jei
+
+#Jei Machine Tip
 jei.asdust.machine_craft.name=Machine Craft
 jei.asdust.machine_kiln.name=Simple Kiln
 

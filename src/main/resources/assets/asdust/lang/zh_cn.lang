@@ -164,12 +164,18 @@ itemGroup.asdust.block_furnace_block=AD 建筑方块
 itemGroup.asdust.ore=AD 矿石
 #方块信息
 tile.asdust.block_furnace_brick.name=炉窑砖块
+#机器信息
 tile.asdust.machinecraft.name=原始工艺机器
 tile.asdust.tankwoodwithleather.name=带皮木制储罐
 tile.asdust.tank_mixed_mortar_ceramics.name=混合砂浆陶瓷储罐
 tile.asdust.simple_kiln.name=简易窑炉
 tile.asdust.wooden_bucket.name=原木桶
+#矿石信息
 tile.asdust.cassiterite.name=锡石
+tile.asdust.malachite.name=孔雀石
 #Jei信息
 jei.asdust.machine_craft.name=原始工艺机械
 jei.asdust.machine_kiln.name=简易窑炉
+
+#流体信息
+fluid_container.information=%s, 体积: %dmb

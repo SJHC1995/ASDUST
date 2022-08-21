@@ -18,6 +18,7 @@ import java.util.List;
 @Mod.EventBusSubscriber(modid = ASDUST.MODID)
 public class OreBlockLoader {
     public static Block CASSITERITE = null;
+    public static Block MALACHITE = null;
     public static List<Block> blocklist = new ArrayList<>();
     public static List<Item> itemlist = new ArrayList<>();
 
@@ -27,6 +28,9 @@ public class OreBlockLoader {
     public static void registerBlock(RegistryEvent.Register<Block> event) {
         Block[] blocks = {};
         setBlockName(CASSITERITE = new BlockOreBase (),"cassiterite");
+
+        setBlockName(MALACHITE = new BlockOreBase(),"malachite");
+
 
 
 

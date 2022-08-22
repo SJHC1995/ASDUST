@@ -28,7 +28,7 @@ public class OreBlockLoader {
     @SubscribeEvent
     public static void registerOreBlock(RegistryEvent.Register<Block> event) {
         oreDictionary.addLevelDictionary("cassiterite", 1);
-        oreDictionary.addLevelDictionary("malachite", 2);
+        oreDictionary.addLevelDictionary("malachite", 1);
 
         Block[] blocks =
         {

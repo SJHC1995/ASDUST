@@ -1,6 +1,7 @@
 package com.realswordteam.asdust.items;
 
 import com.realswordteam.asdust.ASDUST;
+import com.realswordteam.asdust.block.blockbase.BlockOreBase;
 import com.realswordteam.asdust.items.itembase.*;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
@@ -33,6 +34,10 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
         public static Item BRIQUETTE = null;
         public static Item CRUDE_SALT = null;
         public static Item DUST_COAL = null;
+        public static Item ORE_CASSITERITE = null;
+        public static Item POWDER_CASSITERITE = null;
+        public static Item ORE_MALACHITE = null;
+        public static Item POWDER_MALACHITE = null;
 
         static Item[] items = {
 
@@ -54,6 +59,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
                 setItemName(CRUDE_SALT = new ItemRawMaterialBase(),"crude_salt"),
                 setItemName(DUST_COAL = new ItemRawMaterialBase(),"dust_coal"),
                 setItemName(LOESS = new ItemRawMaterialBase(), "loess"),
+                setItemName(ORE_MALACHITE = new ItemOreBase(),"ore_malachite"),
+                setItemName(POWDER_MALACHITE = new ItemOreBase(),"powder_malachite"),
+                setItemName(ORE_CASSITERITE = new ItemOreBase(),"ore_cassiterite"),
+                setItemName(POWDER_CASSITERITE = new ItemOreBase(),"powder_cassiterite"),
+
 
                 setItemName(UNFIRED_CLAY_BOWL = new ItemMiscBase(), "unfired_clay_bowl"),
                 setItemName(IMPERFECTION = new ItemMiscBase(), "imperfection"),

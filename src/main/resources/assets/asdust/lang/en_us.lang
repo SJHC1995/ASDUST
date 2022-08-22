@@ -22,6 +22,10 @@ item.asdust.animal_fat.name=Animal Fat
 item.asdust.crude_salt.name=Crude Salt
 item.asdust.briquette.name=Briquette
 item.asdust.dust_coal.name=Coal Dust
+item_asdust.ore_cassiterite.name=Cassiterite Ore
+item_asdust.powder_cassiterite.name=Cassiterite Powder
+item_asdust.ore_malachite.name=Malachite Ore
+item_asdust.powder_malachite.name=Malachite Powder
 #CreativeTab Name
 
 itemGroup.asdust.element=AD ELEMENT
@@ -29,7 +33,7 @@ itemGroup.asdust.machine=AD MACHINE
 itemGroup.asdust.gear_wood=AD PART
 itemGroup.asdust.mixedmortarball=AD RAW MATERIAL
 itemGroup.asdust.imperfection=AD MISC
-itemGroup.asdust.block_furnace_block=AD BUILD BLOCK
+itemGroup.asdust.block_furnace_brick=AD BUILD BLOCK
 itemGroup.asdust.ore=AD ORE
 
 #Gui Information

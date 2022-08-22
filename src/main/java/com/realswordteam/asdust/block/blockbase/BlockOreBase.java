@@ -24,12 +24,14 @@ public class BlockOreBase extends Block {
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
         if (this == OreBlockLoader.CASSITERITE) {
-            return ItemLoader.BRIQUETTE;
+            return ItemLoader.ORE_CASSITERITE;
         }
         else
+        if (this == OreBlockLoader.MALACHITE)
         {
-            return ItemLoader.ANIMAL_FAT;
+            return ItemLoader.ORE_MALACHITE;
         }
+        return null;
     }
 
 }

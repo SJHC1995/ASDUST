@@ -11,17 +11,21 @@ public class ModOreDictionary {
 
     private void itemOreDictionary()
     {
+
         registerItemToOreDictionary(ItemLoader.ROD_STONE, "stickStone");
         registerItemToOreDictionary(ItemLoader.GEAR_WOODEN,"gearWood");
         registerItemToOreDictionary(ItemLoader.GEAR_STONE,"gearStone");
         registerItemToOreDictionary(ItemLoader.GEARS_WOODEN,"gearsWood");
         registerItemToOreDictionary(ItemLoader.GEARS_STONE,"gearsStone");
+        registerItemToOreDictionary(ItemLoader.DUST_COAL,"dustCoal");
+
     }
 
 
     private void blockOreDictionary()
     {
         registerBlockToOreDictionary(OreBlockLoader.CASSITERITE,"oreTin");
+        registerBlockToOreDictionary(OreBlockLoader.MALACHITE,"oreCopper");
     }
 
     private void itemStackOreDictionary()

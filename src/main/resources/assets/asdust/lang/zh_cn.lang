@@ -145,6 +145,10 @@ item.asdust.plant_ash.name=草木灰
 item.asdust.animal_fat.name=动物油脂
 item.asdust.crude_salt.name=粗盐
 item.asdust.dust_coal.name=煤粉
+item_asdust.ore_cassiterite.name=锡石矿簇
+item_asdust.powder_cassiterite.name=锡石粉
+item_asdust.ore_malachite.name=孔雀石矿簇
+item_asdust.powder_malachite.name=孔雀石粉
 #Gui信息
 
 gui.machine.warning.tank.empty=这个储罐空空如也!
@@ -160,7 +164,7 @@ itemGroup.asdust.machine=AD 机器
 itemGroup.asdust.gear_wood=AD 部件
 itemGroup.asdust.mixedmortarball=AD 原料
 itemGroup.asdust.imperfection=AD 杂项
-itemGroup.asdust.block_furnace_block=AD 建筑方块
+itemGroup.asdust.block_furnace_brick=AD 建筑方块
 itemGroup.asdust.ore=AD 矿石
 #方块信息
 tile.asdust.block_furnace_brick.name=炉窑砖块

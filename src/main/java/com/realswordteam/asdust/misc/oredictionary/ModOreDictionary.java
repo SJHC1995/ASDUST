@@ -26,6 +26,7 @@ public class ModOreDictionary {
     {
         registerBlockToOreDictionary(OreBlockLoader.CASSITERITE,"oreTin");
         registerBlockToOreDictionary(OreBlockLoader.MALACHITE,"oreCopper");
+        registerBlockToOreDictionary(OreBlockLoader.GALENA,"oreLead");
     }
 
     private void itemStackOreDictionary()

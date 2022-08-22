@@ -26,6 +26,8 @@ item_asdust.ore_cassiterite.name=Cassiterite Ore
 item_asdust.powder_cassiterite.name=Cassiterite Powder
 item_asdust.ore_malachite.name=Malachite Ore
 item_asdust.powder_malachite.name=Malachite Powder
+item_asdust.ore_galena.name=Galena Ore
+item_asdust.powder_galena.name=Galena Powder
 #CreativeTab Name
 
 itemGroup.asdust.element=AD ELEMENT

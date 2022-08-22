@@ -38,6 +38,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
         public static Item POWDER_CASSITERITE = null;
         public static Item ORE_MALACHITE = null;
         public static Item POWDER_MALACHITE = null;
+        public static Item ORE_GALENA = null;
+        public static Item POWDER_GALENA = null;
 
         static Item[] items = {
 
@@ -63,7 +65,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
                 setItemName(POWDER_MALACHITE = new ItemOreBase(),"powder_malachite"),
                 setItemName(ORE_CASSITERITE = new ItemOreBase(),"ore_cassiterite"),
                 setItemName(POWDER_CASSITERITE = new ItemOreBase(),"powder_cassiterite"),
-
+                setItemName(ORE_GALENA = new ItemOreBase(),"ore_galena"),
+                setItemName(POWDER_GALENA = new ItemOreBase(),"powder_galena"),
 
                 setItemName(UNFIRED_CLAY_BOWL = new ItemMiscBase(), "unfired_clay_bowl"),
                 setItemName(IMPERFECTION = new ItemMiscBase(), "imperfection"),

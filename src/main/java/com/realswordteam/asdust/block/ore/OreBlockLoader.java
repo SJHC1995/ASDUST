@@ -20,6 +20,7 @@ public class OreBlockLoader {
 
     public static Block CASSITERITE = null;
     public static Block MALACHITE = null;
+    public static Block GALENA = null;
 
     public static List<Block> blocklist = new ArrayList<>();
     public static List<Item> itemlist = new ArrayList<>();
@@ -34,6 +35,7 @@ public class OreBlockLoader {
         {
             setBlockName(CASSITERITE = new BlockOreBase(),"cassiterite"),
             setBlockName(MALACHITE = new BlockOreBase(),"malachite"),
+            setBlockName(GALENA = new BlockOreBase(),"galena"),
         };
 
         blocklist.addAll(Arrays.asList(blocks));

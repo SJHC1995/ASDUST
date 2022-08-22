@@ -180,6 +180,7 @@ tile.asdust.wooden_bucket.name=原木桶
 #矿石信息
 tile.asdust.cassiterite.name=锡石
 tile.asdust.malachite.name=孔雀石
+tile.asdust.galena.name=方铅矿
 #Jei信息
 jei.asdust.machine_craft.name=原始工艺机械
 jei.asdust.machine_kiln.name=简易窑炉

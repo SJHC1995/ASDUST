@@ -58,6 +58,7 @@ tile.asdust.wooden_bucket.name=Wooden Bucket
 #Ore Name
 tile.asdust.cassiterite.name=Cassiterite
 tile.asdust.malachite.name=Malachite
+tile.asdust.galena.name=Galena
 
 #Fluid Information
 fluid_container.information=%s, Amount: %dmb

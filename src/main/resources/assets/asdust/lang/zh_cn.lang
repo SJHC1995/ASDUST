@@ -145,12 +145,12 @@ item.asdust.plant_ash.name=草木灰
 item.asdust.animal_fat.name=动物油脂
 item.asdust.crude_salt.name=粗盐
 item.asdust.dust_coal.name=煤粉
-item_asdust.ore_cassiterite.name=锡石矿簇
-item_asdust.powder_cassiterite.name=锡石矿粉
-item_asdust.ore_malachite.name=孔雀石矿簇
-item_asdust.powder_malachite.name=孔雀石矿粉
-item_asdust.ore_galena.name=方铅矿簇
-item_asdust.powder_galena.name=方铅矿粉
+item.asdust.ore_cassiterite.name=锡石矿簇
+item.asdust.powder_cassiterite.name=锡石矿粉
+item.asdust.ore_malachite.name=孔雀石矿簇
+item.asdust.powder_malachite.name=孔雀石矿粉
+item.asdust.ore_galena.name=方铅矿簇
+item.asdust.powder_galena.name=方铅矿粉
 
 #Gui信息
 

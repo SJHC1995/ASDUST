@@ -22,12 +22,12 @@ item.asdust.animal_fat.name=Animal Fat
 item.asdust.crude_salt.name=Crude Salt
 item.asdust.briquette.name=Briquette
 item.asdust.dust_coal.name=Coal Dust
-item_asdust.ore_cassiterite.name=Cassiterite Ore
-item_asdust.powder_cassiterite.name=Cassiterite Powder
-item_asdust.ore_malachite.name=Malachite Ore
-item_asdust.powder_malachite.name=Malachite Powder
-item_asdust.ore_galena.name=Galena Ore
-item_asdust.powder_galena.name=Galena Powder
+item.asdust.ore_cassiterite.name=Cassiterite Ore
+item.asdust.powder_cassiterite.name=Cassiterite Powder
+item.asdust.ore_malachite.name=Malachite Ore
+item.asdust.powder_malachite.name=Malachite Powder
+item.asdust.ore_galena.name=Galena Ore
+item.asdust.powder_galena.name=Galena Powder
 #CreativeTab Name
 
 itemGroup.asdust.element=AD ELEMENT

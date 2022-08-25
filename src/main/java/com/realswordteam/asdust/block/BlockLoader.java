@@ -3,6 +3,7 @@ package com.realswordteam.asdust.block;
 import com.realswordteam.asdust.ASDUST;
 import com.realswordteam.asdust.block.blockbase.BlockNormalBase;
 import com.realswordteam.asdust.block.machine.bucket.BlockBucketWood;
+import com.realswordteam.asdust.block.machine.comminutor.BlockComminutor;
 import com.realswordteam.asdust.block.machine.kiln.BlockBaseKiln;
 import com.realswordteam.asdust.block.machine.kiln.BlockCobbleStoneKiln;
 import com.realswordteam.asdust.block.machine.tank.BlockCeramicTank;
@@ -29,6 +30,8 @@ public class BlockLoader{
     public static Block SIMPLE_KILN = null;
     public  static Block BLOCK_FURNACE_BRICK = null;
 
+    public static Block BLOCK_COMMINUTOR = null;
+
     public static List<Block> blocklist = new ArrayList<>();
     public static List<Item> itemlist = new ArrayList<>();
 /**
@@ -44,7 +47,7 @@ public class BlockLoader{
             setBlockName(SIMPLE_KILN = new BlockCobbleStoneKiln(), "simple_kiln"),
             setBlockName(WOODEN_BUCKET = new BlockBucketWood(),"wooden_bucket"),
             setBlockName(BLOCK_FURNACE_BRICK = new BlockNormalBase(),"block_furnace_brick"),
-
+            setBlockName(BLOCK_COMMINUTOR = new BlockComminutor(), "block_comminutor")
 
 
         };

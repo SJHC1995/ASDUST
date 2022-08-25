@@ -5,12 +5,14 @@ import com.realswordteam.asdust.gui.GuiElementLoader;
 import com.realswordteam.asdust.misc.creativetabs.CreativeTabLoader;
 import com.realswordteam.asdust.misc.oredictionary.ModOreDictionary;
 import com.realswordteam.asdust.network.NetWorkLoader;
+import com.realswordteam.asdust.proxy.ProxyBase;
 import com.realswordteam.asdust.recipes.RecipesLoader;
 import com.realswordteam.asdust.recipes.machine.RecipeCraft;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.client.model.ModelFluid;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLModIdMappingEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -28,6 +30,9 @@ public class ASDUST
     @Mod.Instance(ASDUST.MODID)
     public static ASDUST instance;
 
+    @SidedProxy(clientSide = "com.realswordteam.asdust.proxy.ClientProxy", serverSide = "com.realswordteam.asdust.proxy.ServerProxy")
+    public static ProxyBase proxy;
+
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
@@ -35,6 +40,8 @@ public class ASDUST
         new TileEntityLoader();
         new CreativeTabLoader();
         new NetWorkLoader(event);
+
+        proxy.preInit();
 //        new FluidManager();
     }
 

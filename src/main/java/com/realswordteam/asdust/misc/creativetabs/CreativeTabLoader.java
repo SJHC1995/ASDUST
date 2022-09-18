@@ -6,6 +6,7 @@ import com.realswordteam.asdust.block.ore.OreBlockLoader;
 import com.realswordteam.asdust.items.ItemChemicalElementRegistry;
 import com.realswordteam.asdust.items.ItemLoader;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
 public class CreativeTabLoader {
@@ -21,6 +22,7 @@ public class CreativeTabLoader {
     public static CreativeTabs TAB_MISC;
     public static CreativeTabs TAB_BASE_BLOCK;
     public static CreativeTabs TAB_ORE;
+    public static CreativeTabs TAB_METAL;
     public CreativeTabLoader() {
 
         TAB_ASDUST_CE = new CreativeTabs(ASDUST.MODID + ".element") {
@@ -62,9 +64,13 @@ public class CreativeTabLoader {
         TAB_ORE = new CreativeTabs(ASDUST.MODID + ".ore") {
             @Override
             public ItemStack getTabIconItem() {return new ItemStack(OreBlockLoader.CASSITERITE);}
-
-
         } ;
+        TAB_METAL = new CreativeTabs(ASDUST.MODID + ".metal") {
+            @Override
+            public ItemStack getTabIconItem() {return new ItemStack(Items.IRON_INGOT);
+
+            }
+        };
     }
 }
 

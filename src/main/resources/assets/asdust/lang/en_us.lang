@@ -28,6 +28,16 @@ item.asdust.ore_malachite.name=Malachite Ore
 item.asdust.powder_malachite.name=Malachite Powder
 item.asdust.ore_galena.name=Galena Ore
 item.asdust.powder_galena.name=Galena Powder
+
+
+
+
+#Metal
+item.asdust.ingot_rough_bronze.name=Rough Bronze ingot
+
+
+
+
 #CreativeTab Name
 
 itemGroup.asdust.element=AD ELEMENT

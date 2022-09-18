@@ -40,6 +40,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
         public static Item POWDER_MALACHITE = null;
         public static Item ORE_GALENA = null;
         public static Item POWDER_GALENA = null;
+        public static Item INGOT_ROUGH_BRONZE = null;
+
 
         static Item[] items = {
 
@@ -61,6 +63,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
                 setItemName(CRUDE_SALT = new ItemRawMaterialBase(),"crude_salt"),
                 setItemName(DUST_COAL = new ItemRawMaterialBase(),"dust_coal"),
                 setItemName(LOESS = new ItemRawMaterialBase(), "loess"),
+                setItemName(INGOT_ROUGH_BRONZE = new ItemMetalBase(),"ingot_rough_bronze"),
                 setItemName(ORE_MALACHITE = new ItemOreBase(),"ore_malachite"),
                 setItemName(POWDER_MALACHITE = new ItemOreBase(),"powder_malachite"),
                 setItemName(ORE_CASSITERITE = new ItemOreBase(),"ore_cassiterite"),
@@ -73,6 +76,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
                 setItemName(ANIMAL_FAT = new ItemMiscBase(),"animal_fat"),
 
                 setItemName(CERAMIC_BOWl = new ItemFluidContainer(250), "ceramic_bowl"),
+
 
 
 

@@ -152,6 +152,11 @@ item.asdust.powder_malachite.name=孔雀石矿粉
 item.asdust.ore_galena.name=方铅矿簇
 item.asdust.powder_galena.name=方铅矿粉
 
+
+
+#金属
+item.asdust.ingot_rough_bronze.name=糙制青铜锭
+
 #Gui信息
 
 gui.machine.warning.tank.empty=这个储罐空空如也!

@@ -1,0 +1,28 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.comminutor.comminutor_run": {
+			"loop": true,
+			"animation_length": 4,
+			"start_delay": "1.5",
+			"bones": {
+				"run": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"2.0": {
+							"vector": [-180, 0, 0]
+						},
+						"4.0": {
+							"vector": [-357.5, 0, 0],
+							"easing": "linear"
+						}
+					}
+				}
+			},
+			"particle_effects": {}
+		}
+	},
+	"geckolib_format_version": 2
+}

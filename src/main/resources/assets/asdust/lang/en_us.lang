@@ -28,8 +28,8 @@ item.asdust.ore_malachite.name=Malachite Ore
 item.asdust.powder_malachite.name=Malachite Powder
 item.asdust.ore_galena.name=Galena Ore
 item.asdust.powder_galena.name=Galena Powder
-
-
+item.asdust.mold_clay_ingot= Mold Clay (INGOT)
+item.asdust.mold_hardened_clay_ingot= Mold Hardened Clay (INGOT)
 
 
 #Metal

@@ -151,7 +151,8 @@ item.asdust.ore_malachite.name=孔雀石矿簇
 item.asdust.powder_malachite.name=孔雀石矿粉
 item.asdust.ore_galena.name=方铅矿簇
 item.asdust.powder_galena.name=方铅矿粉
-
+item.asdust.mold_clay_ingot= 粘土模具 (锭)
+item.asdust.mold_hardened_clay_ingot= 陶瓷模具 (锭)
 
 
 #金属

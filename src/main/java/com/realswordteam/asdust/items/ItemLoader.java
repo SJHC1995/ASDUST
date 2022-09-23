@@ -42,7 +42,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
         public static Item POWDER_GALENA = null;
         public static Item INGOT_ROUGH_BRONZE = null;
 
-
+        public static Item MOLD_CLAY_INGOT = null;
+        public static Item MOLD_HARDENED_CLAY_INGOT = null;
         static Item[] items = {
 
                 setItemName(GEAR_WOODEN = new ItemPartBase(), "gear_wooden"),
@@ -76,6 +77,10 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
                 setItemName(ANIMAL_FAT = new ItemMiscBase(),"animal_fat"),
 
                 setItemName(CERAMIC_BOWl = new ItemFluidContainer(250), "ceramic_bowl"),
+
+
+                setItemName(MOLD_CLAY_INGOT = new ItemPartBase(),"mold_clay_ingot"),
+                setItemName(MOLD_HARDENED_CLAY_INGOT = new ItemPartBase(),"mold_hardened_clay_ingot"),
 
 
 

@@ -28,8 +28,8 @@ item.asdust.ore_malachite.name=Malachite Ore
 item.asdust.powder_malachite.name=Malachite Powder
 item.asdust.ore_galena.name=Galena Ore
 item.asdust.powder_galena.name=Galena Powder
-item.asdust.mold_clay_ingot= Mold Clay (INGOT)
-item.asdust.mold_hardened_clay_ingot= Mold Hardened Clay (INGOT)
+item.asdust.mold_clay_ingot.name= Mold Clay (INGOT)
+item.asdust.mold_hardened_clay_ingot.name= Mold Hardened Clay (INGOT)
 
 
 #Metal
@@ -47,7 +47,7 @@ itemGroup.asdust.mixedmortarball=AD RAW MATERIAL
 itemGroup.asdust.imperfection=AD MISC
 itemGroup.asdust.block_furnace_brick=AD BUILD BLOCK
 itemGroup.asdust.ore=AD ORE
-
+itemGroup.asdust.metal=AD METAL
 #Gui Information
 gui.machine.warning.tank.empty=Tank is Empty!
 gui.machine.warning.tank.empty1=You should fill it!

@@ -178,6 +178,7 @@ itemGroup.asdust.ore=AD 矿石
 itemGroup.asdust.metal=AD 金属
 #方块信息
 tile.asdust.block_furnace_brick.name=炉窑砖块
+tile.asdust.sand_clay.name=粘沙
 #机器信息
 tile.asdust.machinecraft.name=原始工艺机器
 tile.asdust.tankwoodwithleather.name=带皮木制储罐

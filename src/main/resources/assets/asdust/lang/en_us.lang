@@ -57,7 +57,7 @@ gui.machine.tank.information.max_capacity=MaxCapacity: %dmb
 
 #Build Block Name
 tile.asdust.block_furnace_brick.name=Furnace Brick Block
-
+tile.asdust.sand_clay.name=Sand Clay
 #Machine Block Name
 tile.asdust.machinecraft.name=Machine Craft
 tile.asdust.tankwoodwithleather.name=Wood Tank With Leather

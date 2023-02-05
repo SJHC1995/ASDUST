@@ -66,6 +66,9 @@ public class RecipesLoader {
         addSimpleShapedRecipe("bucket",
                 new ItemStack(BlockLoader.WOODEN_BUCKET),
                 "ABA","ABA","AAA",'A',Blocks.LOG,'B',Blocks.CLAY);
+        addSimpleShapedRecipe("pot",
+                new ItemStack(ItemLoader.MIXED_MORTAR_HARD_CERAMIC_POT_EMBRYO),
+                "CCC","ACA","ABA",'A',ItemLoader.MIXED_MORTAR_BALL,'B',BlockLoader.SAND_CLAY,'C',ItemLoader.DUST_COAL);
         //Vanilla
         for (String string : vanillaRecipe)
         {
@@ -138,6 +141,12 @@ public class RecipesLoader {
                         new OutputItemStack(new ItemStack(Blocks.CLAY))
 
                 ));
+        addRecipeMachineCraft("sand_clay",
+                new RecipeCraft.RecipeT(
+                        new InputItemStack(new ItemStack(Blocks.CLAY,2),new ItemStack(Blocks.SAND,6)),
+                        new InputFluidStack(new FluidStack(FluidRegistry.WATER,2000)),
+                        new OutputItemStack(new ItemStack(BlockLoader.SAND_CLAY,8))
+                ));
 
         //ASDUST - FUEL
         kileFuel.addFuel(new ItemStack(Items.COAL), 20);
@@ -173,7 +182,7 @@ public class RecipesLoader {
         addExtendEntityDrops("minecraft:zombie",
                 new ChangeItemStack(new ItemStack(Items.BONE), 5, 2),
                 new ChangeItemStack(new ItemStack(Items.ROTTEN_FLESH), 6, 2));
-        addExtendEntityDrops("minecraft:pig",
+        addExtendEntityDrops("minecraft:pig,minecraft:cow,minecraft:chicken",
                 new ChangeItemStack(new ItemStack(ItemLoader.ANIMAL_FAT), 5, 1));
     }
 

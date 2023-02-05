@@ -16,6 +16,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import scala.tools.nsc.interactive.NullLogger;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,7 +32,7 @@ public class BlockLoader{
     public  static Block BLOCK_FURNACE_BRICK = null;
 
     public static Block BLOCK_COMMINUTOR = null;
-
+    public static Block SAND_CLAY = null;
     public static List<Block> blocklist = new ArrayList<>();
     public static List<Item> itemlist = new ArrayList<>();
 /**
@@ -47,8 +48,8 @@ public class BlockLoader{
             setBlockName(SIMPLE_KILN = new BlockCobbleStoneKiln(), "simple_kiln"),
             setBlockName(WOODEN_BUCKET = new BlockBucketWood(),"wooden_bucket"),
             setBlockName(BLOCK_FURNACE_BRICK = new BlockNormalBase(),"block_furnace_brick"),
-            setBlockName(BLOCK_COMMINUTOR = new BlockComminutor(), "block_comminutor")
-
+            setBlockName(BLOCK_COMMINUTOR = new BlockComminutor(), "block_comminutor"),
+            setBlockName(SAND_CLAY =new BlockNormalBase(),"sand_clay")
 
         };
         blocklist.addAll(Arrays.asList(blocks));

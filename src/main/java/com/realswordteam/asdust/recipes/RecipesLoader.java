@@ -163,6 +163,11 @@ public class RecipesLoader {
                         new InputItemStack(new ItemStack(ItemLoader.UNFIRED_CLAY_BOWL)),
                         new OutputItemStack(new ItemStack(ItemLoader.CERAMIC_BOWl))
                 ));
+        addRecipeMachineKiln("pot",
+                new RecipeSimple(
+                        new InputItemStack(new ItemStack(ItemLoader.MIXED_MORTAR_HARD_CERAMIC_POT_EMBRYO)),
+                        new OutputItemStack(new ItemStack(ItemLoader.MIXED_MORTAR_HARD_CERAMIC_POT))
+                ));
 
         //ASDUST - ExtendEntityDrops
         addExtendEntityDrops("minecraft:zombie",

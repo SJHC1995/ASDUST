@@ -44,6 +44,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
         public static Item MOLD_CLAY_INGOT = null;
         public static Item MOLD_HARDENED_CLAY_INGOT = null;
+        public static Item MIXED_MORTAR_HARD_CERAMIC_POT = null;
+        public static Item MIXED_MORTAR_HARD_CERAMIC_POT_EMBRYO = null;
         static Item[] items = {
 
                 setItemName(GEAR_WOODEN = new ItemPartBase(), "gear_wooden"),
@@ -71,7 +73,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
                 setItemName(POWDER_CASSITERITE = new ItemOreBase(),"powder_cassiterite"),
                 setItemName(ORE_GALENA = new ItemOreBase(),"ore_galena"),
                 setItemName(POWDER_GALENA = new ItemOreBase(),"powder_galena"),
-
+                setItemName(MIXED_MORTAR_HARD_CERAMIC_POT = new ItemPartBase(),"mixed_mortar_hard_ceramic_pot"),
+                setItemName(MIXED_MORTAR_HARD_CERAMIC_POT_EMBRYO = new ItemPartBase(),"mixed_mortar_hard_ceramic_pot_embryo"),
                 setItemName(UNFIRED_CLAY_BOWL = new ItemMiscBase(), "unfired_clay_bowl"),
                 setItemName(IMPERFECTION = new ItemMiscBase(), "imperfection"),
                 setItemName(ANIMAL_FAT = new ItemMiscBase(),"animal_fat"),

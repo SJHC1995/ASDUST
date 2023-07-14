@@ -4,6 +4,7 @@ import com.realswordteam.asdust.ASDUST;
 import com.realswordteam.asdust.block.BlockLoader;
 import com.realswordteam.asdust.entity.ExtendLootTable;
 import com.realswordteam.asdust.items.ItemLoader;
+import com.realswordteam.asdust.items.SpecificKindFluidItemStack;
 import com.realswordteam.asdust.modules.CeramicsMod;
 import com.realswordteam.asdust.modules.PyrotechMod;
 import com.realswordteam.asdust.modules.Vanilla;
@@ -44,7 +45,9 @@ public class RecipesLoader {
         addSimpleShapedRecipe("dirt",
                 new ItemStack(Blocks.DIRT),
                 "ABA", "BCB", "ABA", 'A', ItemLoader.IMPERFECTION, 'B', ItemLoader.LOESS, 'C', Items.CLAY_BALL);
-
+        addSimpleShapedRecipe("simple_calcium_hydroxide",
+                new ItemStack(ItemLoader.SIMPLE_CALCIUM_HYDROXIDE),
+                "AAA","ABA","AAA",'A',ItemLoader.SIMPLE_CALCIUM_OXIDE,'B',Items.BOWL);
 
 
         addSimpleShapedRecipe("unfired_clay_bowl",
@@ -69,6 +72,10 @@ public class RecipesLoader {
         addSimpleShapedRecipe("pot",
                 new ItemStack(ItemLoader.MIXED_MORTAR_HARD_CERAMIC_POT_EMBRYO),
                 "CCC","ACA","ABA",'A',ItemLoader.MIXED_MORTAR_BALL,'B',BlockLoader.SAND_CLAY,'C',ItemLoader.DUST_COAL);
+        addSimpleShapedRecipe("pota",
+                new ItemStack(BlockLoader.BLOCK_COMMINUTOR),
+                "ABA","CDC","DDD",'A',ItemLoader.MIXED_MORTAR_HARD_CERAMIC_POT,'B',BlockLoader.BLOCK_FURNACE_BRICK,'C',Blocks.HARDENED_CLAY,'D',ItemLoader.FURNACE_BRICK);
+
         //Vanilla
         for (String string : vanillaRecipe)
         {
